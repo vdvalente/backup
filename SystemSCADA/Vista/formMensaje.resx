@@ -117,31 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="t_splash.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnBoton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJ
+        TUUH4gsWEyw57a7X9AAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFgSURBVEhL
+        7ZSxSsNQFIYjgg5OooMFO6hLFzt161anjgUXHQtOfYE+g+gr+AIOzg6Kk4OLKLiooIMODg6CICIav3P6
+        S25jLDXNph98lHvPf//SJE30TxZxHJdwQstiobiDH3iGM9ouBgrbKv/iSKPRoWwN37024UDj0aCohW9e
+        mXCK04rkh5ImvlpjwAXOKpIfShr4Yo0BV1hSJD+U1PHZGgNusaxIDzbGcBNPcEHbAyFXwycMucclRRLY
+        3PZxj2uc0ygT5lV8tHDAA1YU6YfBjUcSzjHz7rNfQSsLsS+rKvIdhiuYfgqOcUoRh/Ui3tkwwC5TTZGf
+        IbSK6T/JPvr7hM8y2g0MsRtc94JhILzhx/rZxWW89FWCPZoNHR0eDnX9+GDscjZ15PdweMtrsrHXQUvR
+        fFBg/4sda0th92hdsdGgaBz3rFXYK7itcTFQOImH1g4dbRcLxfZL5rX8k0TRJ4ouWiwEhKv7AAAAAElF
+        TkSuQmCC
+</value>
+  </data>
+  <metadata name="line_barTareas.Bounds" type="System.Drawing.Rectangle, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>0, 37, 411, 0</value>
   </metadata>
-  <metadata name="t_Acceder.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>112, 17</value>
+  <metadata name="line_barTareas.Location" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>0, 37</value>
   </metadata>
-  <metadata name="lineShape1.Bounds" type="System.Drawing.Rectangle, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>0, 41, 538, 0</value>
-  </metadata>
-  <metadata name="lineShape1.Location" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>0, 41</value>
-  </metadata>
-  <metadata name="lineShape1.Size" type="System.Drawing.Size, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>538, 0</value>
-  </metadata>
-  <metadata name="lineContraseña.Bounds" type="System.Drawing.Rectangle, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>0, 391, 538, 1</value>
-  </metadata>
-  <metadata name="lineContraseña.Location" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>0, 391</value>
-  </metadata>
-  <metadata name="lineContraseña.Size" type="System.Drawing.Size, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>538, 1</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>41</value>
+  <metadata name="line_barTareas.Size" type="System.Drawing.Size, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>411, 0</value>
   </metadata>
 </root>

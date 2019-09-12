@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using SystemSCADA.Modelo;
 using SystemSCADA.Controlador;
+using SystemSCADA.Vista;
 using System.Security.Cryptography;
 
 namespace SystemSCADA.Controlador
@@ -40,10 +41,54 @@ namespace SystemSCADA.Controlador
         }
 
 
+        /*****************************************************************************************************************************************************
+        Descripcion: metodos para mostrar mensajes personalizados
+        *****************************************************************************************************************************************************/
+        public static bool MsjShow(string Mensaje, int Botones, int Icono, bool FormAbrir = false)
+        {
+            try
+            {
+                Vista.formMensaje Msj = new formMensaje(Mensaje, Botones, Icono);
+                if (FormAbrir)
+                    Msj.ShowDialog();
+                else
+                    Msj.ShowDialog();
+                return Msj.g_boolRespuesta;
+            }
+            catch { return false; }
+        }
+
+        public static bool MsjShow(string Mensaje, int Botones, int Icono, string Titulo, bool FormAbrir = false)
+        {
+            Vista.formMensaje Msj = new formMensaje(Mensaje, Botones, Icono, Titulo);
+            if (FormAbrir)
+                Msj.Show();
+            else
+                Msj.ShowDialog();
+            return Msj.g_boolRespuesta;
+        }
+
+        public static bool MsjShow(string Mensaje, int Botones, int Icono, string Titulo, int Tamaño, bool FormAbrir = false)
+        {
+            Vista.formMensaje Msj = new formMensaje(Mensaje, Botones, Icono, Titulo, Tamaño);
+            if (FormAbrir)
+                Msj.Show();
+            else
+                Msj.ShowDialog();
+            return Msj.g_boolRespuesta;
+        }
+
+        public static bool MsjShow(string Mensaje, int Botones, int Icono, int Tamaño, bool FormAbrir = false)
+        {
+            Vista.formMensaje Msj = new formMensaje(Mensaje, Botones, Icono, "Etiquetado", Tamaño);
+            if (FormAbrir)
+                Msj.Show();
+            else
+                Msj.ShowDialog();
+            return Msj.g_boolRespuesta;
+        }
 
         /*****************************************************************************************************************************************************
-        Nombre del Creador:Juan Sanchez
-        Fecha de Creacion: septiembre del 2018
         Descripcion: Funcion que recibe como parametro una cadena y separa en dos cadenas al encontrar 
         el caracter ";"
         *****************************************************************************************************************************************************/

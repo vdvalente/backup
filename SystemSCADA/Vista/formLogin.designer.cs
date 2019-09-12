@@ -36,14 +36,14 @@
             this.txtContrasena = new System.Windows.Forms.TextBox();
             this.btnAcceder = new System.Windows.Forms.Button();
             this.pnlLogin = new System.Windows.Forms.Panel();
-            this.lblTitulo = new System.Windows.Forms.Label();
-            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.lineContraseña = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.btnLimpiarConfiEmpresa = new System.Windows.Forms.Button();
             this.btnMinimizarConfiEmpresa = new System.Windows.Forms.Button();
             this.btnCerrarConfiEmpresa = new System.Windows.Forms.Button();
+            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.lineContraseña = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.pnlLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -128,6 +128,15 @@
             this.pnlLogin.TabIndex = 1;
             this.pnlLogin.Visible = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SystemSCADA.Properties.Resources.logo1;
+            this.pictureBox1.Location = new System.Drawing.Point(165, 54);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(203, 249);
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            // 
             // lblTitulo
             // 
             this.lblTitulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -138,51 +147,6 @@
             this.lblTitulo.TabIndex = 13;
             this.lblTitulo.Text = "Universidad Jose Antoni Paez";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // shapeContainer1
-            // 
-            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer1.Name = "shapeContainer1";
-            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShape1,
-            this.lineContraseña});
-            this.shapeContainer1.Size = new System.Drawing.Size(539, 440);
-            this.shapeContainer1.TabIndex = 12;
-            this.shapeContainer1.TabStop = false;
-            // 
-            // lineShape1
-            // 
-            this.lineShape1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lineShape1.BorderColor = System.Drawing.Color.Blue;
-            this.lineShape1.BorderWidth = 4;
-            this.lineShape1.Enabled = false;
-            this.lineShape1.Name = "lineShape1";
-            this.lineShape1.X1 = 4;
-            this.lineShape1.X2 = 538;
-            this.lineShape1.Y1 = 41;
-            this.lineShape1.Y2 = 41;
-            // 
-            // lineContraseña
-            // 
-            this.lineContraseña.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lineContraseña.BorderColor = System.Drawing.Color.Blue;
-            this.lineContraseña.BorderWidth = 4;
-            this.lineContraseña.Enabled = false;
-            this.lineContraseña.Name = "lineContraseña";
-            this.lineContraseña.X1 = -82;
-            this.lineContraseña.X2 = 532;
-            this.lineContraseña.Y1 = 391;
-            this.lineContraseña.Y2 = 392;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::SystemSCADA.Properties.Resources.logo1;
-            this.pictureBox1.Location = new System.Drawing.Point(165, 54);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(203, 249);
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
             // 
             // btnLimpiarConfiEmpresa
             // 
@@ -236,6 +200,42 @@
             this.btnCerrarConfiEmpresa.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnCerrarConfiEmpresa.UseVisualStyleBackColor = false;
             this.btnCerrarConfiEmpresa.Click += new System.EventHandler(this.btn_Cerrar_Click);
+            // 
+            // shapeContainer1
+            // 
+            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer1.Name = "shapeContainer1";
+            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.lineShape1,
+            this.lineContraseña});
+            this.shapeContainer1.Size = new System.Drawing.Size(539, 440);
+            this.shapeContainer1.TabIndex = 12;
+            this.shapeContainer1.TabStop = false;
+            // 
+            // lineShape1
+            // 
+            this.lineShape1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lineShape1.BorderColor = System.Drawing.Color.Blue;
+            this.lineShape1.BorderWidth = 4;
+            this.lineShape1.Enabled = false;
+            this.lineShape1.Name = "lineShape1";
+            this.lineShape1.X1 = 0;
+            this.lineShape1.X2 = 538;
+            this.lineShape1.Y1 = 41;
+            this.lineShape1.Y2 = 41;
+            // 
+            // lineContraseña
+            // 
+            this.lineContraseña.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lineContraseña.BorderColor = System.Drawing.Color.Blue;
+            this.lineContraseña.BorderWidth = 4;
+            this.lineContraseña.Enabled = false;
+            this.lineContraseña.Name = "lineContraseña";
+            this.lineContraseña.X1 = 0;
+            this.lineContraseña.X2 = 538;
+            this.lineContraseña.Y1 = 391;
+            this.lineContraseña.Y2 = 392;
             // 
             // formLogin
             // 

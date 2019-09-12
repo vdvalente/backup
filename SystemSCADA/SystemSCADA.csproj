@@ -96,11 +96,23 @@
     <Compile Include="Vista\formLogin.designer.cs">
       <DependentUpon>formLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\formMensaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\formMensaje.designer.cs">
+      <DependentUpon>formMensaje.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vista\FormPrincipal.designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\FormRegistroDeUsr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\FormRegistroDeUsr.Designer.cs">
+      <DependentUpon>FormRegistroDeUsr.cs</DependentUpon>
     </Compile>
     <Compile Include="Vista\Intro.cs">
       <SubType>Form</SubType>
@@ -130,8 +142,14 @@
     <EmbeddedResource Include="Vista\formLogin.resx">
       <DependentUpon>formLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vista\formMensaje.resx">
+      <DependentUpon>formMensaje.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\FormRegistroDeUsr.resx">
+      <DependentUpon>FormRegistroDeUsr.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Intro.resx">
       <DependentUpon>Intro.cs</DependentUpon>
@@ -223,6 +241,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile_p.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Aceptar_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancelar_641.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cerrar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\update-arrows.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Webp.net-gifmaker %281%29.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pregunta_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Error_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Info_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exitoso_64.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

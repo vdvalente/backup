@@ -32,22 +32,23 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SeleccionDeAreaDeTrabajo));
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.lblLabComp = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblSalones = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCerrarSesion = new System.Windows.Forms.Button();
+            this.btnConfBD = new System.Windows.Forms.Button();
+            this.btnRegistroVideo = new System.Windows.Forms.Button();
+            this.btnRegistrarUsr = new System.Windows.Forms.Button();
+            this.btnCrearPerfil = new System.Windows.Forms.Button();
             this.btnSalon = new System.Windows.Forms.Button();
             this.btnLabElectronica = new System.Windows.Forms.Button();
             this.btnLabComputacion = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnRegistrarUsr = new System.Windows.Forms.Button();
-            this.btnRegistroVideo = new System.Windows.Forms.Button();
-            this.btnConfBD = new System.Windows.Forms.Button();
-            this.btnCerrarSesion = new System.Windows.Forms.Button();
-            this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,6 +74,17 @@
             this.shapeContainer1.Size = new System.Drawing.Size(1370, 749);
             this.shapeContainer1.TabIndex = 0;
             this.shapeContainer1.TabStop = false;
+            // 
+            // lineShape2
+            // 
+            this.lineShape2.BorderColor = System.Drawing.Color.Blue;
+            this.lineShape2.BorderWidth = 4;
+            this.lineShape2.Name = "lineShape2";
+            this.lineShape2.SelectionColor = System.Drawing.Color.Honeydew;
+            this.lineShape2.X1 = 0;
+            this.lineShape2.X2 = 1382;
+            this.lineShape2.Y1 = 43;
+            this.lineShape2.Y2 = 43;
             // 
             // lblTitulo
             // 
@@ -112,6 +124,99 @@
             this.lblSalones.Text = "Salones de clase";
             this.lblSalones.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnCrearPerfil);
+            this.panel1.Controls.Add(this.btnCerrarSesion);
+            this.panel1.Controls.Add(this.btnConfBD);
+            this.panel1.Controls.Add(this.btnRegistroVideo);
+            this.panel1.Controls.Add(this.btnRegistrarUsr);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1289, 40);
+            this.panel1.TabIndex = 13;
+            // 
+            // btnCerrarSesion
+            // 
+            this.btnCerrarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.btnCerrarSesion.FlatAppearance.BorderSize = 0;
+            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrarSesion.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnCerrarSesion.ForeColor = System.Drawing.Color.Transparent;
+            this.btnCerrarSesion.Location = new System.Drawing.Point(526, 1);
+            this.btnCerrarSesion.Name = "btnCerrarSesion";
+            this.btnCerrarSesion.Size = new System.Drawing.Size(160, 38);
+            this.btnCerrarSesion.TabIndex = 3;
+            this.btnCerrarSesion.Text = "Cerrar Sesión";
+            this.btnCerrarSesion.UseVisualStyleBackColor = false;
+            this.btnCerrarSesion.MouseLeave += new System.EventHandler(this.BtnCerrarSesion_MouseLeave);
+            this.btnCerrarSesion.MouseHover += new System.EventHandler(this.BtnCerrarSesion_MouseHover);
+            // 
+            // btnConfBD
+            // 
+            this.btnConfBD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.btnConfBD.FlatAppearance.BorderSize = 0;
+            this.btnConfBD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfBD.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnConfBD.ForeColor = System.Drawing.Color.Transparent;
+            this.btnConfBD.Location = new System.Drawing.Point(366, 1);
+            this.btnConfBD.Name = "btnConfBD";
+            this.btnConfBD.Size = new System.Drawing.Size(160, 38);
+            this.btnConfBD.TabIndex = 2;
+            this.btnConfBD.Text = "Configuracion Base de datos";
+            this.btnConfBD.UseVisualStyleBackColor = false;
+            this.btnConfBD.MouseLeave += new System.EventHandler(this.BtnConfBD_MouseLeave);
+            this.btnConfBD.MouseHover += new System.EventHandler(this.BtnConfBD_MouseHover);
+            // 
+            // btnRegistroVideo
+            // 
+            this.btnRegistroVideo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.btnRegistroVideo.FlatAppearance.BorderSize = 0;
+            this.btnRegistroVideo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistroVideo.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnRegistroVideo.ForeColor = System.Drawing.Color.Transparent;
+            this.btnRegistroVideo.Location = new System.Drawing.Point(244, 1);
+            this.btnRegistroVideo.Name = "btnRegistroVideo";
+            this.btnRegistroVideo.Size = new System.Drawing.Size(122, 38);
+            this.btnRegistroVideo.TabIndex = 1;
+            this.btnRegistroVideo.Text = "Registros de Video";
+            this.btnRegistroVideo.UseVisualStyleBackColor = false;
+            this.btnRegistroVideo.MouseLeave += new System.EventHandler(this.BtnRegistroVideo_MouseLeave);
+            this.btnRegistroVideo.MouseHover += new System.EventHandler(this.BtnRegistroVideo_MouseHover);
+            // 
+            // btnRegistrarUsr
+            // 
+            this.btnRegistrarUsr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.btnRegistrarUsr.FlatAppearance.BorderSize = 0;
+            this.btnRegistrarUsr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrarUsr.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrarUsr.ForeColor = System.Drawing.Color.Transparent;
+            this.btnRegistrarUsr.Location = new System.Drawing.Point(0, 2);
+            this.btnRegistrarUsr.Name = "btnRegistrarUsr";
+            this.btnRegistrarUsr.Size = new System.Drawing.Size(122, 37);
+            this.btnRegistrarUsr.TabIndex = 0;
+            this.btnRegistrarUsr.Text = "Registrar Usuario";
+            this.btnRegistrarUsr.UseVisualStyleBackColor = false;
+            this.btnRegistrarUsr.Click += new System.EventHandler(this.BtnRegistrarUsr_Click);
+            this.btnRegistrarUsr.MouseLeave += new System.EventHandler(this.BtnRegistrarUsr_MouseLeave);
+            this.btnRegistrarUsr.MouseHover += new System.EventHandler(this.BtnRegistrarUsr_MouseHover);
+            // 
+            // btnCrearPerfil
+            // 
+            this.btnCrearPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.btnCrearPerfil.FlatAppearance.BorderSize = 0;
+            this.btnCrearPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCrearPerfil.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnCrearPerfil.ForeColor = System.Drawing.Color.Transparent;
+            this.btnCrearPerfil.Location = new System.Drawing.Point(122, 2);
+            this.btnCrearPerfil.Name = "btnCrearPerfil";
+            this.btnCrearPerfil.Size = new System.Drawing.Size(122, 37);
+            this.btnCrearPerfil.TabIndex = 4;
+            this.btnCrearPerfil.Text = "Crear Perfiles";
+            this.btnCrearPerfil.UseVisualStyleBackColor = false;
+            this.btnCrearPerfil.MouseLeave += new System.EventHandler(this.BtnCrearPerfil_MouseLeave);
+            this.btnCrearPerfil.MouseHover += new System.EventHandler(this.BtnCrearPerfil_MouseHover);
+            // 
             // btnSalon
             // 
             this.btnSalon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -150,7 +255,7 @@
             // 
             // btnCerrar
             // 
-            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.btnCerrar.FlatAppearance.BorderSize = 0;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.Image = global::SystemSCADA.Properties.Resources.Cerrar;
@@ -172,89 +277,11 @@
             this.btnMinimizar.TabIndex = 5;
             this.btnMinimizar.UseVisualStyleBackColor = true;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btnCerrarSesion);
-            this.panel1.Controls.Add(this.btnConfBD);
-            this.panel1.Controls.Add(this.btnRegistroVideo);
-            this.panel1.Controls.Add(this.btnRegistrarUsr);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1289, 40);
-            this.panel1.TabIndex = 13;
-            // 
-            // btnRegistrarUsr
-            // 
-            this.btnRegistrarUsr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnRegistrarUsr.FlatAppearance.BorderSize = 0;
-            this.btnRegistrarUsr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrarUsr.Location = new System.Drawing.Point(3, 2);
-            this.btnRegistrarUsr.Name = "btnRegistrarUsr";
-            this.btnRegistrarUsr.Size = new System.Drawing.Size(122, 35);
-            this.btnRegistrarUsr.TabIndex = 0;
-            this.btnRegistrarUsr.Text = "Registrar Usuario";
-            this.btnRegistrarUsr.UseVisualStyleBackColor = false;
-            this.btnRegistrarUsr.MouseLeave += new System.EventHandler(this.BtnRegistrarUsr_MouseLeave);
-            this.btnRegistrarUsr.MouseHover += new System.EventHandler(this.BtnRegistrarUsr_MouseHover);
-            // 
-            // btnRegistroVideo
-            // 
-            this.btnRegistroVideo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnRegistroVideo.FlatAppearance.BorderSize = 0;
-            this.btnRegistroVideo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistroVideo.Location = new System.Drawing.Point(126, 1);
-            this.btnRegistroVideo.Name = "btnRegistroVideo";
-            this.btnRegistroVideo.Size = new System.Drawing.Size(122, 36);
-            this.btnRegistroVideo.TabIndex = 1;
-            this.btnRegistroVideo.Text = "Registros de Video";
-            this.btnRegistroVideo.UseVisualStyleBackColor = false;
-            this.btnRegistroVideo.MouseLeave += new System.EventHandler(this.BtnRegistroVideo_MouseLeave);
-            this.btnRegistroVideo.MouseHover += new System.EventHandler(this.BtnRegistroVideo_MouseHover);
-            // 
-            // btnConfBD
-            // 
-            this.btnConfBD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnConfBD.FlatAppearance.BorderSize = 0;
-            this.btnConfBD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfBD.Location = new System.Drawing.Point(249, 1);
-            this.btnConfBD.Name = "btnConfBD";
-            this.btnConfBD.Size = new System.Drawing.Size(160, 36);
-            this.btnConfBD.TabIndex = 2;
-            this.btnConfBD.Text = "Configuracion Base de datos";
-            this.btnConfBD.UseVisualStyleBackColor = false;
-            this.btnConfBD.MouseLeave += new System.EventHandler(this.BtnConfBD_MouseLeave);
-            this.btnConfBD.MouseHover += new System.EventHandler(this.BtnConfBD_MouseHover);
-            // 
-            // btnCerrarSesion
-            // 
-            this.btnCerrarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnCerrarSesion.FlatAppearance.BorderSize = 0;
-            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(409, 1);
-            this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Size = new System.Drawing.Size(160, 36);
-            this.btnCerrarSesion.TabIndex = 3;
-            this.btnCerrarSesion.Text = "Cerrar Sesión";
-            this.btnCerrarSesion.UseVisualStyleBackColor = false;
-            this.btnCerrarSesion.MouseLeave += new System.EventHandler(this.BtnCerrarSesion_MouseLeave);
-            this.btnCerrarSesion.MouseHover += new System.EventHandler(this.BtnCerrarSesion_MouseHover);
-            // 
-            // lineShape2
-            // 
-            this.lineShape2.BorderColor = System.Drawing.Color.Blue;
-            this.lineShape2.BorderWidth = 4;
-            this.lineShape2.Name = "lineShape2";
-            this.lineShape2.SelectionColor = System.Drawing.Color.Honeydew;
-            this.lineShape2.X1 = -1;
-            this.lineShape2.X2 = 1382;
-            this.lineShape2.Y1 = 44;
-            this.lineShape2.Y2 = 44;
-            // 
             // SeleccionDeAreaDeTrabajo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblSalones);
@@ -297,5 +324,6 @@
         private System.Windows.Forms.Button btnRegistrarUsr;
         private System.Windows.Forms.Button btnCerrarSesion;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape2;
+        private System.Windows.Forms.Button btnCrearPerfil;
     }
 }
