@@ -93,12 +93,6 @@ namespace SystemSCADA.Vista
             txtBaseDatosSystemSCADAConfiBD.Text = claseControlBaseDeDatos.SQLNomDBsistemaSCADA;
             txtUsuarioSystemSCADAConfiBD.Text = claseControlBaseDeDatos.SQLUsersistemaSCADA;
             txtClaveSystemSCADAConfiBD.Text = claseControlBaseDeDatos.SQLPasssistemaSCADA;
-
-            cmbERPConfiBD.SelectedValue = claseControlBaseDeDatos.ERP;
-            txtServidorERPConfiBD.Text = claseControlBaseDeDatos.ServERP;
-            txtBaseDatosERPConfiBD.Text = claseControlBaseDeDatos.NomDBERP;
-            txtUsuarioERPConfiBD.Text = claseControlBaseDeDatos.UserERP;
-            txtClaveERPConfiBD.Text = claseControlBaseDeDatos.PassERP;
         }
         /*****************************************************************************************************************************************************
 
@@ -115,12 +109,6 @@ namespace SystemSCADA.Vista
                    txtBaseDatosSystemSCADAConfiBD.Text.ToUpper(),
                    txtUsuarioSystemSCADAConfiBD.Text,
                    txtClaveSystemSCADAConfiBD.Text);
-            ControladorDB.GuardarERP(
-                    Convert.ToInt32(cmbERPConfiBD.SelectedValue),
-                    txtServidorERPConfiBD.Text.ToUpper(),
-                    txtBaseDatosERPConfiBD.Text.ToUpper(),
-                    txtUsuarioERPConfiBD.Text,
-                    txtClaveERPConfiBD.Text);
             if (!ControladorDB.ValidarCampos(1))
                 return;
 
@@ -239,121 +227,7 @@ namespace SystemSCADA.Vista
         }
 
 
-        /*****************************************************************************************************************************************************
-        Nombre del Creador: Robert Perez Torrelles
-        Fecha de Creacion: 8/11/18
-        Descripcion: Seccion de codigo que contiene los eventos Click, MouseEnter y MouseLeave de los label lblDatosServidorSystemSCADA y lblDatosServidorERP 
-        tambien esta el evento Tick del timer.
-        La funcion de todos estos eventos es crear la animacion que se observa para pasar de las credenciales de SystemSCADA a las del ERP.
-        *****************************************************************************************************************************************************/
-        #region Animacion de cambio de pestaña
-        private void lblDatosServidorSystemSCADA_Click(object sender, EventArgs e)
-        {
-            if (tTab.Enabled)
-                return;
-            if (pnlAct == 1)
-                return;
-            pnlAct = 1;
-            Tick = 1;
-            lblDatosServidorSystemSCADA.ForeColor = Color.FromArgb(100, 100, 100);
-            lblDatosServidorERP.ForeColor = Color.FromArgb(150, 150, 150);
-            tTab.Enabled = true;
-        }
-
-        private void lblDatosServidorERP_Click(object sender, EventArgs e)
-        {
-            if (!ControladorDB.ValidarCampos(1))
-            {
-                return;
-            }
-
-            if (!ControladorDB.ProbarConeccion())
-            {
-                return;
-            }
-
-            if (tTab.Enabled)
-                return;
-            if (pnlAct == 2)
-                return;
-            pnlAct = 2;
-            Tick = 1;
-            lblDatosServidorSystemSCADA.ForeColor = Color.FromArgb(150, 150, 150);
-            lblDatosServidorERP.ForeColor = Color.FromArgb(100, 100, 100);
-            tTab.Enabled = true;
-        }
-
-        private void tTab_Tick(object sender, EventArgs e)
-        {
-            if(pnlAct == 1)
-            {
-                if(Tick == 20)
-                {
-                    lineShape1.X1 = 12;
-                    lineShape1.X2 = 216;
-                    pnlConfgSystemSCADA.Location = new Point(13, pnlConfgSystemSCADA.Location.Y);
-                    pnlConfgERP.Location = new Point(426, pnlConfgERP.Location.Y);
-                    tTab.Enabled = false;
-                }
-                else
-                {
-                    Tick += 1;
-                    lineShape1.X1 -= 10;
-                    lineShape1.X2 -= 10;
-                    pnlConfgSystemSCADA.Location = new Point(pnlConfgSystemSCADA.Location.X + 20, pnlConfgSystemSCADA.Location.Y);
-                    pnlConfgERP.Location = new Point(pnlConfgERP.Location.X + 20, pnlConfgERP.Location.Y);
-                }
-            }
-            else if (pnlAct == 2)
-            {
-                if (Tick == 20)
-                {
-                    lineShape1.X1 = 230;
-                    lineShape1.X2 = 425;
-                    pnlConfgSystemSCADA.Location = new Point(-400, pnlConfgSystemSCADA.Location.Y);
-                    pnlConfgERP.Location = new Point(13, pnlConfgERP.Location.Y);
-                    Llenando = true;
-                    claseControlBaseDeDatos.llenarCmbERP(ref cmbERPConfiBD);
-                    Llenando = false;
-                    tTab.Enabled = false;
-                }
-                else
-                {
-                    Tick += 1;
-                    lineShape1.X1 += 10;
-                    lineShape1.X2 += 10;
-                    pnlConfgSystemSCADA.Location = new Point(pnlConfgSystemSCADA.Location.X - 20, pnlConfgSystemSCADA.Location.Y);
-                    pnlConfgERP.Location = new Point(pnlConfgERP.Location.X - 20, pnlConfgERP.Location.Y);
-                }
-            }
-        }
-
-        private void lblDatosServidorERP_MouseEnter(object sender, EventArgs e)
-        {
-            lblDatosServidorERP.ForeColor = Color.FromArgb(163, 51, 59);
-        }
-
-        private void lblDatosServidorERP_MouseLeave(object sender, EventArgs e)
-        {
-            if (pnlAct == 2)
-                lblDatosServidorERP.ForeColor = Color.FromArgb(100, 100, 100);
-            else
-                lblDatosServidorERP.ForeColor = Color.FromArgb(150, 150, 150);
-        }
-
-        private void lblDatosServidorSystemSCADA_MouseEnter(object sender, EventArgs e)
-        {
-            lblDatosServidorSystemSCADA.ForeColor = Color.FromArgb(163, 51, 59);
-        }
-
-        private void lblDatosServidorSystemSCADA_MouseLeave(object sender, EventArgs e)
-        {
-            if (pnlAct == 1)
-                lblDatosServidorSystemSCADA.ForeColor = Color.FromArgb(100, 100, 100);
-            else
-                lblDatosServidorSystemSCADA.ForeColor = Color.FromArgb(150, 150, 150);
-        }
-        #endregion
+        
 
 
 
@@ -396,54 +270,9 @@ namespace SystemSCADA.Vista
             }
         }
 
-        private void txtServidorERPConfiBD_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                txtBaseDatosERPConfiBD.Focus();
-            }
-        }
-
-        private void txtBaseDatosERPConfiBD_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                txtUsuarioERPConfiBD.Focus();
-            }
-        }
-
-        private void txtUsuarioERPConfiBD_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                txtClaveERPConfiBD.Focus();
-            }
-        }
-
-        private void txtClaveERPConfiBD_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                btnPruebaERPConfiBD.Focus();
-            }
-        }
         #endregion
 
-        private void cmbERPConfiBD_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (Llenando)
-                return;
-            if(Convert.ToInt32(cmbERPConfiBD.SelectedValue) == 1)
-            {
-                txtBaseDatosERPConfiBD.Enabled = true;
-                txtBaseDatosERPConfiBD.Clear();
-            }
-            else if(Convert.ToInt32(cmbERPConfiBD.SelectedValue) == 2)
-            {
-                txtBaseDatosERPConfiBD.Enabled = false;
-                txtBaseDatosERPConfiBD.Text = "----------";
-            }
-        }
+       
     }
 }
 

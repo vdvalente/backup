@@ -39,11 +39,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblSalones = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCrearPerfil = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.btnConfBD = new System.Windows.Forms.Button();
             this.btnRegistroVideo = new System.Windows.Forms.Button();
             this.btnRegistrarUsr = new System.Windows.Forms.Button();
-            this.btnCrearPerfil = new System.Windows.Forms.Button();
             this.btnSalon = new System.Windows.Forms.Button();
             this.btnLabElectronica = new System.Windows.Forms.Button();
             this.btnLabComputacion = new System.Windows.Forms.Button();
@@ -136,6 +136,23 @@
             this.panel1.Size = new System.Drawing.Size(1289, 40);
             this.panel1.TabIndex = 13;
             // 
+            // btnCrearPerfil
+            // 
+            this.btnCrearPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.btnCrearPerfil.FlatAppearance.BorderSize = 0;
+            this.btnCrearPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCrearPerfil.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnCrearPerfil.ForeColor = System.Drawing.Color.Transparent;
+            this.btnCrearPerfil.Location = new System.Drawing.Point(122, 2);
+            this.btnCrearPerfil.Name = "btnCrearPerfil";
+            this.btnCrearPerfil.Size = new System.Drawing.Size(122, 37);
+            this.btnCrearPerfil.TabIndex = 4;
+            this.btnCrearPerfil.Text = "Crear Perfiles";
+            this.btnCrearPerfil.UseVisualStyleBackColor = false;
+            this.btnCrearPerfil.Click += new System.EventHandler(this.BtnCrearPerfil_Click);
+            this.btnCrearPerfil.MouseLeave += new System.EventHandler(this.BtnCrearPerfil_MouseLeave);
+            this.btnCrearPerfil.MouseHover += new System.EventHandler(this.BtnCrearPerfil_MouseHover);
+            // 
             // btnCerrarSesion
             // 
             this.btnCerrarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
@@ -143,12 +160,13 @@
             this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrarSesion.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnCerrarSesion.ForeColor = System.Drawing.Color.Transparent;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(526, 1);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(526, 2);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Size = new System.Drawing.Size(160, 38);
+            this.btnCerrarSesion.Size = new System.Drawing.Size(160, 37);
             this.btnCerrarSesion.TabIndex = 3;
             this.btnCerrarSesion.Text = "Cerrar Sesión";
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
+            this.btnCerrarSesion.Click += new System.EventHandler(this.BtnCerrarSesion_Click);
             this.btnCerrarSesion.MouseLeave += new System.EventHandler(this.BtnCerrarSesion_MouseLeave);
             this.btnCerrarSesion.MouseHover += new System.EventHandler(this.BtnCerrarSesion_MouseHover);
             // 
@@ -157,14 +175,15 @@
             this.btnConfBD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
             this.btnConfBD.FlatAppearance.BorderSize = 0;
             this.btnConfBD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfBD.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnConfBD.Font = new System.Drawing.Font("Century Gothic", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfBD.ForeColor = System.Drawing.Color.Transparent;
-            this.btnConfBD.Location = new System.Drawing.Point(366, 1);
+            this.btnConfBD.Location = new System.Drawing.Point(366, 2);
             this.btnConfBD.Name = "btnConfBD";
-            this.btnConfBD.Size = new System.Drawing.Size(160, 38);
+            this.btnConfBD.Size = new System.Drawing.Size(160, 37);
             this.btnConfBD.TabIndex = 2;
             this.btnConfBD.Text = "Configuracion Base de datos";
             this.btnConfBD.UseVisualStyleBackColor = false;
+            this.btnConfBD.Click += new System.EventHandler(this.BtnConfBD_Click);
             this.btnConfBD.MouseLeave += new System.EventHandler(this.BtnConfBD_MouseLeave);
             this.btnConfBD.MouseHover += new System.EventHandler(this.BtnConfBD_MouseHover);
             // 
@@ -175,9 +194,9 @@
             this.btnRegistroVideo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistroVideo.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnRegistroVideo.ForeColor = System.Drawing.Color.Transparent;
-            this.btnRegistroVideo.Location = new System.Drawing.Point(244, 1);
+            this.btnRegistroVideo.Location = new System.Drawing.Point(244, 2);
             this.btnRegistroVideo.Name = "btnRegistroVideo";
-            this.btnRegistroVideo.Size = new System.Drawing.Size(122, 38);
+            this.btnRegistroVideo.Size = new System.Drawing.Size(122, 37);
             this.btnRegistroVideo.TabIndex = 1;
             this.btnRegistroVideo.Text = "Registros de Video";
             this.btnRegistroVideo.UseVisualStyleBackColor = false;
@@ -200,22 +219,6 @@
             this.btnRegistrarUsr.Click += new System.EventHandler(this.BtnRegistrarUsr_Click);
             this.btnRegistrarUsr.MouseLeave += new System.EventHandler(this.BtnRegistrarUsr_MouseLeave);
             this.btnRegistrarUsr.MouseHover += new System.EventHandler(this.BtnRegistrarUsr_MouseHover);
-            // 
-            // btnCrearPerfil
-            // 
-            this.btnCrearPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
-            this.btnCrearPerfil.FlatAppearance.BorderSize = 0;
-            this.btnCrearPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCrearPerfil.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold);
-            this.btnCrearPerfil.ForeColor = System.Drawing.Color.Transparent;
-            this.btnCrearPerfil.Location = new System.Drawing.Point(122, 2);
-            this.btnCrearPerfil.Name = "btnCrearPerfil";
-            this.btnCrearPerfil.Size = new System.Drawing.Size(122, 37);
-            this.btnCrearPerfil.TabIndex = 4;
-            this.btnCrearPerfil.Text = "Crear Perfiles";
-            this.btnCrearPerfil.UseVisualStyleBackColor = false;
-            this.btnCrearPerfil.MouseLeave += new System.EventHandler(this.BtnCrearPerfil_MouseLeave);
-            this.btnCrearPerfil.MouseHover += new System.EventHandler(this.BtnCrearPerfil_MouseHover);
             // 
             // btnSalon
             // 

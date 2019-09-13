@@ -30,18 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.pnlFondoConfiBD = new System.Windows.Forms.Panel();
-            this.pnlConfgERP = new System.Windows.Forms.Panel();
-            this.cmbERPConfiBD = new System.Windows.Forms.ComboBox();
-            this.lblERPConfiBD = new System.Windows.Forms.Label();
-            this.lblServidorERPConfiBD = new System.Windows.Forms.Label();
-            this.txtServidorERPConfiBD = new System.Windows.Forms.TextBox();
-            this.lblBaseDatosERPConfiBD = new System.Windows.Forms.Label();
-            this.lblUsuarioERPConfiBD = new System.Windows.Forms.Label();
-            this.txtClaveERPConfiBD = new System.Windows.Forms.TextBox();
-            this.lblClaveERPConfiBD = new System.Windows.Forms.Label();
-            this.txtUsuarioERPConfiBD = new System.Windows.Forms.TextBox();
-            this.txtBaseDatosERPConfiBD = new System.Windows.Forms.TextBox();
-            this.btnPruebaERPConfiBD = new System.Windows.Forms.Button();
             this.pnlConfgSystemSCADA = new System.Windows.Forms.Panel();
             this.txtServidorSystemSCADAConfiBD = new System.Windows.Forms.TextBox();
             this.lblServidorSystemSCADAConfiBD = new System.Windows.Forms.Label();
@@ -52,7 +40,6 @@
             this.txtUsuarioSystemSCADAConfiBD = new System.Windows.Forms.TextBox();
             this.txtClaveSystemSCADAConfiBD = new System.Windows.Forms.TextBox();
             this.btnPruebaSystemSCADAConfiBD = new System.Windows.Forms.Button();
-            this.lblDatosServidorERP = new System.Windows.Forms.Label();
             this.lblDatosServidorSystemSCADA = new System.Windows.Forms.Label();
             this.pbImagenConfiBD = new System.Windows.Forms.PictureBox();
             this.btnCancelarConfiBD = new System.Windows.Forms.Button();
@@ -66,10 +53,8 @@
             this.line_barTareas = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape3 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.tTab = new System.Windows.Forms.Timer(this.components);
             this.pnlFondoConfiBD.SuspendLayout();
-            this.pnlConfgERP.SuspendLayout();
             this.pnlConfgSystemSCADA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenConfiBD)).BeginInit();
             this.pnlTituloConfiBD.SuspendLayout();
@@ -83,9 +68,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFondoConfiBD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.pnlFondoConfiBD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlFondoConfiBD.Controls.Add(this.pnlConfgERP);
             this.pnlFondoConfiBD.Controls.Add(this.pnlConfgSystemSCADA);
-            this.pnlFondoConfiBD.Controls.Add(this.lblDatosServidorERP);
             this.pnlFondoConfiBD.Controls.Add(this.lblDatosServidorSystemSCADA);
             this.pnlFondoConfiBD.Controls.Add(this.pbImagenConfiBD);
             this.pnlFondoConfiBD.Controls.Add(this.btnCancelarConfiBD);
@@ -97,141 +80,6 @@
             this.pnlFondoConfiBD.Name = "pnlFondoConfiBD";
             this.pnlFondoConfiBD.Size = new System.Drawing.Size(440, 372);
             this.pnlFondoConfiBD.TabIndex = 0;
-            // 
-            // pnlConfgERP
-            // 
-            this.pnlConfgERP.Controls.Add(this.cmbERPConfiBD);
-            this.pnlConfgERP.Controls.Add(this.lblERPConfiBD);
-            this.pnlConfgERP.Controls.Add(this.lblServidorERPConfiBD);
-            this.pnlConfgERP.Controls.Add(this.txtServidorERPConfiBD);
-            this.pnlConfgERP.Controls.Add(this.lblBaseDatosERPConfiBD);
-            this.pnlConfgERP.Controls.Add(this.lblUsuarioERPConfiBD);
-            this.pnlConfgERP.Controls.Add(this.txtClaveERPConfiBD);
-            this.pnlConfgERP.Controls.Add(this.lblClaveERPConfiBD);
-            this.pnlConfgERP.Controls.Add(this.txtUsuarioERPConfiBD);
-            this.pnlConfgERP.Controls.Add(this.txtBaseDatosERPConfiBD);
-            this.pnlConfgERP.Controls.Add(this.btnPruebaERPConfiBD);
-            this.pnlConfgERP.Location = new System.Drawing.Point(426, 87);
-            this.pnlConfgERP.Name = "pnlConfgERP";
-            this.pnlConfgERP.Size = new System.Drawing.Size(413, 201);
-            this.pnlConfgERP.TabIndex = 2;
-            // 
-            // cmbERPConfiBD
-            // 
-            this.cmbERPConfiBD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbERPConfiBD.FormattingEnabled = true;
-            this.cmbERPConfiBD.Location = new System.Drawing.Point(142, 7);
-            this.cmbERPConfiBD.Name = "cmbERPConfiBD";
-            this.cmbERPConfiBD.Size = new System.Drawing.Size(222, 25);
-            this.cmbERPConfiBD.TabIndex = 2;
-            this.cmbERPConfiBD.SelectedIndexChanged += new System.EventHandler(this.cmbERPConfiBD_SelectedIndexChanged);
-            // 
-            // lblERPConfiBD
-            // 
-            this.lblERPConfiBD.AutoSize = true;
-            this.lblERPConfiBD.Location = new System.Drawing.Point(114, 10);
-            this.lblERPConfiBD.Name = "lblERPConfiBD";
-            this.lblERPConfiBD.Size = new System.Drawing.Size(28, 17);
-            this.lblERPConfiBD.TabIndex = 1;
-            this.lblERPConfiBD.Text = "ERP";
-            // 
-            // lblServidorERPConfiBD
-            // 
-            this.lblServidorERPConfiBD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblServidorERPConfiBD.AutoSize = true;
-            this.lblServidorERPConfiBD.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblServidorERPConfiBD.Location = new System.Drawing.Point(84, 43);
-            this.lblServidorERPConfiBD.Name = "lblServidorERPConfiBD";
-            this.lblServidorERPConfiBD.Size = new System.Drawing.Size(58, 17);
-            this.lblServidorERPConfiBD.TabIndex = 3;
-            this.lblServidorERPConfiBD.Text = "Servidor";
-            this.lblServidorERPConfiBD.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // txtServidorERPConfiBD
-            // 
-            this.txtServidorERPConfiBD.Location = new System.Drawing.Point(142, 40);
-            this.txtServidorERPConfiBD.MaxLength = 150;
-            this.txtServidorERPConfiBD.Name = "txtServidorERPConfiBD";
-            this.txtServidorERPConfiBD.Size = new System.Drawing.Size(222, 22);
-            this.txtServidorERPConfiBD.TabIndex = 4;
-            this.txtServidorERPConfiBD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtServidorERPConfiBD_KeyPress);
-            // 
-            // lblBaseDatosERPConfiBD
-            // 
-            this.lblBaseDatosERPConfiBD.AutoSize = true;
-            this.lblBaseDatosERPConfiBD.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBaseDatosERPConfiBD.Location = new System.Drawing.Point(49, 73);
-            this.lblBaseDatosERPConfiBD.Name = "lblBaseDatosERPConfiBD";
-            this.lblBaseDatosERPConfiBD.Size = new System.Drawing.Size(93, 17);
-            this.lblBaseDatosERPConfiBD.TabIndex = 5;
-            this.lblBaseDatosERPConfiBD.Text = "Base de Datos";
-            // 
-            // lblUsuarioERPConfiBD
-            // 
-            this.lblUsuarioERPConfiBD.AutoSize = true;
-            this.lblUsuarioERPConfiBD.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuarioERPConfiBD.Location = new System.Drawing.Point(91, 103);
-            this.lblUsuarioERPConfiBD.Name = "lblUsuarioERPConfiBD";
-            this.lblUsuarioERPConfiBD.Size = new System.Drawing.Size(51, 17);
-            this.lblUsuarioERPConfiBD.TabIndex = 7;
-            this.lblUsuarioERPConfiBD.Text = "Usuario";
-            // 
-            // txtClaveERPConfiBD
-            // 
-            this.txtClaveERPConfiBD.Location = new System.Drawing.Point(142, 130);
-            this.txtClaveERPConfiBD.MaxLength = 150;
-            this.txtClaveERPConfiBD.Name = "txtClaveERPConfiBD";
-            this.txtClaveERPConfiBD.Size = new System.Drawing.Size(222, 22);
-            this.txtClaveERPConfiBD.TabIndex = 10;
-            this.txtClaveERPConfiBD.UseSystemPasswordChar = true;
-            this.txtClaveERPConfiBD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClaveERPConfiBD_KeyPress);
-            // 
-            // lblClaveERPConfiBD
-            // 
-            this.lblClaveERPConfiBD.AutoSize = true;
-            this.lblClaveERPConfiBD.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClaveERPConfiBD.Location = new System.Drawing.Point(98, 133);
-            this.lblClaveERPConfiBD.Name = "lblClaveERPConfiBD";
-            this.lblClaveERPConfiBD.Size = new System.Drawing.Size(44, 17);
-            this.lblClaveERPConfiBD.TabIndex = 9;
-            this.lblClaveERPConfiBD.Text = "Clave";
-            // 
-            // txtUsuarioERPConfiBD
-            // 
-            this.txtUsuarioERPConfiBD.Location = new System.Drawing.Point(142, 100);
-            this.txtUsuarioERPConfiBD.MaxLength = 150;
-            this.txtUsuarioERPConfiBD.Name = "txtUsuarioERPConfiBD";
-            this.txtUsuarioERPConfiBD.Size = new System.Drawing.Size(222, 22);
-            this.txtUsuarioERPConfiBD.TabIndex = 8;
-            this.txtUsuarioERPConfiBD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuarioERPConfiBD_KeyPress);
-            // 
-            // txtBaseDatosERPConfiBD
-            // 
-            this.txtBaseDatosERPConfiBD.Location = new System.Drawing.Point(142, 70);
-            this.txtBaseDatosERPConfiBD.MaxLength = 150;
-            this.txtBaseDatosERPConfiBD.Name = "txtBaseDatosERPConfiBD";
-            this.txtBaseDatosERPConfiBD.Size = new System.Drawing.Size(222, 22);
-            this.txtBaseDatosERPConfiBD.TabIndex = 6;
-            this.txtBaseDatosERPConfiBD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBaseDatosERPConfiBD_KeyPress);
-            // 
-            // btnPruebaERPConfiBD
-            // 
-            this.btnPruebaERPConfiBD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.btnPruebaERPConfiBD.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPruebaERPConfiBD.FlatAppearance.BorderSize = 0;
-            this.btnPruebaERPConfiBD.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(35)))), ((int)(((byte)(51)))));
-            this.btnPruebaERPConfiBD.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(51)))), ((int)(((byte)(59)))));
-            this.btnPruebaERPConfiBD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPruebaERPConfiBD.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPruebaERPConfiBD.ForeColor = System.Drawing.Color.White;
-            this.btnPruebaERPConfiBD.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnPruebaERPConfiBD.Location = new System.Drawing.Point(133, 158);
-            this.btnPruebaERPConfiBD.Name = "btnPruebaERPConfiBD";
-            this.btnPruebaERPConfiBD.Size = new System.Drawing.Size(147, 35);
-            this.btnPruebaERPConfiBD.TabIndex = 11;
-            this.btnPruebaERPConfiBD.Text = "Probar";
-            this.btnPruebaERPConfiBD.UseVisualStyleBackColor = false;
-            this.btnPruebaERPConfiBD.Click += new System.EventHandler(this.btnPruebaERPConfiBD_Click);
             // 
             // pnlConfgSystemSCADA
             // 
@@ -345,35 +193,18 @@
             this.btnPruebaSystemSCADAConfiBD.UseVisualStyleBackColor = false;
             this.btnPruebaSystemSCADAConfiBD.Click += new System.EventHandler(this.btnPruebaSystemSCADAConfiBD_Click);
             // 
-            // lblDatosServidorERP
-            // 
-            this.lblDatosServidorERP.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblDatosServidorERP.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDatosServidorERP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
-            this.lblDatosServidorERP.Location = new System.Drawing.Point(230, 56);
-            this.lblDatosServidorERP.Name = "lblDatosServidorERP";
-            this.lblDatosServidorERP.Size = new System.Drawing.Size(200, 25);
-            this.lblDatosServidorERP.TabIndex = 10;
-            this.lblDatosServidorERP.Text = "Datos del Servidor del ERP";
-            this.lblDatosServidorERP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblDatosServidorERP.Click += new System.EventHandler(this.lblDatosServidorERP_Click);
-            this.lblDatosServidorERP.MouseEnter += new System.EventHandler(this.lblDatosServidorERP_MouseEnter);
-            this.lblDatosServidorERP.MouseLeave += new System.EventHandler(this.lblDatosServidorERP_MouseLeave);
-            // 
             // lblDatosServidorSystemSCADA
             // 
             this.lblDatosServidorSystemSCADA.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblDatosServidorSystemSCADA.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDatosServidorSystemSCADA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblDatosServidorSystemSCADA.Location = new System.Drawing.Point(10, 56);
+            this.lblDatosServidorSystemSCADA.Location = new System.Drawing.Point(94, 44);
             this.lblDatosServidorSystemSCADA.Name = "lblDatosServidorSystemSCADA";
-            this.lblDatosServidorSystemSCADA.Size = new System.Drawing.Size(211, 25);
+            this.lblDatosServidorSystemSCADA.Size = new System.Drawing.Size(283, 25);
             this.lblDatosServidorSystemSCADA.TabIndex = 0;
             this.lblDatosServidorSystemSCADA.Text = "Datos del Servidor de SystemSCADA";
             this.lblDatosServidorSystemSCADA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblDatosServidorSystemSCADA.Click += new System.EventHandler(this.lblDatosServidorSystemSCADA_Click);
-            this.lblDatosServidorSystemSCADA.MouseEnter += new System.EventHandler(this.lblDatosServidorSystemSCADA_MouseEnter);
-            this.lblDatosServidorSystemSCADA.MouseLeave += new System.EventHandler(this.lblDatosServidorSystemSCADA_MouseLeave);
+            
             // 
             // pbImagenConfiBD
             // 
@@ -387,7 +218,7 @@
             // btnCancelarConfiBD
             // 
             this.btnCancelarConfiBD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelarConfiBD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.btnCancelarConfiBD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(51)))), ((int)(((byte)(59)))));
             this.btnCancelarConfiBD.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelarConfiBD.FlatAppearance.BorderSize = 0;
             this.btnCancelarConfiBD.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(35)))), ((int)(((byte)(51)))));
@@ -408,7 +239,7 @@
             // btnGuardarConfiBD
             // 
             this.btnGuardarConfiBD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGuardarConfiBD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(51)))), ((int)(((byte)(59)))));
+            this.btnGuardarConfiBD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnGuardarConfiBD.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGuardarConfiBD.FlatAppearance.BorderSize = 0;
             this.btnGuardarConfiBD.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(35)))), ((int)(((byte)(51)))));
@@ -519,7 +350,7 @@
             // 
             this.line_barTareas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.line_barTareas.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(51)))), ((int)(((byte)(59)))));
+            this.line_barTareas.BorderColor = System.Drawing.Color.Blue;
             this.line_barTareas.BorderWidth = 5;
             this.line_barTareas.Name = "line_barTareas";
             this.line_barTareas.X1 = -134;
@@ -533,8 +364,7 @@
             this.shapeContainer2.Margin = new System.Windows.Forms.Padding(0);
             this.shapeContainer2.Name = "shapeContainer2";
             this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShape3,
-            this.lineShape1});
+            this.lineShape3});
             this.shapeContainer2.Size = new System.Drawing.Size(438, 370);
             this.shapeContainer2.TabIndex = 53;
             this.shapeContainer2.TabStop = false;
@@ -552,21 +382,6 @@
             this.lineShape3.Y1 = 83;
             this.lineShape3.Y2 = 83;
             // 
-            // lineShape1
-            // 
-            this.lineShape1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(51)))), ((int)(((byte)(59)))));
-            this.lineShape1.Enabled = false;
-            this.lineShape1.Name = "lineShape1";
-            this.lineShape1.X1 = 12;
-            this.lineShape1.X2 = 216;
-            this.lineShape1.Y1 = 81;
-            this.lineShape1.Y2 = 81;
-            // 
-            // tTab
-            // 
-            this.tTab.Interval = 30;
-            this.tTab.Tick += new System.EventHandler(this.tTab_Tick);
-            // 
             // formConexionBD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -580,8 +395,6 @@
             this.Text = "Configurar Conexion con el Servidor de Base de Datos";
             this.Load += new System.EventHandler(this.formConexionBD_Load);
             this.pnlFondoConfiBD.ResumeLayout(false);
-            this.pnlConfgERP.ResumeLayout(false);
-            this.pnlConfgERP.PerformLayout();
             this.pnlConfgSystemSCADA.ResumeLayout(false);
             this.pnlConfgSystemSCADA.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenConfiBD)).EndInit();
@@ -605,15 +418,6 @@
         private System.Windows.Forms.Button btnCerrarConfiBD;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.LineShape line_barTareas;
-        private System.Windows.Forms.TextBox txtClaveERPConfiBD;
-        private System.Windows.Forms.TextBox txtUsuarioERPConfiBD;
-        private System.Windows.Forms.Button btnPruebaERPConfiBD;
-        private System.Windows.Forms.TextBox txtBaseDatosERPConfiBD;
-        private System.Windows.Forms.Label lblClaveERPConfiBD;
-        private System.Windows.Forms.Label lblUsuarioERPConfiBD;
-        private System.Windows.Forms.Label lblBaseDatosERPConfiBD;
-        private System.Windows.Forms.Label lblServidorERPConfiBD;
-        private System.Windows.Forms.TextBox txtServidorERPConfiBD;
         private System.Windows.Forms.Button btnPruebaSystemSCADAConfiBD;
         private System.Windows.Forms.TextBox txtClaveSystemSCADAConfiBD;
         private System.Windows.Forms.TextBox txtUsuarioSystemSCADAConfiBD;
@@ -625,13 +429,8 @@
         private System.Windows.Forms.TextBox txtServidorSystemSCADAConfiBD;
         private System.Windows.Forms.Label lblDatosServidorSystemSCADA;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer2;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
-        private System.Windows.Forms.Label lblDatosServidorERP;
-        private System.Windows.Forms.Panel pnlConfgERP;
         private System.Windows.Forms.Panel pnlConfgSystemSCADA;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape3;
         private System.Windows.Forms.Timer tTab;
-        private System.Windows.Forms.Label lblERPConfiBD;
-        private System.Windows.Forms.ComboBox cmbERPConfiBD;
     }
 }

@@ -43,136 +43,110 @@ namespace SystemSCADA.Controlador
         static claseMetodosBaseDeDatos conexionBD;
 
         /*****************************************************************************************************************************************************
-        Nombr e del Creador:Melanie Infante
-        Fecha de Creacion: 17/09/18
         Descripcion: Metodo que ejecuta el procedimiento de almacenado que permite guardar en la base de datos
         *****************************************************************************************************************************************************/
-        //public bool GuardarUsuario(DataGridView dgv)
-        //{
-        //    conexionBD = new claseMetodosBaseDeDatos(claseControlBaseDeDatos.SQlSCADA, claseControlBaseDeDatos.SQLNomDBSCADA, claseControlBaseDeDatos.SQLUserSCADA, claseControlBaseDeDatos.SQLPassSCADA);
-        //    try
-        //    {
-        //        SqlParameter[] Parametros = new SqlParameter[12];
+        public bool GuardarUsuario()
+        {
+            conexionBD = new claseMetodosBaseDeDatos(claseControlBaseDeDatos.SQlsistemaSCADA, claseControlBaseDeDatos.SQLNomDBsistemaSCADA, claseControlBaseDeDatos.SQLUsersistemaSCADA, claseControlBaseDeDatos.SQLPasssistemaSCADA);
+            try
+            {
+                SqlParameter[] Parametros = new SqlParameter[12];
 
-        //        Parametros[0] = new SqlParameter();
-        //        Parametros[0].ParameterName = "@IdUsuario";
-        //        Parametros[0].SqlDbType = SqlDbType.Int;
-        //        Parametros[0].Value = IdUsuario;
+                Parametros[0] = new SqlParameter();
+                Parametros[0].ParameterName = "@IdUsuario";
+                Parametros[0].SqlDbType = SqlDbType.Int;
+                Parametros[0].Value = IdUsuario;
 
-        //        Parametros[1] = new SqlParameter();
-        //        Parametros[1].ParameterName = "@Direccion";
-        //        Parametros[1].SqlDbType = SqlDbType.VarChar;
-        //        Parametros[1].Size = 300;
-        //        Parametros[1].Value = Direccion;
+                Parametros[1] = new SqlParameter();
+                Parametros[1].ParameterName = "@Direccion";
+                Parametros[1].SqlDbType = SqlDbType.VarChar;
+                Parametros[1].Size = 300;
+                Parametros[1].Value = Direccion;
 
-        //        Parametros[2] = new SqlParameter();
-        //        Parametros[2].ParameterName = "@Nombre";
-        //        Parametros[2].SqlDbType = SqlDbType.VarChar;
-        //        Parametros[2].Size = 50;
-        //        Parametros[2].Value = Nombre;
+                Parametros[2] = new SqlParameter();
+                Parametros[2].ParameterName = "@Nombre";
+                Parametros[2].SqlDbType = SqlDbType.VarChar;
+                Parametros[2].Size = 50;
+                Parametros[2].Value = Nombre;
 
-        //        Parametros[3] = new SqlParameter();
-        //        Parametros[3].ParameterName = "@Apellido";
-        //        Parametros[3].SqlDbType = SqlDbType.VarChar;
-        //        Parametros[3].Size = 50;
-        //        Parametros[3].Value = Apellido;
+                Parametros[3] = new SqlParameter();
+                Parametros[3].ParameterName = "@Apellido";
+                Parametros[3].SqlDbType = SqlDbType.VarChar;
+                Parametros[3].Size = 50;
+                Parametros[3].Value = Apellido;
 
-        //        Parametros[4] = new SqlParameter();
-        //        Parametros[4].ParameterName = "@Cedula";
-        //        Parametros[4].SqlDbType = SqlDbType.VarChar;
-        //        Parametros[4].Size = 20;
-        //        Parametros[4].Value = Cedula;
+                Parametros[4] = new SqlParameter();
+                Parametros[4].ParameterName = "@Cedula";
+                Parametros[4].SqlDbType = SqlDbType.VarChar;
+                Parametros[4].Size = 20;
+                Parametros[4].Value = Cedula;
 
-        //        Parametros[5] = new SqlParameter();
-        //        Parametros[5].ParameterName = "@Estatus";
-        //        Parametros[5].SqlDbType = SqlDbType.Bit;
-        //        Parametros[5].Value = Estatus;
+                Parametros[5] = new SqlParameter();
+                Parametros[5].ParameterName = "@Estatus";
+                Parametros[5].SqlDbType = SqlDbType.Bit;
+                Parametros[5].Value = Estatus;
 
-        //        Parametros[6] = new SqlParameter();
-        //        Parametros[6].ParameterName = "@Tlf";
-        //        Parametros[6].SqlDbType = SqlDbType.VarChar;
-        //        Parametros[6].Size = 20;
-        //        Parametros[6].Value = Tlf;
+                Parametros[6] = new SqlParameter();
+                Parametros[6].ParameterName = "@Tlf";
+                Parametros[6].SqlDbType = SqlDbType.VarChar;
+                Parametros[6].Size = 20;
+                Parametros[6].Value = Tlf;
 
-        //        Parametros[7] = new SqlParameter();
-        //        Parametros[7].ParameterName = "@IdUsuarioEmi";
-        //        Parametros[7].SqlDbType = SqlDbType.Int;
-        //        Parametros[7].Value = claseUsuarioAct.IdUsuario;
+                Parametros[7] = new SqlParameter();
+                Parametros[7].ParameterName = "@IdUsuarioEmi";
+                Parametros[7].SqlDbType = SqlDbType.Int;
+                Parametros[7].Value = claseUsuarioAct.IdUsuario;
 
-        //        Parametros[8] = new SqlParameter();
-        //        Parametros[8].ParameterName = "@IdPerfil";
-        //        Parametros[8].SqlDbType = SqlDbType.Int;
-        //        Parametros[8].Value = IdPerfil;
+                Parametros[8] = new SqlParameter();
+                Parametros[8].ParameterName = "@IdPerfil";
+                Parametros[8].SqlDbType = SqlDbType.Int;
+                Parametros[8].Value = IdPerfil;
 
-        //        Parametros[9] = new SqlParameter();
-        //        Parametros[9].ParameterName = "@Contraseña";
-        //        Parametros[9].SqlDbType = SqlDbType.VarChar;
-        //        Parametros[9].Size = 100;
-        //        Parametros[9].Value = Contraseña;
+                Parametros[9] = new SqlParameter();
+                Parametros[9].ParameterName = "@Contraseña";
+                Parametros[9].SqlDbType = SqlDbType.VarChar;
+                Parametros[9].Size = 100;
+                Parametros[9].Value = Contraseña;
 
-        //        Parametros[10] = new SqlParameter();
-        //        Parametros[10].ParameterName = "@UserName";
-        //        Parametros[10].SqlDbType = SqlDbType.VarChar;
-        //        Parametros[10].Size = 20;
-        //        Parametros[10].Value = UserName;
+                Parametros[10] = new SqlParameter();
+                Parametros[10].ParameterName = "@UserName";
+                Parametros[10].SqlDbType = SqlDbType.VarChar;
+                Parametros[10].Size = 20;
+                Parametros[10].Value = UserName;
 
-        //        Parametros[11] = new SqlParameter();
-        //        Parametros[11].ParameterName = "@Correo";
-        //        Parametros[11].SqlDbType = SqlDbType.VarChar;
-        //        Parametros[11].Size = 60;
-        //        Parametros[11].Value = Correo;
+                Parametros[11] = new SqlParameter();
+                Parametros[11].ParameterName = "@Correo";
+                Parametros[11].SqlDbType = SqlDbType.VarChar;
+                Parametros[11].Size = 60;
+                Parametros[11].Value = Correo;
 
-        //        if(IdUsuario == 0)
-        //            IdUsuario = Convert.ToInt32(conexionBD.ScalarSP(ref Parametros, "usp_GuardarUsuario", 
-        //                "Error guardanto los datos del Usuario"));
-        //        else
-        //            conexionBD.EjecutarSP(ref Parametros, "usp_GuardarUsuario",
-        //                "Error guardanto los datos del Usuario");
+                if (IdUsuario == 0)
+                    IdUsuario = Convert.ToInt32(conexionBD.ScalarSP(ref Parametros, "usp_GuardarUsuario",
+                        "Error guardanto los datos del Usuario"));
+                else
+                    conexionBD.EjecutarSP(ref Parametros, "usp_GuardarUsuario",
+                        "Error guardanto los datos del Usuario");
 
-        //        foreach(DataGridViewRow Row in dgv.Rows)
-        //        {
-        //            SqlParameter[] Parametros2 = new SqlParameter[3];
-
-        //            Parametros2[0] = new SqlParameter();
-        //            Parametros2[0].ParameterName = "@IdUsuario";
-        //            Parametros2[0].SqlDbType = SqlDbType.Int;
-        //            Parametros2[0].Value = IdUsuario;
-
-        //            Parametros2[1] = new SqlParameter();
-        //            Parametros2[1].ParameterName = "@IdEmpresa";
-        //            Parametros2[1].SqlDbType = SqlDbType.Int;
-        //            Parametros2[1].Value = Convert.ToInt32(dgv.Rows[Row.Index].Cells["Id"].Value);
-
-        //            Parametros2[2] = new SqlParameter();
-        //            Parametros2[2].ParameterName = "@Permiso";
-        //            Parametros2[2].SqlDbType = SqlDbType.Bit;
-        //            Parametros2[2].Value = Convert.ToBoolean(dgv.Rows[Row.Index].Cells["Permiso"].Value);
-
-        //            conexionBD.EjecutarSP(ref Parametros2, "usp_GuardarEmpresaUsuario",
-        //                "Error guardanto los permisos del Usuario");
-        //        }
-        //        return true;
-        //    }
-        //    catch (SqlException SQLex)
-        //    {
-        //        claseControlComunes.MsjShow(SQLex.Message, 1, 1);
-        //        return false;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        claseControlComunes.MsjShow(ex.Message, 1, 1);
-        //        return false;
-        //    }
-        //}
+                return true;
+            }
+            catch (SqlException SQLex)
+            {
+                ClaseComunes.MsjShow(SQLex.Message, 1, 1);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                ClaseComunes.MsjShow(ex.Message, 1, 1);
+                return false;
+            }
+        }
 
 
         /*****************************************************************************************************************************************************
-        Nombre del Creador:Melanie Infante
-        Fecha de Creacion: 20/09/18
         Descripcion: Metodo para llenar una Grid View, en el que se definen las columnas y ls valores que se van a mostrar. Tambien
         es utilizado para la busqueda de uno o varios registros perteneciente a la Grid
         *****************************************************************************************************************************************************/
-        public static void setDgrw(ref DataGridView grv, ref Label lbl, string storeProcedure, string Busqueda = "")
+        public static void setDgrw(ref DataGridView grv, string storeProcedure, string Busqueda = "")
         {
             conexionBD = new claseMetodosBaseDeDatos(claseControlBaseDeDatos.SQlsistemaSCADA, claseControlBaseDeDatos.SQLNomDBsistemaSCADA, claseControlBaseDeDatos.SQLUsersistemaSCADA, 
                 claseControlBaseDeDatos.SQLPasssistemaSCADA);
@@ -195,7 +169,7 @@ namespace SystemSCADA.Controlador
                 }
 
                 grv.DataSource = conexionBD.TablaSP(ref Parametros, storeProcedure, "Error obteniendo los datos");
-                lbl.Text = grv.Rows.Count.ToString();
+                
 
                 grv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 grv.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 12f, FontStyle.Bold, 0);
@@ -210,9 +184,6 @@ namespace SystemSCADA.Controlador
                 grv.Columns["Cedula"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 grv.Columns["Cedula"].HeaderText = "Cedula";
                 grv.Columns["Cedula"].Width = 80;
-                grv.Columns["FechaEmi"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                grv.Columns["FechaEmi"].HeaderText = "Creado el:";
-                grv.Columns["FechaEmi"].Width = 80;
                 grv.Columns["UserName"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 grv.Columns["UserName"].HeaderText = "Usuario";
                 grv.Columns["UserName"].Width = 80;
@@ -228,10 +199,10 @@ namespace SystemSCADA.Controlador
                 grv.Columns["Estatus"].HeaderText = "Estado";
                 grv.Columns["Estatus"].Width = 60;
 
-                grv.Columns["IdUsuario"].Visible = false;
-                grv.Columns["IdUsuarioEmi"].Visible = false;
+                grv.Columns["Usuario_id"].Visible = false;
+                grv.Columns["IdUsrEmi"].Visible = false;
                 grv.Columns["Contraseña"].Visible = false;
-                grv.Columns["IdPerfil"].Visible = false;
+                grv.Columns["Perfil_Id"].Visible = false;
                 grv.Columns["Direccion"].Visible = false;
                 grv.Columns["Tlf"].Visible = false;
                 grv.Columns["Correo"].Visible = false;
@@ -247,8 +218,6 @@ namespace SystemSCADA.Controlador
         }
 
         /*****************************************************************************************************************************************************
-        Nombre del Creador: Melanie Infante
-        Fecha de Creacion: 27/09/18
         Descripcion: Procedimiento para llenar ComboBox
         *****************************************************************************************************************************************************/
         public static void llenarCmbPerfil(ref ComboBox cmb)
@@ -260,8 +229,6 @@ namespace SystemSCADA.Controlador
         }
 
         /*****************************************************************************************************************************************************
-        Nombre del Creador: Melanie Infante
-        Fecha de Creacion: 3/10/18
         Descripcion: Procedimiento para borrar un Registro de la GridView
         *****************************************************************************************************************************************************/
         public static bool ActualizarEstatus()
@@ -294,8 +261,6 @@ namespace SystemSCADA.Controlador
         }
 
         /*****************************************************************************************************************************************************
-        Nombre del Creador:Juan Sanchez
-        Fecha de Creacion: septiembre del 2018
         Descripcion: Añade el control de usuario a un panel
         *****************************************************************************************************************************************************/
         //public void Guardar(int IdUser, int IdPerfil, string Nom, string User)
@@ -310,8 +275,6 @@ namespace SystemSCADA.Controlador
         #region Chekear
 
         /*****************************************************************************************************************************************************
-         Nombre del Creador:Juan Sanchez
-         Fecha de Creacion: septiembre del 2018
          Descripcion: Funcion para verificar la existencia de usuarios
          *****************************************************************************************************************************************************/
         public bool ExistenciaDeUsuarios()
@@ -341,8 +304,6 @@ namespace SystemSCADA.Controlador
         }
 
         /*****************************************************************************************************************************************************
-        Nombre del Creador: Juan Sanchez
-        Fecha de Creacion: 
         Descripcion: Valida que no se repita un usuario en particular
         *****************************************************************************************************************************************************/
         public bool VerificarExitenciaUsuario()
@@ -394,8 +355,6 @@ namespace SystemSCADA.Controlador
         }
 
         /*****************************************************************************************************************************************************
-         Nombre del Creador:Juan Sanchez
-         Fecha de Creacion: septiembre del 2018
          Descripcion: Funcion para verificar la existencia de un usuario en particular
          *****************************************************************************************************************************************************/
         public bool chkUsuario()

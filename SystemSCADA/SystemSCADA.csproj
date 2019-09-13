@@ -78,6 +78,7 @@
   <ItemGroup>
     <Compile Include="Controlador\ClaseComunes.cs" />
     <Compile Include="Controlador\claseControlBaseDeDatos.cs" />
+    <Compile Include="Controlador\claseControlPerfil.cs" />
     <Compile Include="Controlador\claseControlUsuario.cs" />
     <Compile Include="Controlador\claseUsuarioAct.cs" />
     <Compile Include="Controlador\claseValidacionDeDatos.cs" />
@@ -101,6 +102,12 @@
     </Compile>
     <Compile Include="Vista\formMensaje.designer.cs">
       <DependentUpon>formMensaje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\FormPerfilesDelSistema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\FormPerfilesDelSistema.Designer.cs">
+      <DependentUpon>FormPerfilesDelSistema.cs</DependentUpon>
     </Compile>
     <Compile Include="Vista\FormPrincipal.cs">
       <SubType>Form</SubType>
@@ -144,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\formMensaje.resx">
       <DependentUpon>formMensaje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\FormPerfilesDelSistema.resx">
+      <DependentUpon>FormPerfilesDelSistema.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
@@ -277,6 +287,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Exitoso_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

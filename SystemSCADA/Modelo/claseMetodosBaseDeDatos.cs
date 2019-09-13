@@ -344,13 +344,13 @@ namespace SystemSCADA.Modelo
             catch (SqlException Sqlex)
             {
                 Cursor.Current = Cursors.Default;
-                //Controladores.claseControlComunes.MsjShow(msgError + ": " + Sqlex.Message, 1, 1);
+                ClaseComunes.MsjShow(msgError + ": " + Sqlex.Message, 1, 1);
                 return false;
             }
             catch (Exception ex)
             {
                 Cursor.Current = Cursors.Default;
-                //Controladores.claseControlComunes.MsjShow(msgError + ": " + ex.Message, 1, 1);
+                ClaseComunes.MsjShow(msgError + ": " + ex.Message, 1, 1);
                 return false;
             }
             finally

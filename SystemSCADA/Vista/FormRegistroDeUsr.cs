@@ -13,6 +13,7 @@ namespace SystemSCADA.Vista
 {
     public partial class FormRegistroDeUsr : Form
     {
+        public event EventHandler Actualizar;
         public FormRegistroDeUsr()
         {
             InitializeComponent();
@@ -75,8 +76,10 @@ namespace SystemSCADA.Vista
 
         private void FormRegistroDeUsr_Load(object sender, EventArgs e)
         {
+            claseControlUsuario.setDgrw(ref dgrvUsuarios, "USP_ConsultaUsuario");
             claseControlUsuario.llenarCmbPerfil(ref cmbPerfiles);
-            LlenarForm(); //Se llenan los campos con la informacion correspondiente 
+            LlenarForm(); //Se llenan los campos con la informacion correspondiente
+            dgrvUsuarios.Enabled = false;
             
         }
 
@@ -107,6 +110,19 @@ namespace SystemSCADA.Vista
             pnlNuevoUsuario.Visible = false;
         }
 
+        private void LimpiarConfiUsuario()
+        {
+            txtDireccionConfiUsuario.Text = "";
+            txtNombreConfiUsuario.Text = "";
+            txtCedulaConfiUsuario.Text = "";
+            txtTlfConfiUsuario.Text = "";
+            cmbPerfiles.SelectedIndex = 0;
+            txtContraseña.Text = "";
+            txtApellidoConfiUsuario.Text = "";
+            txtUsuario.Text = "";
+            txtCorreoConfiUsuario.Text = "";
+            chbEstatusConfiUsuario.Checked = true;
+        }
         /*****************************************************************************************************************************************************
         Descripcion: Cuando se activa este evento se ejecutan multiples procedimientos para guaradar en la base de datos.
         *****************************************************************************************************************************************************/
@@ -142,7 +158,7 @@ namespace SystemSCADA.Vista
 
                 if (Text == "Nuevo")
                 {
-                    btnLimpiarConfiUsuario_Click(sender, e);
+                    LimpiarConfiUsuario();
                     claseControlUsuario.IdUsuario = 0;
                 }
                 else

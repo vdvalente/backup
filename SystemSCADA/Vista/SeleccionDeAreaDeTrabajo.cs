@@ -14,6 +14,7 @@ namespace SystemSCADA.Vista
 {
     public partial class SeleccionDeAreaDeTrabajo : Form
     {
+        bool respuesta;
         public SeleccionDeAreaDeTrabajo()
         {
             InitializeComponent();
@@ -152,6 +153,54 @@ namespace SystemSCADA.Vista
         private void BtnCrearPerfil_MouseLeave(object sender, EventArgs e)
         {
             btnCrearPerfil.BackColor = Color.FromArgb(150,150,150);
+        }
+
+        private void BtnCrearPerfil_Click(object sender, EventArgs e)
+        {
+            Form g_ExisteFormulario = Application.OpenForms.OfType<SeleccionDeAreaDeTrabajo>().Where(pre => pre.Text == "PerfilesDelSistema").SingleOrDefault<Form>();
+            if (g_ExisteFormulario != null)
+            {
+                if (g_ExisteFormulario.WindowState == FormWindowState.Minimized)
+                {
+                    g_ExisteFormulario.WindowState = FormWindowState.Normal;
+                }
+                g_ExisteFormulario.BringToFront();
+            }
+            else
+            {
+                FormPerfilesDelSistema frm = new FormPerfilesDelSistema();
+                frm.Show();
+            }
+            Hide();
+        }
+
+        private void BtnConfBD_Click(object sender, EventArgs e)
+        {
+            Form g_ExisteFormulario = Application.OpenForms.OfType<SeleccionDeAreaDeTrabajo>().Where(pre => pre.Text == "Configurar Conexion con el Servidor de Base de Datos").SingleOrDefault<Form>();
+            if (g_ExisteFormulario != null)
+            {
+                if (g_ExisteFormulario.WindowState == FormWindowState.Minimized)
+                {
+                    g_ExisteFormulario.WindowState = FormWindowState.Normal;
+                }
+                g_ExisteFormulario.BringToFront();
+            }
+            else
+            {
+                formConexionBD frm = new formConexionBD();
+                frm.Show();
+            }
+        }
+
+        private void BtnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            respuesta = ClaseComunes.MsjShow("¿Desea Cerrar la Sesión?", 3, 2);
+            if (respuesta)
+            {
+                formLogin frm = new formLogin();
+                frm.Show();
+                this.Hide();
+            }
         }
     }
 }

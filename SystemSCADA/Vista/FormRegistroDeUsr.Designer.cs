@@ -29,16 +29,25 @@
         private void InitializeComponent()
         {
             this.pnlRegistroDeUsr = new System.Windows.Forms.Panel();
+            this.pnlNuevoUsuario = new System.Windows.Forms.Panel();
+            this.pnlCreacionUsr = new System.Windows.Forms.Panel();
+            this.cmbPerfiles = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblSubtitulo2 = new System.Windows.Forms.Label();
+            this.txtContraseña = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.shapeContainer3 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.lineShape3 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.chbEstatusConfiUsuario = new System.Windows.Forms.CheckBox();
             this.lblEstatusConfiUsuario = new System.Windows.Forms.Label();
             this.txtDireccionConfiUsuario = new System.Windows.Forms.TextBox();
-            this.chbEstatusConfiUsuario = new System.Windows.Forms.CheckBox();
-            this.lblDireccionConfiUsuario = new System.Windows.Forms.Label();
             this.txtCorreoConfiUsuario = new System.Windows.Forms.TextBox();
-            this.lblCorreoConfiUsuario = new System.Windows.Forms.Label();
-            this.pnlNuevoUsuario = new System.Windows.Forms.Panel();
-            this.lblUsuario = new System.Windows.Forms.Label();
             this.txtCedulaConfiUsuario = new System.Windows.Forms.TextBox();
+            this.lblCorreoConfiUsuario = new System.Windows.Forms.Label();
             this.txtTlfConfiUsuario = new System.Windows.Forms.MaskedTextBox();
+            this.lblDireccionConfiUsuario = new System.Windows.Forms.Label();
             this.txtNombreConfiUsuario = new System.Windows.Forms.TextBox();
             this.lblTlfConfiUsuario = new System.Windows.Forms.Label();
             this.lblCedulaConfiUsuario = new System.Windows.Forms.Label();
@@ -46,22 +55,13 @@
             this.lblApellidoConfiUsuario = new System.Windows.Forms.Label();
             this.txtApellidoConfiUsuario = new System.Windows.Forms.TextBox();
             this.lblNombreConfiUsuario = new System.Windows.Forms.Label();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.pnlBotones = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.dgrvUsuarios = new System.Windows.Forms.DataGridView();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.pnlCreacionUsr = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtContraseña = new System.Windows.Forms.TextBox();
-            this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.lblSubtitulo2 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmbPerfiles = new System.Windows.Forms.ComboBox();
-            this.lineShape3 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.shapeContainer3 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.btnCancelarAsignacion = new System.Windows.Forms.Button();
             this.btnCrearUsuario = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -73,9 +73,9 @@
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.pnlRegistroDeUsr.SuspendLayout();
             this.pnlNuevoUsuario.SuspendLayout();
+            this.pnlCreacionUsr.SuspendLayout();
             this.pnlBotones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrvUsuarios)).BeginInit();
-            this.pnlCreacionUsr.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlRegistroDeUsr
@@ -92,65 +92,6 @@
             this.pnlRegistroDeUsr.Name = "pnlRegistroDeUsr";
             this.pnlRegistroDeUsr.Size = new System.Drawing.Size(1385, 787);
             this.pnlRegistroDeUsr.TabIndex = 0;
-            // 
-            // lblEstatusConfiUsuario
-            // 
-            this.lblEstatusConfiUsuario.AutoSize = true;
-            this.lblEstatusConfiUsuario.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstatusConfiUsuario.Location = new System.Drawing.Point(48, 226);
-            this.lblEstatusConfiUsuario.Name = "lblEstatusConfiUsuario";
-            this.lblEstatusConfiUsuario.Size = new System.Drawing.Size(48, 17);
-            this.lblEstatusConfiUsuario.TabIndex = 18;
-            this.lblEstatusConfiUsuario.Text = "Estado";
-            // 
-            // txtDireccionConfiUsuario
-            // 
-            this.txtDireccionConfiUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtDireccionConfiUsuario.Location = new System.Drawing.Point(73, 107);
-            this.txtDireccionConfiUsuario.Multiline = true;
-            this.txtDireccionConfiUsuario.Name = "txtDireccionConfiUsuario";
-            this.txtDireccionConfiUsuario.Size = new System.Drawing.Size(370, 82);
-            this.txtDireccionConfiUsuario.TabIndex = 11;
-            // 
-            // chbEstatusConfiUsuario
-            // 
-            this.chbEstatusConfiUsuario.AutoSize = true;
-            this.chbEstatusConfiUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chbEstatusConfiUsuario.Location = new System.Drawing.Point(102, 227);
-            this.chbEstatusConfiUsuario.Name = "chbEstatusConfiUsuario";
-            this.chbEstatusConfiUsuario.Size = new System.Drawing.Size(56, 17);
-            this.chbEstatusConfiUsuario.TabIndex = 19;
-            this.chbEstatusConfiUsuario.Text = "Activo";
-            this.chbEstatusConfiUsuario.UseVisualStyleBackColor = true;
-            // 
-            // lblDireccionConfiUsuario
-            // 
-            this.lblDireccionConfiUsuario.AutoSize = true;
-            this.lblDireccionConfiUsuario.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDireccionConfiUsuario.Location = new System.Drawing.Point(4, 110);
-            this.lblDireccionConfiUsuario.Name = "lblDireccionConfiUsuario";
-            this.lblDireccionConfiUsuario.Size = new System.Drawing.Size(66, 17);
-            this.lblDireccionConfiUsuario.TabIndex = 10;
-            this.lblDireccionConfiUsuario.Text = "Dirección";
-            // 
-            // txtCorreoConfiUsuario
-            // 
-            this.txtCorreoConfiUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCorreoConfiUsuario.Location = new System.Drawing.Point(74, 197);
-            this.txtCorreoConfiUsuario.MaxLength = 80;
-            this.txtCorreoConfiUsuario.Name = "txtCorreoConfiUsuario";
-            this.txtCorreoConfiUsuario.Size = new System.Drawing.Size(370, 20);
-            this.txtCorreoConfiUsuario.TabIndex = 13;
-            // 
-            // lblCorreoConfiUsuario
-            // 
-            this.lblCorreoConfiUsuario.AutoSize = true;
-            this.lblCorreoConfiUsuario.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCorreoConfiUsuario.Location = new System.Drawing.Point(12, 198);
-            this.lblCorreoConfiUsuario.Name = "lblCorreoConfiUsuario";
-            this.lblCorreoConfiUsuario.Size = new System.Drawing.Size(49, 17);
-            this.lblCorreoConfiUsuario.TabIndex = 12;
-            this.lblCorreoConfiUsuario.Text = "Correo";
             // 
             // pnlNuevoUsuario
             // 
@@ -180,6 +121,70 @@
             this.pnlNuevoUsuario.TabIndex = 7;
             this.pnlNuevoUsuario.Visible = false;
             // 
+            // pnlCreacionUsr
+            // 
+            this.pnlCreacionUsr.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlCreacionUsr.Controls.Add(this.cmbPerfiles);
+            this.pnlCreacionUsr.Controls.Add(this.label2);
+            this.pnlCreacionUsr.Controls.Add(this.lblSubtitulo2);
+            this.pnlCreacionUsr.Controls.Add(this.btnCancelarAsignacion);
+            this.pnlCreacionUsr.Controls.Add(this.txtContraseña);
+            this.pnlCreacionUsr.Controls.Add(this.btnCrearUsuario);
+            this.pnlCreacionUsr.Controls.Add(this.label1);
+            this.pnlCreacionUsr.Controls.Add(this.lblUsuario);
+            this.pnlCreacionUsr.Controls.Add(this.txtUsuario);
+            this.pnlCreacionUsr.Controls.Add(this.shapeContainer3);
+            this.pnlCreacionUsr.Location = new System.Drawing.Point(33, 34);
+            this.pnlCreacionUsr.Name = "pnlCreacionUsr";
+            this.pnlCreacionUsr.Size = new System.Drawing.Size(411, 192);
+            this.pnlCreacionUsr.TabIndex = 20;
+            this.pnlCreacionUsr.Visible = false;
+            // 
+            // cmbPerfiles
+            // 
+            this.cmbPerfiles.FormattingEnabled = true;
+            this.cmbPerfiles.Location = new System.Drawing.Point(145, 71);
+            this.cmbPerfiles.Name = "cmbPerfiles";
+            this.cmbPerfiles.Size = new System.Drawing.Size(171, 21);
+            this.cmbPerfiles.TabIndex = 24;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(85, 71);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 19);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Perfil:";
+            // 
+            // lblSubtitulo2
+            // 
+            this.lblSubtitulo2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubtitulo2.Location = new System.Drawing.Point(69, 7);
+            this.lblSubtitulo2.Name = "lblSubtitulo2";
+            this.lblSubtitulo2.Size = new System.Drawing.Size(298, 42);
+            this.lblSubtitulo2.TabIndex = 22;
+            this.lblSubtitulo2.Text = "Asignación de Perfil para el nivel de acceso en la aplicación";
+            // 
+            // txtContraseña
+            // 
+            this.txtContraseña.Location = new System.Drawing.Point(145, 123);
+            this.txtContraseña.MaxLength = 50;
+            this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.Size = new System.Drawing.Size(171, 20);
+            this.txtContraseña.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(32, 122);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(102, 19);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Contraseña:";
+            // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
@@ -190,6 +195,75 @@
             this.lblUsuario.TabIndex = 4;
             this.lblUsuario.Text = "Usuario:";
             // 
+            // txtUsuario
+            // 
+            this.txtUsuario.Location = new System.Drawing.Point(145, 98);
+            this.txtUsuario.MaxLength = 50;
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(171, 20);
+            this.txtUsuario.TabIndex = 0;
+            // 
+            // shapeContainer3
+            // 
+            this.shapeContainer3.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer3.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer3.Name = "shapeContainer3";
+            this.shapeContainer3.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.lineShape3});
+            this.shapeContainer3.Size = new System.Drawing.Size(407, 188);
+            this.shapeContainer3.TabIndex = 25;
+            this.shapeContainer3.TabStop = false;
+            // 
+            // lineShape3
+            // 
+            this.lineShape3.BorderColor = System.Drawing.Color.Blue;
+            this.lineShape3.BorderWidth = 4;
+            this.lineShape3.Name = "lineShape3";
+            this.lineShape3.SelectionColor = System.Drawing.Color.Honeydew;
+            this.lineShape3.X1 = 0;
+            this.lineShape3.X2 = 409;
+            this.lineShape3.Y1 = 54;
+            this.lineShape3.Y2 = 54;
+            // 
+            // chbEstatusConfiUsuario
+            // 
+            this.chbEstatusConfiUsuario.AutoSize = true;
+            this.chbEstatusConfiUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chbEstatusConfiUsuario.Location = new System.Drawing.Point(102, 227);
+            this.chbEstatusConfiUsuario.Name = "chbEstatusConfiUsuario";
+            this.chbEstatusConfiUsuario.Size = new System.Drawing.Size(56, 17);
+            this.chbEstatusConfiUsuario.TabIndex = 19;
+            this.chbEstatusConfiUsuario.Text = "Activo";
+            this.chbEstatusConfiUsuario.UseVisualStyleBackColor = true;
+            // 
+            // lblEstatusConfiUsuario
+            // 
+            this.lblEstatusConfiUsuario.AutoSize = true;
+            this.lblEstatusConfiUsuario.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstatusConfiUsuario.Location = new System.Drawing.Point(48, 226);
+            this.lblEstatusConfiUsuario.Name = "lblEstatusConfiUsuario";
+            this.lblEstatusConfiUsuario.Size = new System.Drawing.Size(48, 17);
+            this.lblEstatusConfiUsuario.TabIndex = 18;
+            this.lblEstatusConfiUsuario.Text = "Estado";
+            // 
+            // txtDireccionConfiUsuario
+            // 
+            this.txtDireccionConfiUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtDireccionConfiUsuario.Location = new System.Drawing.Point(73, 107);
+            this.txtDireccionConfiUsuario.Multiline = true;
+            this.txtDireccionConfiUsuario.Name = "txtDireccionConfiUsuario";
+            this.txtDireccionConfiUsuario.Size = new System.Drawing.Size(370, 82);
+            this.txtDireccionConfiUsuario.TabIndex = 11;
+            // 
+            // txtCorreoConfiUsuario
+            // 
+            this.txtCorreoConfiUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCorreoConfiUsuario.Location = new System.Drawing.Point(74, 197);
+            this.txtCorreoConfiUsuario.MaxLength = 80;
+            this.txtCorreoConfiUsuario.Name = "txtCorreoConfiUsuario";
+            this.txtCorreoConfiUsuario.Size = new System.Drawing.Size(370, 20);
+            this.txtCorreoConfiUsuario.TabIndex = 13;
+            // 
             // txtCedulaConfiUsuario
             // 
             this.txtCedulaConfiUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -199,6 +273,16 @@
             this.txtCedulaConfiUsuario.Size = new System.Drawing.Size(144, 20);
             this.txtCedulaConfiUsuario.TabIndex = 5;
             // 
+            // lblCorreoConfiUsuario
+            // 
+            this.lblCorreoConfiUsuario.AutoSize = true;
+            this.lblCorreoConfiUsuario.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCorreoConfiUsuario.Location = new System.Drawing.Point(12, 198);
+            this.lblCorreoConfiUsuario.Name = "lblCorreoConfiUsuario";
+            this.lblCorreoConfiUsuario.Size = new System.Drawing.Size(49, 17);
+            this.lblCorreoConfiUsuario.TabIndex = 12;
+            this.lblCorreoConfiUsuario.Text = "Correo";
+            // 
             // txtTlfConfiUsuario
             // 
             this.txtTlfConfiUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -207,6 +291,16 @@
             this.txtTlfConfiUsuario.Name = "txtTlfConfiUsuario";
             this.txtTlfConfiUsuario.Size = new System.Drawing.Size(107, 20);
             this.txtTlfConfiUsuario.TabIndex = 7;
+            // 
+            // lblDireccionConfiUsuario
+            // 
+            this.lblDireccionConfiUsuario.AutoSize = true;
+            this.lblDireccionConfiUsuario.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDireccionConfiUsuario.Location = new System.Drawing.Point(4, 110);
+            this.lblDireccionConfiUsuario.Name = "lblDireccionConfiUsuario";
+            this.lblDireccionConfiUsuario.Size = new System.Drawing.Size(66, 17);
+            this.lblDireccionConfiUsuario.TabIndex = 10;
+            this.lblDireccionConfiUsuario.Text = "Dirección";
             // 
             // txtNombreConfiUsuario
             // 
@@ -276,13 +370,27 @@
             this.lblNombreConfiUsuario.TabIndex = 0;
             this.lblNombreConfiUsuario.Text = "Nombre";
             // 
-            // txtUsuario
+            // shapeContainer2
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(145, 98);
-            this.txtUsuario.MaxLength = 50;
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(171, 20);
-            this.txtUsuario.TabIndex = 0;
+            this.shapeContainer2.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer2.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer2.Name = "shapeContainer2";
+            this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.lineShape2});
+            this.shapeContainer2.Size = new System.Drawing.Size(476, 297);
+            this.shapeContainer2.TabIndex = 21;
+            this.shapeContainer2.TabStop = false;
+            // 
+            // lineShape2
+            // 
+            this.lineShape2.BorderColor = System.Drawing.Color.Blue;
+            this.lineShape2.BorderWidth = 4;
+            this.lineShape2.Name = "lineShape2";
+            this.lineShape2.SelectionColor = System.Drawing.Color.Honeydew;
+            this.lineShape2.X1 = 0;
+            this.lineShape2.X2 = 478;
+            this.lineShape2.Y1 = 34;
+            this.lineShape2.Y2 = 34;
             // 
             // pnlBotones
             // 
@@ -336,114 +444,6 @@
             this.lineShape1.X2 = 1384;
             this.lineShape1.Y1 = 44;
             this.lineShape1.Y2 = 44;
-            // 
-            // pnlCreacionUsr
-            // 
-            this.pnlCreacionUsr.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlCreacionUsr.Controls.Add(this.cmbPerfiles);
-            this.pnlCreacionUsr.Controls.Add(this.label2);
-            this.pnlCreacionUsr.Controls.Add(this.lblSubtitulo2);
-            this.pnlCreacionUsr.Controls.Add(this.btnCancelarAsignacion);
-            this.pnlCreacionUsr.Controls.Add(this.txtContraseña);
-            this.pnlCreacionUsr.Controls.Add(this.btnCrearUsuario);
-            this.pnlCreacionUsr.Controls.Add(this.label1);
-            this.pnlCreacionUsr.Controls.Add(this.lblUsuario);
-            this.pnlCreacionUsr.Controls.Add(this.txtUsuario);
-            this.pnlCreacionUsr.Controls.Add(this.shapeContainer3);
-            this.pnlCreacionUsr.Location = new System.Drawing.Point(33, 34);
-            this.pnlCreacionUsr.Name = "pnlCreacionUsr";
-            this.pnlCreacionUsr.Size = new System.Drawing.Size(411, 192);
-            this.pnlCreacionUsr.TabIndex = 20;
-            this.pnlCreacionUsr.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(32, 122);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 19);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Contraseña:";
-            // 
-            // txtContraseña
-            // 
-            this.txtContraseña.Location = new System.Drawing.Point(145, 123);
-            this.txtContraseña.MaxLength = 50;
-            this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(171, 20);
-            this.txtContraseña.TabIndex = 6;
-            // 
-            // lineShape2
-            // 
-            this.lineShape2.BorderColor = System.Drawing.Color.Blue;
-            this.lineShape2.BorderWidth = 4;
-            this.lineShape2.Name = "lineShape2";
-            this.lineShape2.SelectionColor = System.Drawing.Color.Honeydew;
-            this.lineShape2.X1 = 0;
-            this.lineShape2.X2 = 478;
-            this.lineShape2.Y1 = 34;
-            this.lineShape2.Y2 = 34;
-            // 
-            // shapeContainer2
-            // 
-            this.shapeContainer2.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer2.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer2.Name = "shapeContainer2";
-            this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShape2});
-            this.shapeContainer2.Size = new System.Drawing.Size(476, 297);
-            this.shapeContainer2.TabIndex = 21;
-            this.shapeContainer2.TabStop = false;
-            // 
-            // lblSubtitulo2
-            // 
-            this.lblSubtitulo2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubtitulo2.Location = new System.Drawing.Point(69, 7);
-            this.lblSubtitulo2.Name = "lblSubtitulo2";
-            this.lblSubtitulo2.Size = new System.Drawing.Size(298, 42);
-            this.lblSubtitulo2.TabIndex = 22;
-            this.lblSubtitulo2.Text = "Asignación de Perfil para el nivel de acceso en la aplicación";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(85, 71);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 19);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "Perfil:";
-            // 
-            // cmbPerfiles
-            // 
-            this.cmbPerfiles.FormattingEnabled = true;
-            this.cmbPerfiles.Location = new System.Drawing.Point(145, 71);
-            this.cmbPerfiles.Name = "cmbPerfiles";
-            this.cmbPerfiles.Size = new System.Drawing.Size(171, 21);
-            this.cmbPerfiles.TabIndex = 24;
-            // 
-            // lineShape3
-            // 
-            this.lineShape3.BorderColor = System.Drawing.Color.Blue;
-            this.lineShape3.BorderWidth = 4;
-            this.lineShape3.Name = "lineShape3";
-            this.lineShape3.SelectionColor = System.Drawing.Color.Honeydew;
-            this.lineShape3.X1 = 0;
-            this.lineShape3.X2 = 409;
-            this.lineShape3.Y1 = 54;
-            this.lineShape3.Y2 = 54;
-            // 
-            // shapeContainer3
-            // 
-            this.shapeContainer3.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer3.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer3.Name = "shapeContainer3";
-            this.shapeContainer3.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShape3});
-            this.shapeContainer3.Size = new System.Drawing.Size(407, 188);
-            this.shapeContainer3.TabIndex = 25;
-            this.shapeContainer3.TabStop = false;
             // 
             // btnCancelarAsignacion
             // 
@@ -594,10 +594,10 @@
             this.pnlRegistroDeUsr.ResumeLayout(false);
             this.pnlNuevoUsuario.ResumeLayout(false);
             this.pnlNuevoUsuario.PerformLayout();
-            this.pnlBotones.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgrvUsuarios)).EndInit();
             this.pnlCreacionUsr.ResumeLayout(false);
             this.pnlCreacionUsr.PerformLayout();
+            this.pnlBotones.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgrvUsuarios)).EndInit();
             this.ResumeLayout(false);
 
         }
