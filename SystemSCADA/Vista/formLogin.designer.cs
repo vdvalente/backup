@@ -84,6 +84,7 @@
             this.txtContrasena.ForeColor = System.Drawing.Color.Gray;
             this.txtContrasena.Location = new System.Drawing.Point(73, 354);
             this.txtContrasena.Name = "txtContrasena";
+            this.txtContrasena.PasswordChar = '*';
             this.txtContrasena.Size = new System.Drawing.Size(374, 20);
             this.txtContrasena.TabIndex = 1;
             this.txtContrasena.Text = "Contraseña...";

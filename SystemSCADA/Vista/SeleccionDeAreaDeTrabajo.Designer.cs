@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SeleccionDeAreaDeTrabajo));
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.lineShape3 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -39,11 +40,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblSalones = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnCrearPerfil = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.btnConfBD = new System.Windows.Forms.Button();
             this.btnRegistroVideo = new System.Windows.Forms.Button();
             this.btnRegistrarUsr = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnBancoBNC = new System.Windows.Forms.Button();
+            this.btnSalonClases4424 = new System.Windows.Forms.Button();
             this.btnSalon = new System.Windows.Forms.Button();
             this.btnLabElectronica = new System.Windows.Forms.Button();
             this.btnLabComputacion = new System.Windows.Forms.Button();
@@ -69,11 +75,23 @@
             this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.lineShape3,
             this.lineShape2,
             this.lineShape1});
             this.shapeContainer1.Size = new System.Drawing.Size(1370, 749);
             this.shapeContainer1.TabIndex = 0;
             this.shapeContainer1.TabStop = false;
+            // 
+            // lineShape3
+            // 
+            this.lineShape3.BorderColor = System.Drawing.Color.Blue;
+            this.lineShape3.BorderWidth = 4;
+            this.lineShape3.Name = "lineShape3";
+            this.lineShape3.SelectionColor = System.Drawing.Color.Honeydew;
+            this.lineShape3.X1 = 0;
+            this.lineShape3.X2 = 1385;
+            this.lineShape3.Y1 = 374;
+            this.lineShape3.Y2 = 374;
             // 
             // lineShape2
             // 
@@ -121,11 +139,12 @@
             this.lblSalones.Name = "lblSalones";
             this.lblSalones.Size = new System.Drawing.Size(262, 23);
             this.lblSalones.TabIndex = 12;
-            this.lblSalones.Text = "Salones de clase";
+            this.lblSalones.Text = "Salon de clase 4423";
             this.lblSalones.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnCrearPerfil);
             this.panel1.Controls.Add(this.btnCerrarSesion);
             this.panel1.Controls.Add(this.btnConfBD);
@@ -136,10 +155,26 @@
             this.panel1.Size = new System.Drawing.Size(1289, 40);
             this.panel1.TabIndex = 13;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.Transparent;
+            this.button1.Location = new System.Drawing.Point(558, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(160, 37);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Ayuda";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // btnCrearPerfil
             // 
             this.btnCrearPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
             this.btnCrearPerfil.FlatAppearance.BorderSize = 0;
+            this.btnCrearPerfil.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnCrearPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCrearPerfil.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnCrearPerfil.ForeColor = System.Drawing.Color.Transparent;
@@ -149,48 +184,45 @@
             this.btnCrearPerfil.TabIndex = 4;
             this.btnCrearPerfil.Text = "Crear Perfiles";
             this.btnCrearPerfil.UseVisualStyleBackColor = false;
-            this.btnCrearPerfil.Click += new System.EventHandler(this.BtnCrearPerfil_Click);
             this.btnCrearPerfil.MouseLeave += new System.EventHandler(this.BtnCrearPerfil_MouseLeave);
-            this.btnCrearPerfil.MouseHover += new System.EventHandler(this.BtnCrearPerfil_MouseHover);
             // 
             // btnCerrarSesion
             // 
             this.btnCerrarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
             this.btnCerrarSesion.FlatAppearance.BorderSize = 0;
+            this.btnCerrarSesion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrarSesion.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnCerrarSesion.ForeColor = System.Drawing.Color.Transparent;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(526, 2);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(718, 2);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Size = new System.Drawing.Size(160, 37);
             this.btnCerrarSesion.TabIndex = 3;
             this.btnCerrarSesion.Text = "Cerrar Sesión";
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
             this.btnCerrarSesion.Click += new System.EventHandler(this.BtnCerrarSesion_Click);
-            this.btnCerrarSesion.MouseLeave += new System.EventHandler(this.BtnCerrarSesion_MouseLeave);
-            this.btnCerrarSesion.MouseHover += new System.EventHandler(this.BtnCerrarSesion_MouseHover);
             // 
             // btnConfBD
             // 
             this.btnConfBD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
             this.btnConfBD.FlatAppearance.BorderSize = 0;
+            this.btnConfBD.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnConfBD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfBD.Font = new System.Drawing.Font("Century Gothic", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfBD.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnConfBD.ForeColor = System.Drawing.Color.Transparent;
             this.btnConfBD.Location = new System.Drawing.Point(366, 2);
             this.btnConfBD.Name = "btnConfBD";
-            this.btnConfBD.Size = new System.Drawing.Size(160, 37);
+            this.btnConfBD.Size = new System.Drawing.Size(192, 37);
             this.btnConfBD.TabIndex = 2;
             this.btnConfBD.Text = "Configuracion Base de datos";
             this.btnConfBD.UseVisualStyleBackColor = false;
             this.btnConfBD.Click += new System.EventHandler(this.BtnConfBD_Click);
-            this.btnConfBD.MouseLeave += new System.EventHandler(this.BtnConfBD_MouseLeave);
-            this.btnConfBD.MouseHover += new System.EventHandler(this.BtnConfBD_MouseHover);
             // 
             // btnRegistroVideo
             // 
             this.btnRegistroVideo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
             this.btnRegistroVideo.FlatAppearance.BorderSize = 0;
+            this.btnRegistroVideo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnRegistroVideo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistroVideo.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnRegistroVideo.ForeColor = System.Drawing.Color.Transparent;
@@ -200,13 +232,12 @@
             this.btnRegistroVideo.TabIndex = 1;
             this.btnRegistroVideo.Text = "Registros de Video";
             this.btnRegistroVideo.UseVisualStyleBackColor = false;
-            this.btnRegistroVideo.MouseLeave += new System.EventHandler(this.BtnRegistroVideo_MouseLeave);
-            this.btnRegistroVideo.MouseHover += new System.EventHandler(this.BtnRegistroVideo_MouseHover);
             // 
             // btnRegistrarUsr
             // 
             this.btnRegistrarUsr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
             this.btnRegistrarUsr.FlatAppearance.BorderSize = 0;
+            this.btnRegistrarUsr.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnRegistrarUsr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrarUsr.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrarUsr.ForeColor = System.Drawing.Color.Transparent;
@@ -216,9 +247,53 @@
             this.btnRegistrarUsr.TabIndex = 0;
             this.btnRegistrarUsr.Text = "Registrar Usuario";
             this.btnRegistrarUsr.UseVisualStyleBackColor = false;
-            this.btnRegistrarUsr.Click += new System.EventHandler(this.BtnRegistrarUsr_Click);
             this.btnRegistrarUsr.MouseLeave += new System.EventHandler(this.BtnRegistrarUsr_MouseLeave);
-            this.btnRegistrarUsr.MouseHover += new System.EventHandler(this.BtnRegistrarUsr_MouseHover);
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(34, 601);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(247, 23);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Salon de clases 4424";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(510, 601);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(247, 23);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Banco BNC";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnBancoBNC
+            // 
+            this.btnBancoBNC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnBancoBNC.FlatAppearance.BorderSize = 0;
+            this.btnBancoBNC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBancoBNC.Image = global::SystemSCADA.Properties.Resources.IMG_20190913_093036;
+            this.btnBancoBNC.Location = new System.Drawing.Point(506, 425);
+            this.btnBancoBNC.Name = "btnBancoBNC";
+            this.btnBancoBNC.Size = new System.Drawing.Size(256, 160);
+            this.btnBancoBNC.TabIndex = 16;
+            this.btnBancoBNC.UseVisualStyleBackColor = true;
+            this.btnBancoBNC.Click += new System.EventHandler(this.BtnBancoBNC_Click);
+            // 
+            // btnSalonClases4424
+            // 
+            this.btnSalonClases4424.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnSalonClases4424.FlatAppearance.BorderSize = 0;
+            this.btnSalonClases4424.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalonClases4424.Image = ((System.Drawing.Image)(resources.GetObject("btnSalonClases4424.Image")));
+            this.btnSalonClases4424.Location = new System.Drawing.Point(30, 425);
+            this.btnSalonClases4424.Name = "btnSalonClases4424";
+            this.btnSalonClases4424.Size = new System.Drawing.Size(256, 160);
+            this.btnSalonClases4424.TabIndex = 15;
+            this.btnSalonClases4424.UseVisualStyleBackColor = true;
+            this.btnSalonClases4424.Click += new System.EventHandler(this.BtnSalonClases4424_Click);
             // 
             // btnSalon
             // 
@@ -286,6 +361,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnBancoBNC);
+            this.Controls.Add(this.btnSalonClases4424);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblSalones);
             this.Controls.Add(this.btnSalon);
@@ -328,5 +407,11 @@
         private System.Windows.Forms.Button btnCerrarSesion;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape2;
         private System.Windows.Forms.Button btnCrearPerfil;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnSalonClases4424;
+        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape3;
+        private System.Windows.Forms.Button btnBancoBNC;
+        private System.Windows.Forms.Label label3;
     }
 }

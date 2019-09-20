@@ -285,6 +285,10 @@ namespace SystemSCADA.Controlador
                 switch (caso)
                 {
                     case "ListaPerfil":
+                        grv.Columns["Nombre"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        grv.Columns["Nombre"].HeaderText = "Perfil";
+                        grv.Columns["Nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
                         
                         break;
                     case "ListaModulo":

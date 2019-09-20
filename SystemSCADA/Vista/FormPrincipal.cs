@@ -18,9 +18,10 @@ namespace SystemSCADA.Vista
 {
     public partial class FormInterfaz : Form
     {
-        //SerialPort Puerto = new SerialPort("COM2", 9100, Parity.None, 8, StopBits.One);
-        //SerialPort Puerto_Serial = new SerialPort("COM4", 9100, Parity.None, 8, StopBits.One);
-        //SoundPlayer Sonido;
+        SerialPort Puerto = new SerialPort("COM2", 9100, Parity.None, 8, StopBits.One);
+        SerialPort Puerto_Serial = new SerialPort("COM4", 9100, Parity.None, 8, StopBits.One);
+        SoundPlayer Sonido;
+       
         public FormInterfaz()
         {
             InitializeComponent();
@@ -64,7 +65,6 @@ namespace SystemSCADA.Vista
         {
             WindowState = FormWindowState.Minimized;
         }
-
         private void FormInterfaz_Load(object sender, EventArgs e)
         {
             //Inicializar variable detector 
@@ -76,8 +76,7 @@ namespace SystemSCADA.Vista
             {
                 cmbCamara.Items.Add(x.Name);
             }
-            cmbCamara.SelectedIndex = 0;
-           
+            cmbCamara.SelectedIndex = 0;  
         }
         private void BtnIniciar_Click(object sender, EventArgs e)
         {
@@ -95,28 +94,28 @@ namespace SystemSCADA.Vista
 
         public void ComunicacionPuertoSerie()
         {
-            
-            //// Controlamos que el puerto indicado esté operativo
-            //try
-            //{
-            //    // Abrimos el puerto serie
-            //    string c;
-            //    Puerto.Open();
-            //    Puerto.ReadTimeout = 3000;
-            //    textBox1.Text = Puerto.ReadLine()/*+"°C"*/;
-            //    c = textBox1.Text;
-            //    int i = c.IndexOf('\r');
-            //    c = c.Substring(0, c.IndexOf("\r"));
-            //    string a = c.Replace(".", ",");
-            //    aGauge1.Value = Convert.ToSingle(a);
-            //    Puerto.Close();
-            //}
-            //catch (Exception ex)
-            //{
-            //    //MessageBox.Show(ex.Message);
-            //    //timer_Temperatura.Enabled = true;
-            //    Puerto.Close();
-            //}
+
+            // Controlamos que el puerto indicado esté operativo
+            try
+            {
+                // Abrimos el puerto serie
+                string c;
+                Puerto.Open();
+                Puerto.ReadTimeout = 3000;
+                textBox1.Text = Puerto.ReadLine()/*+"°C"*/;
+                c = textBox1.Text;
+                int i = c.IndexOf('\r');
+                c = c.Substring(0, c.IndexOf("\r"));
+                string a = c.Replace(".", ",");
+                aGauge1.Value = Convert.ToSingle(a);
+                Puerto.Close();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+                //timer_Temperatura.Enabled = true;
+                Puerto.Close();
+            }
         }
 
         private void BtnDetener_Click(object sender, EventArgs e)
@@ -152,46 +151,46 @@ namespace SystemSCADA.Vista
 
         private void Timer_Humo_Tick(object sender, EventArgs e)
         {
-            //Timer_Humo.Enabled = false;
-            //try
-            //{
-            //    string H;
-            //    Puerto_Serial.Open();
-            //    Puerto_Serial.ReadTimeout = 1500;
-            //    txtHumo.Text = Puerto_Serial.ReadLine();
-            //    H = txtHumo.Text;
-            //    H = H.Replace("\r", "");
-            //    if (H == "1")
-            //    {
-            //        Sonido = new SoundPlayer(@"C:\Users\victo\Documents\Victor Daniel\TesisScada\Smoke Alarm.wav");
-            //        Sonido.Play();
-            //        txtHumo.Visible = true;
-            //        txtHumo.Text = "Peligro Incendio";
-            //        txtHumo.BackColor = Color.Red;
-            //        for (int i = 0; i < 5000; i++)
-            //        {
-            //            picAlarmaApagada.Visible = !picAlarmaApagada.Visible;
-            //            picAlarmaEncendiendo.Visible = !picAlarmaEncendiendo.Visible;
-            //            picAlarmaEncendida.Visible = !picAlarmaEncendida.Visible;
-            //        }
-            //        picLuzApagada.Visible = true;
-            //        picLuzApagada.BringToFront();
-            //    }
-            //    else
-            //    {
-            //        txtHumo.Visible = false;
-            //        picLuzApagada.Visible = true;
-            //    }
+            Timer_Humo.Enabled = false;
+            try
+            {
+                string H;
+                Puerto_Serial.Open();
+                Puerto_Serial.ReadTimeout = 1500;
+                txtHumo.Text = Puerto_Serial.ReadLine();
+                H = txtHumo.Text;
+                H = H.Replace("\r", "");
+                if (H == "1")
+                {
+                    Sonido = new SoundPlayer(@"C:\Users\victo\Documents\Victor Daniel\TesisScada\Smoke Alarm.wav");
+                    Sonido.Play();
+                    txtHumo.Visible = true;
+                    txtHumo.Text = "Peligro Incendio";
+                    txtHumo.BackColor = Color.Red;
+                    for (int i = 0; i < 5000; i++)
+                    {
+                        picAlarmaApagada.Visible = !picAlarmaApagada.Visible;
+                        picAlarmaEncendiendo.Visible = !picAlarmaEncendiendo.Visible;
+                        picAlarmaEncendida.Visible = !picAlarmaEncendida.Visible;
+                    }
+                    picLuzApagada.Visible = true;
+                    picLuzApagada.BringToFront();
+                }
+                else
+                {
+                    txtHumo.Visible = false;
+                    picLuzApagada.Visible = true;
+                }
 
-            //    Puerto_Serial.Close();
-            //    Timer_Humo.Enabled = true;
-            //}
-            //catch (Exception ex)
-            //{
-            //    //MessageBox.Show(ex.Message);
-            //    Puerto_Serial.Close();
-            //    Timer_Humo.Enabled = true;
-            //}
+                Puerto_Serial.Close();
+                Timer_Humo.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+                Puerto_Serial.Close();
+                Timer_Humo.Enabled = true;
+            }
         }
 
         private void Timer_Temperatura_Tick(object sender, EventArgs e)

@@ -233,6 +233,36 @@ namespace SystemSCADA.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IMG_20190912_153610 {
+            get {
+                object obj = ResourceManager.GetObject("IMG_20190912_153610", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IMG_20190912_1536101 {
+            get {
+                object obj = ResourceManager.GetObject("IMG_20190912_1536101", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IMG_20190913_093036 {
+            get {
+                object obj = ResourceManager.GetObject("IMG_20190913_093036", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Info_64 {
             get {
                 object obj = ResourceManager.GetObject("Info_64", resourceCulture);

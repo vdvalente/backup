@@ -143,7 +143,7 @@ namespace SystemSCADA.Vista
             else
             {
                 t_Acceder.Enabled = false;
-                MessageBox.Show("Bienvenido, " + claseUsuarioAct.NombreUsuario + ".", "SistemaSCADA", MessageBoxButtons.OK);
+                ClaseComunes.MsjShow("Bienvenido, " + claseUsuarioAct.NombreUsuario + ".", 1, 1, "SistemaSCADA");
 
                 Form g_ExisteFormulario = Application.OpenForms.OfType<FormInterfaz>().Where(pre => pre.Text == "Principal").SingleOrDefault<Form>();
                 if (g_ExisteFormulario != null)

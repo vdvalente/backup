@@ -40,13 +40,12 @@ namespace SystemSCADA.Vista
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
 
-            DialogResult  respuesta = MessageBox.Show("¿Seguro que desea salir?","SistemaSCADA",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (respuesta == DialogResult.Yes)
+            respuesta = ClaseComunes.MsjShow("¿Seguro que desea salir?",3,2,"SistemaSCADA");
+            if (respuesta)
             {
                 Application.Exit();
             }
         }
-
         private void BtnLabElectronica_Click(object sender, EventArgs e)
         {
             Form g_ExisteFormulario = Application.OpenForms.OfType<SeleccionDeAreaDeTrabajo>().Where(pre => pre.Text == "Principal").SingleOrDefault<Form>();
@@ -87,7 +86,7 @@ namespace SystemSCADA.Vista
 
         private void BtnRegistrarUsr_MouseHover(object sender, EventArgs e)
         {
-            btnRegistrarUsr.BackColor = Color.FromArgb(163,51,59);
+            btnRegistrarUsr.BackColor = Color.FromArgb(0, 170,228);
         }
 
         private void BtnRegistrarUsr_MouseLeave(object sender, EventArgs e)
@@ -97,7 +96,7 @@ namespace SystemSCADA.Vista
 
         private void BtnRegistroVideo_MouseHover(object sender, EventArgs e)
         {
-            btnRegistroVideo.BackColor = Color.FromArgb(163, 51, 59);
+            btnRegistroVideo.BackColor = Color.FromArgb(0, 170, 228);
         }
 
         private void BtnRegistroVideo_MouseLeave(object sender, EventArgs e)
@@ -107,7 +106,7 @@ namespace SystemSCADA.Vista
 
         private void BtnConfBD_MouseHover(object sender, EventArgs e)
         {
-            btnConfBD.BackColor = Color.FromArgb(163, 51, 59);
+            btnConfBD.BackColor = Color.FromArgb(0, 170, 228);
         }
 
         private void BtnConfBD_MouseLeave(object sender, EventArgs e)
@@ -117,7 +116,7 @@ namespace SystemSCADA.Vista
 
         private void BtnCerrarSesion_MouseHover(object sender, EventArgs e)
         {
-            btnCerrarSesion.BackColor = Color.FromArgb(163, 51, 59);
+            btnCerrarSesion.BackColor = Color.FromArgb(0, 170, 228);
         }
 
         private void BtnCerrarSesion_MouseLeave(object sender, EventArgs e)
@@ -147,7 +146,7 @@ namespace SystemSCADA.Vista
 
         private void BtnCrearPerfil_MouseHover(object sender, EventArgs e)
         {
-            btnCrearPerfil.BackColor = Color.FromArgb(163, 51, 59);
+            btnCrearPerfil.BackColor = Color.FromArgb(0, 170, 228);
         }
 
         private void BtnCrearPerfil_MouseLeave(object sender, EventArgs e)
@@ -201,6 +200,44 @@ namespace SystemSCADA.Vista
                 frm.Show();
                 this.Hide();
             }
+        }
+
+        private void BtnSalonClases4424_Click(object sender, EventArgs e)
+        {
+            Form g_ExisteFormulario = Application.OpenForms.OfType<SeleccionDeAreaDeTrabajo>().Where(pre => pre.Text == "Principal").SingleOrDefault<Form>();
+            if (g_ExisteFormulario != null)
+            {
+                if (g_ExisteFormulario.WindowState == FormWindowState.Minimized)
+                {
+                    g_ExisteFormulario.WindowState = FormWindowState.Normal;
+                }
+                g_ExisteFormulario.BringToFront();
+            }
+            else
+            {
+                FormInterfaz frm = new FormInterfaz();
+                frm.Show();
+            }
+            Hide();
+        }
+
+        private void BtnBancoBNC_Click(object sender, EventArgs e)
+        {
+            Form g_ExisteFormulario = Application.OpenForms.OfType<SeleccionDeAreaDeTrabajo>().Where(pre => pre.Text == "Principal").SingleOrDefault<Form>();
+            if (g_ExisteFormulario != null)
+            {
+                if (g_ExisteFormulario.WindowState == FormWindowState.Minimized)
+                {
+                    g_ExisteFormulario.WindowState = FormWindowState.Normal;
+                }
+                g_ExisteFormulario.BringToFront();
+            }
+            else
+            {
+                FormInterfaz frm = new FormInterfaz();
+                frm.Show();
+            }
+            Hide();
         }
     }
 }

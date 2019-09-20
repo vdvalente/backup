@@ -30,7 +30,6 @@
         {
             this.pnlConfPerfiles = new System.Windows.Forms.Panel();
             this.dgvPerfil = new System.Windows.Forms.DataGridView();
-            this.Perfiles = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRefrescarPerfil = new System.Windows.Forms.Button();
             this.pnlBotones = new System.Windows.Forms.Panel();
             this.btnModificarPerfil = new System.Windows.Forms.Button();
@@ -46,9 +45,6 @@
             this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.dgvModulo = new System.Windows.Forms.DataGridView();
-            this.ModuloAgregar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ModuloEliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ModuloModificar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.lblTituloPerfil = new System.Windows.Forms.Label();
@@ -83,21 +79,10 @@
             // 
             this.dgvPerfil.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(202)))), ((int)(((byte)(202)))));
             this.dgvPerfil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPerfil.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Perfiles});
             this.dgvPerfil.Location = new System.Drawing.Point(30, 96);
             this.dgvPerfil.Name = "dgvPerfil";
             this.dgvPerfil.Size = new System.Drawing.Size(264, 444);
             this.dgvPerfil.TabIndex = 80;
-            // 
-            // Perfiles
-            // 
-            this.Perfiles.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Perfiles.HeaderText = "Perfiles";
-            this.Perfiles.MaxInputLength = 100;
-            this.Perfiles.Name = "Perfiles";
-            this.Perfiles.ReadOnly = true;
-            this.Perfiles.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // btnRefrescarPerfil
             // 
@@ -295,38 +280,10 @@
             // 
             this.dgvModulo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             this.dgvModulo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvModulo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ModuloAgregar,
-            this.ModuloEliminar,
-            this.ModuloModificar});
             this.dgvModulo.Location = new System.Drawing.Point(300, 96);
             this.dgvModulo.Name = "dgvModulo";
             this.dgvModulo.Size = new System.Drawing.Size(996, 444);
             this.dgvModulo.TabIndex = 7;
-            // 
-            // ModuloAgregar
-            // 
-            this.ModuloAgregar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ModuloAgregar.HeaderText = "Agregar";
-            this.ModuloAgregar.Name = "ModuloAgregar";
-            this.ModuloAgregar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ModuloAgregar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // ModuloEliminar
-            // 
-            this.ModuloEliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ModuloEliminar.HeaderText = "Eliminar";
-            this.ModuloEliminar.Name = "ModuloEliminar";
-            this.ModuloEliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ModuloEliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // ModuloModificar
-            // 
-            this.ModuloModificar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ModuloModificar.HeaderText = "Modificar";
-            this.ModuloModificar.Name = "ModuloModificar";
-            this.ModuloModificar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ModuloModificar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // btnCerrar
             // 
@@ -429,10 +386,6 @@
         private System.Windows.Forms.Button btnNuevoPerfil;
         private System.Windows.Forms.Button btnRefrescarPerfil;
         private System.Windows.Forms.DataGridView dgvPerfil;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Perfiles;
         private System.Windows.Forms.DataGridView dgvModulo;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn ModuloAgregar;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn ModuloEliminar;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn ModuloModificar;
     }
 }

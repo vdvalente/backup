@@ -263,14 +263,14 @@ namespace SystemSCADA.Controlador
         /*****************************************************************************************************************************************************
         Descripcion: Añade el control de usuario a un panel
         *****************************************************************************************************************************************************/
-        //public void Guardar(int IdUser, int IdPerfil, string Nom, string User)
-        //{
-        //    claseUsuarioAct.IdUsuario = IdUser;
-        //    claseUsuarioAct.IdPerfil = IdPerfil;
-        //    claseUsuarioAct.NombreUsuario = Nom;
-        //    claseUsuarioAct.Usuario = User;
-        //    claseUsuarioAct.Contraseña = claseControlComunes.ObtenerHash(Contraseña);
-        //}
+        public void Guardar(int IdUser, int IdPerfil, string Nom, string User)
+        {
+            claseUsuarioAct.IdUsuario = IdUser;
+            claseUsuarioAct.IdPerfil = IdPerfil;
+            claseUsuarioAct.NombreUsuario = Nom;
+            claseUsuarioAct.Usuario = User;
+            claseUsuarioAct.Contraseña = ClaseComunes.ObtenerHash(Contraseña);
+        }
 
         #region Chekear
 
@@ -382,7 +382,7 @@ namespace SystemSCADA.Controlador
                 if (L_TablaUsuario.Rows.Count > 0)
                 {
                     Cursor.Current = Cursors.Default;
-                    //Guardar(Convert.ToInt32(L_TablaUsuario.Rows[0]["IdUsuario"]), Convert.ToInt32(L_TablaUsuario.Rows[0]["IdPerfil"]), L_TablaUsuario.Rows[0]["Nombre"].ToString(), L_TablaUsuario.Rows[0]["UserName"].ToString());
+                    Guardar(Convert.ToInt32(L_TablaUsuario.Rows[0]["Usuario_id"]), Convert.ToInt32(L_TablaUsuario.Rows[0]["Perfil_Id"]), L_TablaUsuario.Rows[0]["Nombre"].ToString(), L_TablaUsuario.Rows[0]["UserName"].ToString());
 
                     /* #region Agrega nuevas opciones al perfil del usuario que esta entrando
                      SqlParameter[] Parametros2 = new SqlParameter[1];
@@ -408,8 +408,9 @@ namespace SystemSCADA.Controlador
                 }
 
             }
-            catch
+            catch(Exception ex)
             {
+                ClaseComunes.MsjShow(ex.Message, 1, 1);
                 return false;
             }
         }

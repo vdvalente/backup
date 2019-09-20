@@ -294,5 +294,23 @@
   <ItemGroup>
     <None Include="Resources\refresh.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IMG_20190912_153610.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IMG_20190912_1536101.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IMG_20190912_1536102.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IMG_20190912_1536103.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IMG_20190912_1536104.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IMG_20190913_093036.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

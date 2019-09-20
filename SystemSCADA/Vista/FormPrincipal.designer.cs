@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.AGaugeLabel aGaugeLabel5 = new System.Windows.Forms.AGaugeLabel();
-            System.Windows.Forms.AGaugeLabel aGaugeLabel6 = new System.Windows.Forms.AGaugeLabel();
-            System.Windows.Forms.AGaugeRange aGaugeRange9 = new System.Windows.Forms.AGaugeRange();
-            System.Windows.Forms.AGaugeRange aGaugeRange10 = new System.Windows.Forms.AGaugeRange();
-            System.Windows.Forms.AGaugeRange aGaugeRange11 = new System.Windows.Forms.AGaugeRange();
-            System.Windows.Forms.AGaugeRange aGaugeRange12 = new System.Windows.Forms.AGaugeRange();
+            System.Windows.Forms.AGaugeLabel aGaugeLabel7 = new System.Windows.Forms.AGaugeLabel();
+            System.Windows.Forms.AGaugeLabel aGaugeLabel8 = new System.Windows.Forms.AGaugeLabel();
+            System.Windows.Forms.AGaugeRange aGaugeRange13 = new System.Windows.Forms.AGaugeRange();
+            System.Windows.Forms.AGaugeRange aGaugeRange14 = new System.Windows.Forms.AGaugeRange();
+            System.Windows.Forms.AGaugeRange aGaugeRange15 = new System.Windows.Forms.AGaugeRange();
+            System.Windows.Forms.AGaugeRange aGaugeRange16 = new System.Windows.Forms.AGaugeRange();
             this.pnl_InterfazScada = new System.Windows.Forms.Panel();
             this.picAlarmaApagada = new System.Windows.Forms.PictureBox();
             this.picAlarmaEncendiendo = new System.Windows.Forms.PictureBox();
@@ -138,48 +138,48 @@
             this.aGauge1.BaseArcSweep = 270;
             this.aGauge1.BaseArcWidth = 2;
             this.aGauge1.Center = new System.Drawing.Point(100, 100);
-            aGaugeLabel5.Color = System.Drawing.Color.Red;
-            aGaugeLabel5.Name = "GaugeLabel1";
-            aGaugeLabel5.Position = new System.Drawing.Point(0, 0);
-            aGaugeLabel5.Text = null;
-            aGaugeLabel6.Color = System.Drawing.Color.Red;
-            aGaugeLabel6.Name = "GaugeLabel";
-            aGaugeLabel6.Position = new System.Drawing.Point(0, 0);
-            aGaugeLabel6.Text = null;
-            this.aGauge1.GaugeLabels.Add(aGaugeLabel5);
-            this.aGauge1.GaugeLabels.Add(aGaugeLabel6);
-            aGaugeRange9.Color = System.Drawing.Color.Red;
-            aGaugeRange9.EndValue = 60F;
-            aGaugeRange9.InnerRadius = 70;
-            aGaugeRange9.InRange = false;
-            aGaugeRange9.Name = "Critico";
-            aGaugeRange9.OuterRadius = 80;
-            aGaugeRange9.StartValue = 45F;
-            aGaugeRange10.Color = System.Drawing.Color.Yellow;
-            aGaugeRange10.EndValue = 45F;
-            aGaugeRange10.InnerRadius = 70;
-            aGaugeRange10.InRange = false;
-            aGaugeRange10.Name = "Advertencia";
-            aGaugeRange10.OuterRadius = 80;
-            aGaugeRange10.StartValue = 35F;
-            aGaugeRange11.Color = System.Drawing.Color.Lime;
-            aGaugeRange11.EndValue = 35F;
-            aGaugeRange11.InnerRadius = 70;
-            aGaugeRange11.InRange = false;
-            aGaugeRange11.Name = "Bien";
-            aGaugeRange11.OuterRadius = 80;
-            aGaugeRange11.StartValue = 0F;
-            aGaugeRange12.Color = System.Drawing.Color.Blue;
-            aGaugeRange12.EndValue = 0F;
-            aGaugeRange12.InnerRadius = 70;
-            aGaugeRange12.InRange = false;
-            aGaugeRange12.Name = "Frio";
-            aGaugeRange12.OuterRadius = 80;
-            aGaugeRange12.StartValue = -20F;
-            this.aGauge1.GaugeRanges.Add(aGaugeRange9);
-            this.aGauge1.GaugeRanges.Add(aGaugeRange10);
-            this.aGauge1.GaugeRanges.Add(aGaugeRange11);
-            this.aGauge1.GaugeRanges.Add(aGaugeRange12);
+            aGaugeLabel7.Color = System.Drawing.Color.Red;
+            aGaugeLabel7.Name = "GaugeLabel1";
+            aGaugeLabel7.Position = new System.Drawing.Point(0, 0);
+            aGaugeLabel7.Text = null;
+            aGaugeLabel8.Color = System.Drawing.Color.Red;
+            aGaugeLabel8.Name = "GaugeLabel";
+            aGaugeLabel8.Position = new System.Drawing.Point(0, 0);
+            aGaugeLabel8.Text = null;
+            this.aGauge1.GaugeLabels.Add(aGaugeLabel7);
+            this.aGauge1.GaugeLabels.Add(aGaugeLabel8);
+            aGaugeRange13.Color = System.Drawing.Color.Red;
+            aGaugeRange13.EndValue = 60F;
+            aGaugeRange13.InnerRadius = 70;
+            aGaugeRange13.InRange = false;
+            aGaugeRange13.Name = "Critico";
+            aGaugeRange13.OuterRadius = 80;
+            aGaugeRange13.StartValue = 45F;
+            aGaugeRange14.Color = System.Drawing.Color.Yellow;
+            aGaugeRange14.EndValue = 45F;
+            aGaugeRange14.InnerRadius = 70;
+            aGaugeRange14.InRange = false;
+            aGaugeRange14.Name = "Advertencia";
+            aGaugeRange14.OuterRadius = 80;
+            aGaugeRange14.StartValue = 35F;
+            aGaugeRange15.Color = System.Drawing.Color.Lime;
+            aGaugeRange15.EndValue = 35F;
+            aGaugeRange15.InnerRadius = 70;
+            aGaugeRange15.InRange = false;
+            aGaugeRange15.Name = "Bien";
+            aGaugeRange15.OuterRadius = 80;
+            aGaugeRange15.StartValue = 0F;
+            aGaugeRange16.Color = System.Drawing.Color.Blue;
+            aGaugeRange16.EndValue = 0F;
+            aGaugeRange16.InnerRadius = 70;
+            aGaugeRange16.InRange = false;
+            aGaugeRange16.Name = "Frio";
+            aGaugeRange16.OuterRadius = 80;
+            aGaugeRange16.StartValue = -20F;
+            this.aGauge1.GaugeRanges.Add(aGaugeRange13);
+            this.aGauge1.GaugeRanges.Add(aGaugeRange14);
+            this.aGauge1.GaugeRanges.Add(aGaugeRange15);
+            this.aGauge1.GaugeRanges.Add(aGaugeRange16);
             this.aGauge1.Location = new System.Drawing.Point(1146, 280);
             this.aGauge1.MaxValue = 60F;
             this.aGauge1.MinValue = -20F;
@@ -405,7 +405,7 @@
             // Timer_Movimiento
             // 
             this.Timer_Movimiento.Enabled = true;
-            this.Timer_Movimiento.Interval = 300;
+            this.Timer_Movimiento.Interval = 200;
             this.Timer_Movimiento.Tick += new System.EventHandler(this.Timer_Movimiento_Tick);
             // 
             // Timer_Temperatura
@@ -416,7 +416,7 @@
             // 
             // Timer_Humo
             // 
-            this.Timer_Humo.Interval = 1000;
+            this.Timer_Humo.Interval = 2000;
             this.Timer_Humo.Tick += new System.EventHandler(this.Timer_Humo_Tick);
             // 
             // FormInterfaz
