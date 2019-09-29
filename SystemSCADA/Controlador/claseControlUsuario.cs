@@ -11,6 +11,7 @@ using SystemSCADA.Modelo;
 using SystemSCADA.Controlador;
 using SystemSCADA.Vista;
 using System.Drawing;
+using System.Net.Mail;
 
 namespace SystemSCADA.Controlador
 {
@@ -36,8 +37,6 @@ namespace SystemSCADA.Controlador
 
 
         /*****************************************************************************************************************************************************
-        Nombre del Creador:Melanie Infante
-        Fecha de Creacion: 1/10/18
         Descripcion: Conexion a la base de datos
         *****************************************************************************************************************************************************/
         static claseMetodosBaseDeDatos conexionBD;
@@ -47,7 +46,8 @@ namespace SystemSCADA.Controlador
         *****************************************************************************************************************************************************/
         public bool GuardarUsuario()
         {
-            conexionBD = new claseMetodosBaseDeDatos(claseControlBaseDeDatos.SQlsistemaSCADA, claseControlBaseDeDatos.SQLNomDBsistemaSCADA, claseControlBaseDeDatos.SQLUsersistemaSCADA, claseControlBaseDeDatos.SQLPasssistemaSCADA);
+            conexionBD = new claseMetodosBaseDeDatos(claseControlBaseDeDatos.SQlsistemaSCADA, claseControlBaseDeDatos.SQLNomDBsistemaSCADA, 
+                claseControlBaseDeDatos.SQLUsersistemaSCADA, claseControlBaseDeDatos.SQLPasssistemaSCADA);
             try
             {
                 SqlParameter[] Parametros = new SqlParameter[12];
@@ -66,7 +66,7 @@ namespace SystemSCADA.Controlador
                 Parametros[2] = new SqlParameter();
                 Parametros[2].ParameterName = "@Nombre";
                 Parametros[2].SqlDbType = SqlDbType.VarChar;
-                Parametros[2].Size = 50;
+                Parametros[2].Size = 60;
                 Parametros[2].Value = Nombre;
 
                 Parametros[3] = new SqlParameter();
@@ -89,7 +89,7 @@ namespace SystemSCADA.Controlador
                 Parametros[6] = new SqlParameter();
                 Parametros[6].ParameterName = "@Tlf";
                 Parametros[6].SqlDbType = SqlDbType.VarChar;
-                Parametros[6].Size = 20;
+                Parametros[6].Size = 16;
                 Parametros[6].Value = Tlf;
 
                 Parametros[7] = new SqlParameter();
@@ -418,39 +418,59 @@ namespace SystemSCADA.Controlador
 
         #endregion
 
-
+        public static bool validarEmail(string email)
+        {
+            try
+            {
+                new MailAddress(email);
+                return true;
+            }
+            catch (FormatException)
+            {
+                ClaseComunes.MsjShow("el formato del email esta incorrecto", 1, 1);
+                return false;
+            }
+        }
         public bool ValidarCampos()
         {
 
             if (IdPerfil == 0)
             {
-                MessageBox.Show("Se Debe seleccionar el perfil.", "SystemaSCADA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ClaseComunes.MsjShow("Se Debe seleccionar el perfil.", 1, 1, "SystemaSCADA");
                 return false;
             }
             if (Nombre == "")
             {
-                MessageBox.Show("Se debe aregar el Nombre", "SystemaSCADA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ClaseComunes.MsjShow("Se debe aregar el Nombre", 1, 1, "SystemaSCADA");
                 return false;
             }
             if (Apellido == "")
             {
-                MessageBox.Show("Se debe aregar el Apellido", "SystemaSCADA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ClaseComunes.MsjShow("Se debe aregar el Apellido", 1, 1, "SystemaSCADA");
                 return false;
             }
             if (Contraseña == "")
             {
-                MessageBox.Show("Se debe aregar la contraseña", "SystemaSCADA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ClaseComunes.MsjShow("Se debe aregar la contraseña", 1, 1, "SystemaSCADA");
                 return false;
             }
             if (UserName == "")
             {
-                MessageBox.Show("Se debe aregar el usuario", "SystemaSCADA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ClaseComunes.MsjShow("Se debe aregar el usuario", 1, 1, "SystemaSCADA");
                 return false;
             }
             if (Cedula == "")
             {
-                MessageBox.Show("Se debe aregar la Cedula", "SystemaSCADA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ClaseComunes.MsjShow("Se debe aregar la Cedula", 1 , 1, "SystemaSCADA");
                 return false;
+            }
+            if (Correo!= "")
+            {
+                if (!validarEmail(Correo))
+                {
+                    ClaseComunes.MsjShow("Debe agregar un correo valido", 1, 1, "SystemaSCADA");
+                    return false;
+                }
             }
 
             return true;

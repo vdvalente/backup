@@ -7,9 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Imaging;
 using AForge.Video;
 using AForge.Video.DirectShow;
 using AForge.Vision.Motion;
+using AForge.Video.FFMPEG;
 using SystemSCADA.Controlador;
 using System.IO.Ports;
 using System.Media;
@@ -21,13 +23,16 @@ namespace SystemSCADA.Vista
         SerialPort Puerto = new SerialPort("COM2", 9100, Parity.None, 8, StopBits.One);
         SerialPort Puerto_Serial = new SerialPort("COM4", 9100, Parity.None, 8, StopBits.One);
         SoundPlayer Sonido;
+        int IdArea;
        
-        public FormInterfaz()
+        public FormInterfaz(int IdAreaDeTrabajo)
         {
+            IdArea = IdAreaDeTrabajo;
             InitializeComponent();
             this.toolTip1.SetToolTip(this.picLuzApagada, "Si esta en gris sin titilar no hay movimiento");
             this.toolTip1.SetToolTip(this.picLuzEncendida, "Si esta en rojo titilando existe movimiento");
         }
+
 
         // variable para la lista de dispositivos
         private FilterInfoCollection Dispositivos;
@@ -55,7 +60,7 @@ namespace SystemSCADA.Vista
             }
         }
         #endregion
-
+ 
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -142,6 +147,8 @@ namespace SystemSCADA.Vista
             if(NivelDeDeteccion > 0.0001)
             {
                 picLuzApagada.Visible = !picLuzApagada.Visible;
+                
+                //SaveRecord();
             }
             else
             {
@@ -149,6 +156,26 @@ namespace SystemSCADA.Vista
             }
         }
 
+
+        //private void SaveRecord()
+        //{
+        //    int width = 320;
+        //    int height = 240;
+
+        //    // create instance of video writer
+        //    VideoFileWriter writer = new VideoFileWriter();
+        //    // create new video file
+        //    writer.Open("test.avi", width, height, 25, VideoCodec.MPEG4);
+        //    // create a bitmap to save into the video file
+        //    Bitmap image = new Bitmap(width, height, PixelFormat.Format24bppRgb);
+        //    // write 1000 video frames
+        //    for (int i = 0; i < 1000; i++)
+        //    {
+        //        image.SetPixel(i % width, i % height, Color.Red);
+        //        writer.WriteVideoFrame(image);
+        //    }
+        //    writer.Close();
+        //}
         private void Timer_Humo_Tick(object sender, EventArgs e)
         {
             Timer_Humo.Enabled = false;

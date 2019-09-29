@@ -119,5 +119,85 @@ namespace SystemSCADA.Controlador
             return sCampo;
         }
 
+        public static bool chkPermiso(bool wbActivar, int wnIdModulo, string wsUsrName, int optionalint = 0, Boolean bMsg = true)
+        {
+            conexionBD = new claseMetodosBaseDeDatos(claseControlBaseDeDatos.SQlsistemaSCADA, claseControlBaseDeDatos.SQLNomDBsistemaSCADA,
+                claseControlBaseDeDatos.SQLUsersistemaSCADA, claseControlBaseDeDatos.SQLPasssistemaSCADA);
+            try
+            {
+                SqlParameter[] Parametros = new SqlParameter[2];
+
+                Parametros[0] = new SqlParameter();
+                Parametros[0].ParameterName = "@nIdModulo";
+                Parametros[0].SqlDbType = SqlDbType.Int;
+                Parametros[0].Value = wnIdModulo;
+
+                Parametros[1] = new SqlParameter();
+                Parametros[1].ParameterName = "@sUsrName";
+                Parametros[1].SqlDbType = SqlDbType.VarChar;
+                Parametros[1].Size = 300;
+                Parametros[1].Value = wsUsrName;
+
+                DataTable Permisos  = conexionBD.TablaSP(ref Parametros, "USP_getPermiso_PerfilItem", "Error obteniendo los permisos");
+                
+                
+                if (!Convert.ToBoolean(Permisos.Rows[0]["Acceder"].ToString()))
+                {
+                    MsjShow("El usuario: " + claseControlUsuario.UserName + ", no tiene acceso a esta opción.",1, 1);
+                    return false;
+                }
+                else
+                {
+                    if (wbActivar == true)
+                    {
+                        if (!Convert.ToBoolean(Permisos.Rows[0]["Acceder"].ToString()))
+                        {
+                            if (bMsg)
+                            { MsjShow("El usuario: " + claseControlUsuario.Nombre  + ", no tiene acceso a esta opción.",1,1,"Atencion");}
+                            return false;
+                        }
+                        else
+                        {
+                            return true;
+                        }
+                    }
+                    else
+                    {
+                        Boolean a = false;
+                        switch (optionalint)
+                        {
+                            case 10:
+                                a = (Permisos.Rows[0]["Incluir"].ToString() == "True");
+                                break;
+                            case 20:
+                                a = (Permisos.Rows[0]["Modificar"].ToString() == "True");
+                                break;
+                            case 30:
+                                a = (Permisos.Rows[0]["Eliminar"].ToString() == "True");
+                                break;
+                            case 40:
+                                a = (Permisos.Rows[0]["Acceder"].ToString() == "True");
+                                break;
+                        }
+                        if (a == false && bMsg)
+                        {
+                            MsjShow("El usuario: " + claseControlUsuario.Nombre + ", no tiene acceso a esta opción.",1,1, "Atención");
+                        }
+                        return a;
+                    }
+                }
+            }
+            catch (SqlException Sqlex)
+            {
+                MsjShow(Sqlex.Message,1,1);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MsjShow(ex.Message,1,1);
+                return false;
+            }
+        }
+
     }
 }

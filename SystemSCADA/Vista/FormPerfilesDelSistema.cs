@@ -25,7 +25,7 @@ namespace SystemSCADA.Vista
             if (G_NuevoModificar)
             {
                 claseControlPerfil.Nombre = txtNombrePerfil.Text.ToString();
-                claseControlPerfil.IdPerfil = Convert.ToInt32(dgvPerfil.CurrentRow.Cells["cId"].Value.ToString());
+                claseControlPerfil.IdPerfil = Convert.ToInt32(dgvPerfil.CurrentRow.Cells["Codigo"].Value.ToString());
                 G_NuevoModificar = true;
             }
             else
@@ -61,7 +61,7 @@ namespace SystemSCADA.Vista
                 dgvModulo.EndEdit();
                 claseControlPerfil.GuardarPerfil(dgvModulo);
                 claseControlPerfil.setDgrw(ref dgvPerfil, "usp_ConsultaPerfil", "ListaPerfil", 0);
-                claseControlPerfil.setDgrw(ref dgvModulo, "usp_ConsultaPermisos", "ListaModulo", Convert.ToInt32(dgvPerfil.CurrentRow.Cells["cId"].Value.ToString()));
+                claseControlPerfil.setDgrw(ref dgvModulo, "usp_ConsultaPermisos", "ListaModulo", Convert.ToInt32(dgvPerfil.CurrentRow.Cells["Codigo"].Value.ToString()));
                 BtnCancelarPerfil_Click(this, EventArgs.Empty);
             }
             UseWaitCursor = false; Application.DoEvents();
@@ -90,12 +90,50 @@ namespace SystemSCADA.Vista
         {
             claseControlPerfil.setDgrw(ref dgvPerfil, "usp_ConsultaPerfil", "ListaPerfil", 0);
             claseControlPerfil.setDgrw(ref dgvModulo, "usp_ConsultaPermisos", "ListaModulo", Convert.ToInt32(dgvPerfil.CurrentRow.Cells["Codigo"].Value.ToString()));
+            dgvPerfil.Columns["Codigo"].Visible = false;
+            dgvPerfil.Columns["Nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
 
         private void BtnNuevoPerfil_Click(object sender, EventArgs e)
         {
-            pnlConfPerfiles.Visible = true;
+            btnRefrescarPerfil.Enabled = false;
+            btnModificarPerfil.Enabled = false;
+            btnBorrarPerfil.Enabled = false;
+            claseControlPerfil.LimpiarDataGridView(dgvModulo);
+            dgvModulo.Enabled = false;
+            dgvModulo.ReadOnly = false;
+            dgvModulo.Enabled = true;
+            pnlCofiguracionPerfil.Visible = true;
+            txtNombrePerfil.Focus();
+            G_NuevoModificar = false;
+            txtNombrePerfil.Text = "";
+        }
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            SeleccionDeAreaDeTrabajo frm = new SeleccionDeAreaDeTrabajo();
+            frm.Show();
+            this.Hide();
+        }
+        private void DgvPerfil_SelectionChanged(object sender, EventArgs e)
+        {
+            claseControlPerfil.setDgrw(ref dgvModulo, "usp_ConsultaPermisos", "ListaModulo", Convert.ToInt32(dgvPerfil.CurrentRow.Cells["Codigo"].Value.ToString()));
+            dgvModulo.Enabled = false;
+        }
+
+        private void BtnModificarPerfil_Click(object sender, EventArgs e)
+        {
+            txtNombrePerfil.Focus();
+            dgvPerfil.Enabled = false;
+            btnRefrescarPerfil.Enabled = false;
+            btnNuevoPerfil.Enabled = false;
+            btnBorrarPerfil.Enabled = false;
+            dgvModulo.ReadOnly = false;
+            txtNombrePerfil.Text = dgvPerfil.CurrentRow.Cells["Nombre"].Value.ToString(); ;
+            pnlCofiguracionPerfil.Visible = true;
+            G_NuevoModificar = true;
+            dgvModulo.Enabled = true;
         }
     }
 }

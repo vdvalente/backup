@@ -14,46 +14,32 @@ namespace SystemSCADA.Vista
     public partial class FormRegistroDeUsr : Form
     {
         public event EventHandler Actualizar;
+        claseControlUsuario entidad = new claseControlUsuario();
         public FormRegistroDeUsr()
         {
             InitializeComponent();
         }
-
-        private void BtnNuevo_MouseHover(object sender, EventArgs e)
-        {
-            btnNuevo.BackColor = Color.FromArgb(135, 241, 52);
-        }
-
-        private void BtnNuevo_MouseLeave(object sender, EventArgs e)
-        {
-            btnNuevo.BackColor = Color.FromArgb(150, 150, 150);
-        }
-
       
-        private void BtnModificar_MouseHover(object sender, EventArgs e)
-        {
-            btnModificar.BackColor = Color.FromArgb(135, 241, 52);
-
-        }
-
-        private void BtnModificar_MouseLeave(object sender, EventArgs e)
-        {
-            btnModificar.BackColor = Color.FromArgb(150, 150, 150);
-        }
-
-        private void BtnEliminar_MouseHover(object sender, EventArgs e)
-        {
-            btnEliminar.BackColor = Color.FromArgb(163, 51, 59);
-        }
-
-        private void BtnEliminar_MouseLeave(object sender, EventArgs e)
-        {
-            btnEliminar.BackColor = Color.FromArgb(150, 150, 150);
-        }
-
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
-            pnlNuevoUsuario.Visible = true;
+            if (ClaseComunes.chkPermiso(false, 3, claseUsuarioAct.Usuario, 10))
+            {
+                //Se inicializan los campos del formulario
+                claseControlUsuario.IdUsuario = 0;
+                claseControlUsuario.Direccion = "";
+                claseControlUsuario.Nombre = "";
+                claseControlUsuario.Apellido = "";
+                claseControlUsuario.Tlf = "";
+                claseControlUsuario.Contraseña = "";
+                claseControlUsuario.IdPerfil = 0;
+                claseControlUsuario.UserName = "";
+                claseControlUsuario.Correo = "";
+                claseControlUsuario.UserName = "";
+                claseControlUsuario.Cedula = "";
+                claseControlUsuario.Estatus = true;
+                pnlNuevoUsuario.Visible = true;
+            }
+                
         }
 
         private void BtnCerrar_Click(object sender, EventArgs e)
@@ -77,10 +63,11 @@ namespace SystemSCADA.Vista
         private void FormRegistroDeUsr_Load(object sender, EventArgs e)
         {
             claseControlUsuario.setDgrw(ref dgrvUsuarios, "USP_ConsultaUsuario");
+            dgrvUsuarios.ReadOnly = true;
+            dgrvUsuarios.Columns["Estatus"].ReadOnly = false;
             claseControlUsuario.llenarCmbPerfil(ref cmbPerfiles);
             LlenarForm(); //Se llenan los campos con la informacion correspondiente
-            dgrvUsuarios.Enabled = false;
-            
+           
         }
 
         private void LlenarForm()
@@ -103,13 +90,14 @@ namespace SystemSCADA.Vista
         {
             WindowState = FormWindowState.Minimized;
         }
-
         private void BtnAceptar_Click(object sender, EventArgs e)
         {
+
+            pnlCreacionUsr.Location = new System.Drawing.Point(490, 211);
             pnlCreacionUsr.Visible = true;
             pnlNuevoUsuario.Visible = false;
+            txtUsuario.Focus();
         }
-
         private void LimpiarConfiUsuario()
         {
             txtDireccionConfiUsuario.Text = "";
@@ -128,7 +116,6 @@ namespace SystemSCADA.Vista
         *****************************************************************************************************************************************************/
         private void BtnCrearUsuario_Click(object sender, EventArgs e)
         {
-            claseControlUsuario entidad = new claseControlUsuario();
 
             claseControlUsuario.Direccion = txtDireccionConfiUsuario.Text;
             claseControlUsuario.Nombre = txtNombreConfiUsuario.Text;
@@ -166,6 +153,107 @@ namespace SystemSCADA.Vista
                     Close();
                 }
                 Actualizar?.Invoke(sender, e);
+            }
+        }
+        private void BtnModificar_Click(object sender, EventArgs e)
+        {
+           
+            if (ClaseComunes.chkPermiso(false, 3, claseUsuarioAct.Usuario, 20))
+            {
+                if (dgrvUsuarios.CurrentRow != null)
+                {
+                    //Se extraen los datos del campo seleccionado para la Modificacion
+                    claseControlUsuario.IdUsuario = Convert.ToInt32(dgrvUsuarios.CurrentRow.Cells["Usuario_id"].Value);
+                    claseControlUsuario.Nombre = dgrvUsuarios.CurrentRow.Cells["NombreUsuario"].Value.ToString();
+                    claseControlUsuario.Direccion = dgrvUsuarios.CurrentRow.Cells["Direccion"].Value.ToString();
+                    claseControlUsuario.Apellido = dgrvUsuarios.CurrentRow.Cells["Apellido"].Value.ToString();
+                    claseControlUsuario.Tlf = dgrvUsuarios.CurrentRow.Cells["Tlf"].Value.ToString();
+                    claseControlUsuario.IdPerfil = Convert.ToInt32(dgrvUsuarios.CurrentRow.Cells["Perfil_Id"].Value);
+                    claseControlUsuario.Contraseña = dgrvUsuarios.CurrentRow.Cells["Contraseña"].Value.ToString();
+                    claseControlUsuario.UserName = dgrvUsuarios.CurrentRow.Cells["UserName"].Value.ToString();
+                    claseControlUsuario.Correo = dgrvUsuarios.CurrentRow.Cells["Correo"].Value.ToString();
+                    claseControlUsuario.Cedula = dgrvUsuarios.CurrentRow.Cells["Cedula"].Value.ToString();
+                    claseControlUsuario.Estatus = Convert.ToBoolean(dgrvUsuarios.CurrentRow.Cells["Estatus"].Value);
+
+                    LlenarForm();
+                    pnlNuevoUsuario.Visible = true;
+
+                }
+                else
+                {
+                    ClaseComunes.MsjShow("Seleccione Una Fila.", 1, 4);
+                }
+            }
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            if (ClaseComunes.chkPermiso(false, 3, claseUsuarioAct.Usuario, 30))
+            {
+                if (dgrvUsuarios.CurrentRow != null)
+                {
+                    string message = " ¿Desea eliminar el usuario?";
+                    bool result;
+
+                    // Displays the MessageBox.
+
+                    result = ClaseComunes.MsjShow(message, 3, 2);
+
+                    if (result)
+                    {
+                        claseControlUsuario.IdUsuario = Convert.ToInt32(dgrvUsuarios.CurrentRow.Cells["Usuario_id"].Value);
+                        claseControlUsuario.ActualizarEstatus();
+                        claseControlUsuario.setDgrw(ref dgrvUsuarios,"USP_ConsultaUsuario");
+                    }
+                }
+                else
+                {
+                    ClaseComunes.MsjShow("Seleccione Una Fila.", 1, 4);
+                }
+            }
+        }
+
+        private void TxtNombreConfiUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void TxtApellidoConfiUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void TxtCedulaConfiUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+
+            {
+                e.Handled = true;
+
+                return;
+
+            }
+        }
+
+        private void TxtTlfConfiUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+
+            {
+                e.Handled = true;
+
+                return;
+
             }
         }
     }

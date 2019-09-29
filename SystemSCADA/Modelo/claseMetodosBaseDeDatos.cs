@@ -68,7 +68,7 @@ namespace SystemSCADA.Modelo
             catch (SqlException Sqlex)
             {
                 Cursor.Current = Cursors.Default;
-                //Controladores.claseControlComunes.MsjShow(msgError + ": " + Sqlex.Message, 1, 1);
+                ClaseComunes.MsjShow(msgError + ": " + Sqlex.Message, 1, 1);
                 return false;
             }
             catch (Exception ex)
@@ -157,6 +157,7 @@ namespace SystemSCADA.Modelo
             }
             catch (Exception ex)
             {
+                ClaseComunes.MsjShow(ex.Message, 1, 1);
                 Cursor.Current = Cursors.Default;
                 return null;
             }

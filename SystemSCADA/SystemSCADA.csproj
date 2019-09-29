@@ -46,6 +46,14 @@
     <Reference Include="AForge.Video.DirectShow">
       <HintPath>..\..\..\..\Downloads\AForge.NET Framework-2.2.5\Release\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
+    <Reference Include="AForge.Video.FFMPEG, Version=2.2.5.0, Culture=neutral, PublicKeyToken=03563089b1be05dd, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\AForge.NET\Framework\Release\AForge.Video.FFMPEG.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.VFW, Version=2.2.4.0, Culture=neutral, PublicKeyToken=a82f807c999637c8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\source\repos\WindowsFormsApp4\WindowsFormsApp4\AForge.Video.VFW.dll</HintPath>
+    </Reference>
     <Reference Include="AForge.Vision">
       <HintPath>..\..\..\..\Downloads\AForge.NET Framework-2.2.5\Release\AForge.Vision.dll</HintPath>
     </Reference>
@@ -83,6 +91,7 @@
     <Compile Include="Controlador\claseControlUsuario.cs" />
     <Compile Include="Controlador\claseUsuarioAct.cs" />
     <Compile Include="Controlador\claseValidacionDeDatos.cs" />
+    <Compile Include="Controlador\ClaseVideosDelSistema.cs" />
     <Compile Include="Modelo\claseMetodosBaseDeDatos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -115,6 +124,12 @@
     </Compile>
     <Compile Include="Vista\FormPrincipal.designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\FormRegistroDeVideo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\FormRegistroDeVideo.Designer.cs">
+      <DependentUpon>FormRegistroDeVideo.cs</DependentUpon>
     </Compile>
     <Compile Include="Vista\FormRegistroDeUsr.cs">
       <SubType>Form</SubType>
@@ -159,6 +174,9 @@
     <EmbeddedResource Include="Vista\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vista\FormRegistroDeVideo.resx">
+      <DependentUpon>FormRegistroDeVideo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\FormRegistroDeUsr.resx">
       <DependentUpon>FormRegistroDeUsr.cs</DependentUpon>
     </EmbeddedResource>
@@ -167,6 +185,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\SeleccionDeAreaDeTrabajo.resx">
       <DependentUpon>SeleccionDeAreaDeTrabajo.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -312,6 +331,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\IMG_20190913_093036.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboard.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -285,14 +285,25 @@ namespace SystemSCADA.Controlador
                 switch (caso)
                 {
                     case "ListaPerfil":
-                        grv.Columns["Nombre"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                        grv.Columns["Nombre"].HeaderText = "Perfil";
-                        grv.Columns["Nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
-                        
+                       
                         break;
                     case "ListaModulo":
                         //grv.Columns["IdPerfil"].Visible = false;
+                        grv.Columns["Modulo"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        grv.Columns["Modulo"].HeaderText = "Modulo";
+                        grv.Columns["Modulo"].Width = 200;
+                        grv.Columns["Acceder"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        grv.Columns["Acceder"].HeaderText = "Acceder";
+                        grv.Columns["Acceder"].Width = 200;
+                        grv.Columns["Agregar"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        grv.Columns["Agregar"].HeaderText = "Agregar";
+                        grv.Columns["Agregar"].Width = 200;
+                        grv.Columns["Modificar"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        grv.Columns["Modificar"].HeaderText = "Modificar";
+                        grv.Columns["Modificar"].Width = 200;
+                        grv.Columns["Eliminar"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        grv.Columns["Eliminar"].HeaderText = "Eliminar";
+                        grv.Columns["Eliminar"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                         grv.Columns["IdModulo"].Visible = false;
                         break;
                 }

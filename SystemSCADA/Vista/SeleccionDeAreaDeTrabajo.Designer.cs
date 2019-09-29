@@ -158,6 +158,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -173,6 +174,7 @@
             // btnCrearPerfil
             // 
             this.btnCrearPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.btnCrearPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCrearPerfil.FlatAppearance.BorderSize = 0;
             this.btnCrearPerfil.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnCrearPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -184,11 +186,12 @@
             this.btnCrearPerfil.TabIndex = 4;
             this.btnCrearPerfil.Text = "Crear Perfiles";
             this.btnCrearPerfil.UseVisualStyleBackColor = false;
-            this.btnCrearPerfil.MouseLeave += new System.EventHandler(this.BtnCrearPerfil_MouseLeave);
+            this.btnCrearPerfil.Click += new System.EventHandler(this.BtnCrearPerfil_Click);
             // 
             // btnCerrarSesion
             // 
             this.btnCerrarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.btnCerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrarSesion.FlatAppearance.BorderSize = 0;
             this.btnCerrarSesion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -205,6 +208,7 @@
             // btnConfBD
             // 
             this.btnConfBD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.btnConfBD.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConfBD.FlatAppearance.BorderSize = 0;
             this.btnConfBD.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnConfBD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -221,6 +225,7 @@
             // btnRegistroVideo
             // 
             this.btnRegistroVideo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.btnRegistroVideo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegistroVideo.FlatAppearance.BorderSize = 0;
             this.btnRegistroVideo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnRegistroVideo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -232,10 +237,12 @@
             this.btnRegistroVideo.TabIndex = 1;
             this.btnRegistroVideo.Text = "Registros de Video";
             this.btnRegistroVideo.UseVisualStyleBackColor = false;
+            this.btnRegistroVideo.Click += new System.EventHandler(this.BtnRegistroVideo_Click);
             // 
             // btnRegistrarUsr
             // 
             this.btnRegistrarUsr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.btnRegistrarUsr.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegistrarUsr.FlatAppearance.BorderSize = 0;
             this.btnRegistrarUsr.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnRegistrarUsr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -247,7 +254,7 @@
             this.btnRegistrarUsr.TabIndex = 0;
             this.btnRegistrarUsr.Text = "Registrar Usuario";
             this.btnRegistrarUsr.UseVisualStyleBackColor = false;
-            this.btnRegistrarUsr.MouseLeave += new System.EventHandler(this.BtnRegistrarUsr_MouseLeave);
+            this.btnRegistrarUsr.Click += new System.EventHandler(this.BtnRegistrarUsr_Click);
             // 
             // label2
             // 
@@ -272,6 +279,7 @@
             // btnBancoBNC
             // 
             this.btnBancoBNC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnBancoBNC.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBancoBNC.FlatAppearance.BorderSize = 0;
             this.btnBancoBNC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBancoBNC.Image = global::SystemSCADA.Properties.Resources.IMG_20190913_093036;
@@ -285,6 +293,7 @@
             // btnSalonClases4424
             // 
             this.btnSalonClases4424.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnSalonClases4424.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSalonClases4424.FlatAppearance.BorderSize = 0;
             this.btnSalonClases4424.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalonClases4424.Image = ((System.Drawing.Image)(resources.GetObject("btnSalonClases4424.Image")));
@@ -298,6 +307,7 @@
             // btnSalon
             // 
             this.btnSalon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSalon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSalon.Image = global::SystemSCADA.Properties.Resources.salon;
             this.btnSalon.Location = new System.Drawing.Point(954, 127);
             this.btnSalon.Name = "btnSalon";
@@ -308,6 +318,7 @@
             // 
             // btnLabElectronica
             // 
+            this.btnLabElectronica.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLabElectronica.FlatAppearance.BorderSize = 0;
             this.btnLabElectronica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLabElectronica.Image = global::SystemSCADA.Properties.Resources.Electronica;
@@ -321,6 +332,7 @@
             // btnLabComputacion
             // 
             this.btnLabComputacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnLabComputacion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLabComputacion.FlatAppearance.BorderSize = 0;
             this.btnLabComputacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLabComputacion.Image = ((System.Drawing.Image)(resources.GetObject("btnLabComputacion.Image")));

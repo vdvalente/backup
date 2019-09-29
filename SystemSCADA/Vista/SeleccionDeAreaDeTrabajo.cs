@@ -32,7 +32,7 @@ namespace SystemSCADA.Vista
             }
             else
             {
-                FormInterfaz frm = new FormInterfaz();
+                FormInterfaz frm = new FormInterfaz(1);
                 frm.Show();
             } 
             Hide();
@@ -59,7 +59,7 @@ namespace SystemSCADA.Vista
             }
             else
             {
-                FormInterfaz frm = new FormInterfaz();
+                FormInterfaz frm = new FormInterfaz(2);
                 frm.Show();
             }
             Hide();
@@ -78,80 +78,32 @@ namespace SystemSCADA.Vista
             }
             else
             {
-                FormInterfaz frm = new FormInterfaz();
+                FormInterfaz frm = new FormInterfaz(3);
                 frm.Show();
             }
             Hide();
-        }
-
-        private void BtnRegistrarUsr_MouseHover(object sender, EventArgs e)
-        {
-            btnRegistrarUsr.BackColor = Color.FromArgb(0, 170,228);
-        }
-
-        private void BtnRegistrarUsr_MouseLeave(object sender, EventArgs e)
-        {
-            btnRegistrarUsr.BackColor = Color.FromArgb(150,150,150);
-        }
-
-        private void BtnRegistroVideo_MouseHover(object sender, EventArgs e)
-        {
-            btnRegistroVideo.BackColor = Color.FromArgb(0, 170, 228);
-        }
-
-        private void BtnRegistroVideo_MouseLeave(object sender, EventArgs e)
-        {
-            btnRegistroVideo.BackColor = Color.FromArgb(150, 150, 150);
-        }
-
-        private void BtnConfBD_MouseHover(object sender, EventArgs e)
-        {
-            btnConfBD.BackColor = Color.FromArgb(0, 170, 228);
-        }
-
-        private void BtnConfBD_MouseLeave(object sender, EventArgs e)
-        {
-            btnConfBD.BackColor = Color.FromArgb(150,150,150);
-        }
-
-        private void BtnCerrarSesion_MouseHover(object sender, EventArgs e)
-        {
-            btnCerrarSesion.BackColor = Color.FromArgb(0, 170, 228);
-        }
-
-        private void BtnCerrarSesion_MouseLeave(object sender, EventArgs e)
-        {
-            btnCerrarSesion.BackColor = Color.FromArgb(150,150,150);
         }
 
         private void BtnRegistrarUsr_Click(object sender, EventArgs e)
         {
-            Form g_ExisteFormulario = Application.OpenForms.OfType<SeleccionDeAreaDeTrabajo>().Where(pre => pre.Text == "FormRegistroDeUsr").SingleOrDefault<Form>();
-            if (g_ExisteFormulario != null)
+            if (ClaseComunes.chkPermiso(true, 3, claseControlUsuario.UserName))
             {
-                if (g_ExisteFormulario.WindowState == FormWindowState.Minimized)
+                Form g_ExisteFormulario = Application.OpenForms.OfType<SeleccionDeAreaDeTrabajo>().Where(pre => pre.Text == "FormRegistroDeUsr").SingleOrDefault<Form>();
+                if (g_ExisteFormulario != null)
                 {
-                    g_ExisteFormulario.WindowState = FormWindowState.Normal;
+                    if (g_ExisteFormulario.WindowState == FormWindowState.Minimized)
+                    {
+                        g_ExisteFormulario.WindowState = FormWindowState.Normal;
+                    }
+                    g_ExisteFormulario.BringToFront();
                 }
-                g_ExisteFormulario.BringToFront();
+                else
+                {
+                    FormRegistroDeUsr frm = new FormRegistroDeUsr();
+                    frm.Show();
+                }
+                Hide();
             }
-            else
-            {
-                FormRegistroDeUsr frm = new FormRegistroDeUsr();
-                frm.Show();
-            }
-            Hide();
-
-        }
-
-        private void BtnCrearPerfil_MouseHover(object sender, EventArgs e)
-        {
-            btnCrearPerfil.BackColor = Color.FromArgb(0, 170, 228);
-        }
-
-        private void BtnCrearPerfil_MouseLeave(object sender, EventArgs e)
-        {
-            btnCrearPerfil.BackColor = Color.FromArgb(150,150,150);
         }
 
         private void BtnCrearPerfil_Click(object sender, EventArgs e)
@@ -215,7 +167,7 @@ namespace SystemSCADA.Vista
             }
             else
             {
-                FormInterfaz frm = new FormInterfaz();
+                FormInterfaz frm = new FormInterfaz(4);
                 frm.Show();
             }
             Hide();
@@ -234,10 +186,32 @@ namespace SystemSCADA.Vista
             }
             else
             {
-                FormInterfaz frm = new FormInterfaz();
+                FormInterfaz frm = new FormInterfaz(5);
                 frm.Show();
             }
             Hide();
+        }
+
+        private void BtnRegistroVideo_Click(object sender, EventArgs e)
+        {
+            if (ClaseComunes.chkPermiso(true, 3, claseControlUsuario.UserName))
+            {
+                Form g_ExisteFormulario = Application.OpenForms.OfType<SeleccionDeAreaDeTrabajo>().Where(pre => pre.Text == "FormRegistroDeUsr").SingleOrDefault<Form>();
+                if (g_ExisteFormulario != null)
+                {
+                    if (g_ExisteFormulario.WindowState == FormWindowState.Minimized)
+                    {
+                        g_ExisteFormulario.WindowState = FormWindowState.Normal;
+                    }
+                    g_ExisteFormulario.BringToFront();
+                }
+                else
+                {
+                    FormRegistroDeVideo frm = new FormRegistroDeVideo();
+                    frm.Show();
+                }
+                Hide();
+            }
         }
     }
 }
