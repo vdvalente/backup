@@ -17,6 +17,7 @@ namespace SystemSCADA.Controlador
         Descripcion: Conexion a la base de datos
         *****************************************************************************************************************************************************/
         static claseMetodosBaseDeDatos conexionBD;
+        public static string path { set; get; }
         public static void setDgrw(ref DataGridView grv, string storeProcedure, string Busqueda = "")
         {
             conexionBD = new claseMetodosBaseDeDatos(claseControlBaseDeDatos.SQlsistemaSCADA, claseControlBaseDeDatos.SQLNomDBsistemaSCADA, claseControlBaseDeDatos.SQLUsersistemaSCADA,
@@ -78,5 +79,21 @@ namespace SystemSCADA.Controlador
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public static string pathVideo()
+        {
+            string posibles = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            int longitud = posibles.Length;
+            Random obj = new Random();
+            char letra;
+            int longitudnuevacadena = 5;
+            for (int i = 0; i < longitudnuevacadena; i++)
+            {
+                letra = posibles[obj.Next(longitud)];
+                path += letra.ToString();
+            }
+            return path;
+        }
+
     }
 }

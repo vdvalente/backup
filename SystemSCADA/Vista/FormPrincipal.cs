@@ -22,9 +22,12 @@ namespace SystemSCADA.Vista
     {
         SerialPort Puerto = new SerialPort("COM2", 9100, Parity.None, 8, StopBits.One);
         SerialPort Puerto_Serial = new SerialPort("COM4", 9100, Parity.None, 8, StopBits.One);
+        private const string Keys = "+{PRTSC}";
         SoundPlayer Sonido;
         int IdArea;
-       
+        VideoFileWriter writer = new VideoFileWriter();
+        int Tiempo = 0;
+        Bitmap pantalla = null;
         public FormInterfaz(int IdAreaDeTrabajo)
         {
             IdArea = IdAreaDeTrabajo;
@@ -41,6 +44,7 @@ namespace SystemSCADA.Vista
         //variable para la deteccion 
         MotionDetector detector;
         float NivelDeDeteccion;
+        int a = 0;
 
         #region Mover Form
         [System.Runtime.InteropServices.DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -81,7 +85,15 @@ namespace SystemSCADA.Vista
             {
                 cmbCamara.Items.Add(x.Name);
             }
-            cmbCamara.SelectedIndex = 0;  
+            cmbCamara.SelectedIndex = 0;
+            
+            //iniciar recepcion de imagen 
+            videoSourcePlayer1.Start();
+            string path =ClaseVideosDelSistema.pathVideo();
+            path = path + ".avi";
+            writer.Open(path, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, 6, VideoCodec.MPEG4);
+            Tiempo = 0;
+            Timer_Grabacion.Start();
         }
         private void BtnIniciar_Click(object sender, EventArgs e)
         {
@@ -91,10 +103,10 @@ namespace SystemSCADA.Vista
             videoSourcePlayer1.VideoSource = FuenteDeVideo;
             //iniciar recepcion de imagen 
             videoSourcePlayer1.Start();
-            //Timer_Humo.Enabled = true;
-            //Timer_Temperatura.Enabled = true;
+            Timer_Humo.Enabled = true;
+            Timer_Temperatura.Enabled = true;
             btnIniciar.Enabled = false;
-            //timer_Temperatura.Enabled = true;
+           
         }
 
         public void ComunicacionPuertoSerie()
@@ -194,21 +206,34 @@ namespace SystemSCADA.Vista
                     txtHumo.Visible = true;
                     txtHumo.Text = "Peligro Incendio";
                     txtHumo.BackColor = Color.Red;
-                    for (int i = 0; i < 5000; i++)
+                    switch (a)
                     {
-                        picAlarmaApagada.Visible = !picAlarmaApagada.Visible;
-                        picAlarmaEncendiendo.Visible = !picAlarmaEncendiendo.Visible;
-                        picAlarmaEncendida.Visible = !picAlarmaEncendida.Visible;
-                    }
-                    picLuzApagada.Visible = true;
-                    picLuzApagada.BringToFront();
+                        case 0:
+                            picAlarmaApagada.Visible = true;
+                            picAlarmaEncendiendo.Visible = false;
+                            picAlarmaEncendida.Visible = false;
+                            a = 1;
+                            break;
+                        case 1:
+                            picAlarmaApagada.Visible = false;
+                            picAlarmaEncendiendo.Visible = true;
+                            picAlarmaEncendida.Visible = false;
+                            a = 2;
+                            break;
+                        case 2:
+                            picAlarmaEncendida.Visible = true;
+                            picAlarmaEncendiendo.Visible = false;
+                            picLuzApagada.Visible = false;
+                            a = 0;
+                            break;
+                    }    
                 }
                 else
                 {
                     txtHumo.Visible = false;
                     picLuzApagada.Visible = true;
                 }
-
+                picLuzApagada.Visible = true;
                 Puerto_Serial.Close();
                 Timer_Humo.Enabled = true;
             }
@@ -225,6 +250,28 @@ namespace SystemSCADA.Vista
             Timer_Temperatura.Enabled = false;
             ComunicacionPuertoSerie();
             Timer_Temperatura.Enabled = true;
+        }
+
+        private void Timer_Grabacion_Tick(object sender, EventArgs e)
+        {
+            Timer_Grabacion.Stop();
+            //crear variable Bitmap
+
+            // write 1000 video frames
+
+            //enviar la pulsación equivalente a May + ImprPant
+            SendKeys.SendWait(Keys);
+            //asignar al Bitmap el contenido del portapapeles
+            pantalla = ((Bitmap)(Clipboard.GetDataObject().GetData("Bitmap")));
+            writer.WriteVideoFrame(pantalla);
+            Application.DoEvents();
+            if (Tiempo == 1)
+            {
+                writer.Close();
+                MessageBox.Show("Fuiste grabado");
+                return;
+            }
+            Timer_Grabacion.Start();
         }
     }
 

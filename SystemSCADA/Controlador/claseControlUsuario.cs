@@ -19,7 +19,6 @@ namespace SystemSCADA.Controlador
     {
 
         /*****************************************************************************************************************************************************
-       Nombre del Creador:Melanie Infante
        Fecha de Creacion: 27/09/18
        Descripcion: Propiedades de la Clase
        *****************************************************************************************************************************************************/
@@ -34,6 +33,8 @@ namespace SystemSCADA.Controlador
         public static string Correo { get; set; }
         public static bool Estatus { get; set; }
         public static string Cedula { get; set; }
+        public static string UserNew { get; set; }
+        public static string PassNew { get; set; }
 
 
         /*****************************************************************************************************************************************************
@@ -106,13 +107,13 @@ namespace SystemSCADA.Controlador
                 Parametros[9].ParameterName = "@Contraseña";
                 Parametros[9].SqlDbType = SqlDbType.VarChar;
                 Parametros[9].Size = 100;
-                Parametros[9].Value = Contraseña;
+                Parametros[9].Value = PassNew;
 
                 Parametros[10] = new SqlParameter();
                 Parametros[10].ParameterName = "@UserName";
                 Parametros[10].SqlDbType = SqlDbType.VarChar;
                 Parametros[10].Size = 20;
-                Parametros[10].Value = UserName;
+                Parametros[10].Value = UserNew;
 
                 Parametros[11] = new SqlParameter();
                 Parametros[11].ParameterName = "@Correo";

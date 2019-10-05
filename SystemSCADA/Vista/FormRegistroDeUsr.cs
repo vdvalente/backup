@@ -66,13 +66,10 @@ namespace SystemSCADA.Vista
             dgrvUsuarios.ReadOnly = true;
             dgrvUsuarios.Columns["Estatus"].ReadOnly = false;
             claseControlUsuario.llenarCmbPerfil(ref cmbPerfiles);
-            LlenarForm(); //Se llenan los campos con la informacion correspondiente
-           
         }
 
         private void LlenarForm()
         {
-
             txtDireccionConfiUsuario.Text = claseControlUsuario.Direccion;
             txtNombreConfiUsuario.Text = claseControlUsuario.Nombre;
             txtApellidoConfiUsuario.Text = claseControlUsuario.Apellido;
@@ -83,7 +80,6 @@ namespace SystemSCADA.Vista
             txtUsuario.Text = claseControlUsuario.UserName;
             txtContraseña.Text = claseControlUsuario.Contraseña;
             chbEstatusConfiUsuario.Checked = claseControlUsuario.Estatus;
-
         }
 
         private void BtnMinimizar_Click(object sender, EventArgs e)
@@ -122,9 +118,9 @@ namespace SystemSCADA.Vista
             claseControlUsuario.Cedula = txtCedulaConfiUsuario.Text;
             claseControlUsuario.Tlf = txtTlfConfiUsuario.Text;
             claseControlUsuario.IdPerfil = Convert.ToInt32(cmbPerfiles.SelectedValue);
-            claseControlUsuario.Contraseña = ClaseComunes.ObtenerHash(txtContraseña.Text);
+            claseControlUsuario.PassNew = ClaseComunes.ObtenerHash(txtContraseña.Text);
             claseControlUsuario.Apellido = txtApellidoConfiUsuario.Text;
-            claseControlUsuario.UserName = txtUsuario.Text;
+            claseControlUsuario.UserNew = txtUsuario.Text;
             claseControlUsuario.Correo = txtCorreoConfiUsuario.Text;
             claseControlUsuario.Estatus = Convert.ToBoolean(chbEstatusConfiUsuario.Checked);
 
@@ -150,7 +146,8 @@ namespace SystemSCADA.Vista
                 }
                 else
                 {
-                    Close();
+                    pnlCreacionUsr.Visible = false;
+                    claseControlUsuario.setDgrw(ref dgrvUsuarios, "USP_ConsultaUsuario");
                 }
                 Actualizar?.Invoke(sender, e);
             }
