@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,7 +46,6 @@ namespace SystemSCADA.Vista
         {
             ClaseVideosDelSistema.setDgrw(ref dgrvUsuarios, "usp_ConsultaGrabaciones");
             dgrvUsuarios.Enabled = true;
-            
         }
 
         private void BtnMinimizar_Click(object sender, EventArgs e)
@@ -53,9 +53,17 @@ namespace SystemSCADA.Vista
             WindowState = FormWindowState.Minimized;
         }
 
-        
-
-       
-        
+        private void DgrvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Process proceso = new Process();
+            try
+            {
+                proceso.StartInfo.FileName = dgrvUsuarios.CurrentRow.Cells["Video"].Value.ToString();
+                proceso.Start();
+            }catch(Exception ex)
+            {
+                ClaseComunes.MsjShow(ex.Message, 1, 1);
+            }
+        }
     }
 }

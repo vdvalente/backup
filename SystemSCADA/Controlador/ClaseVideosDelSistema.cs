@@ -24,10 +24,7 @@ namespace SystemSCADA.Controlador
         static claseMetodosBaseDeDatos conexionBD;
         public static string path { set; get; }
         public static bool status { set; get; }
-        public delegate void Detector(float Movimiento);
-        public event Detector detectar;
-        public BackgroundWorker cnnBkgWkr { get; set; }
-        public BackgroundWorker accBkgWkr { get; set; }
+        public static int idAreadeTrabajo { set; get; }
         private const string Keys = "+{PRTSC}";
         int Tiempo = 0;
         Bitmap pantalla = null;
@@ -40,123 +37,7 @@ namespace SystemSCADA.Controlador
         }
 
 
-        public void Detectar(float Deteccion)
-        {
-            if (Deteccion > 0.0001)
-            {
-                Invoke(detectar, true);
-            }
-        }
-        //public void iniciarVideo(bool Activar)
-        //{
-        //    if (Activar)
-        //    {
-        //        string path = pathVideo();
-        //        path = path + ".avi";
-        //        writer.Open(path, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, 6, VideoCodec.MPEG4);
-        //        cnnBkgWkr = new BackgroundWorker();
-        //        cnnBkgWkr.DoWork += _accBkgWrkr_DoWork;
-        //        cnnBkgWkr.RunWorkerCompleted += _accBkgWrkr_RunWorkerCompleted;
-        //        cnnBkgWkr.RunWorkerAsync(status);
-        //    }
-        //    else
-        //    {
-        //        cnnBkgWkr.RunWorkerAsync(status);
-        //    }
-        //}
-        //private void _accBkgWrkr_DoWork(object sender, DoWorkEventArgs e)
-        //{
-        //    bool sts = (bool)e.Argument;
-        //    try
-        //    { 
-        //        while (sts)
-        //        {
-        //            //enviar la pulsación equivalente a May + ImprPant
-        //            SendKeys.SendWait(Keys);
-        //            //asignar al Bitmap el contenido del portapapeles
-        //            pantalla = ((Bitmap)(Clipboard.GetDataObject().GetData("Bitmap")));
-        //            writer.WriteVideoFrame(pantalla);
-        //            Application.DoEvents();
-        //        }
-        //    }catch(Exception ex)
-        //    {
-        //        ClaseComunes.MsjShow(ex.Message, 1, 1);
-        //    }
-        //}
-        //private void _accBkgWrkr_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs connectEventArgs)
-        //{
-        //    writer.Close();
-        //}
 
-        //private void _cnnBkgWrkr_DoWork(object sender, DoWorkEventArgs workEventArgs)
-        //{
-        //    string sArgIn = (string)workEventArgs.Argument;
-        //    bool bCnn = (sArgIn == "1");
-        //    if (bCnn)
-        //    {
-        //        sConect = "1";
-        //        try
-        //        {
-        //            string path = pathVideo();
-        //            path = path + ".avi";
-        //            writer.Open(path, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, 6, VideoCodec.MPEG4);
-
-        //            workEventArgs.Result = "Conexión Exitosa";
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            workEventArgs.Result = ex.HResult;
-        //            ClaseComunes.MsjShow(ex.Message, 1, 1, FormAbrir: true);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        sConect = "0";
-        //        try
-        //        {
-        //            writer.Close();
-        //            Application.DoEvents();
-        //            workEventArgs.Result = "Desconexión Exitosa";
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            workEventArgs.Result = ex.HResult;
-        //            ClaseComunes.MsjShow(ex.Message, 1, 1, FormAbrir: true);
-        //        }
-        //    }
-        //}
-
-        //public void iniciarVideo(bool Activar)
-        //{
-        //    if (Activar)
-        //    {
-        //        string path = pathVideo();
-        //        path = path + ".avi";
-        //        writer.Open(path, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, 6, VideoCodec.MPEG4);
-        //        trd = new Thread(Grabar);
-        //        trd.IsBackground = true;
-        //    }
-        //    else
-        //    {
-        //        trd = new Thread(Grabar);
-        //    }
-        //}
-        //void Grabar()
-        //{
-        //    string path = pathVideo();
-        //    path = path + ".avi";
-        //    writer.Open(path, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, 6, VideoCodec.MPEG4);
-        //    while (status)
-        //    {
-        //        //enviar la pulsación equivalente a May + ImprPant
-        //        SendKeys.SendWait(Keys);
-        //        //asignar al Bitmap el contenido del portapapeles
-        //        pantalla = ((Bitmap)(Clipboard.GetDataObject().GetData("Bitmap")));
-        //        writer.WriteVideoFrame(pantalla);
-        //        Application.DoEvents();
-        //    }
-        //    writer.Close();
-        //}
         public static void setDgrw(ref DataGridView grv, string storeProcedure, string Busqueda = "")
         {
             conexionBD = new claseMetodosBaseDeDatos(claseControlBaseDeDatos.SQlsistemaSCADA, claseControlBaseDeDatos.SQLNomDBsistemaSCADA, claseControlBaseDeDatos.SQLUsersistemaSCADA,
@@ -220,6 +101,36 @@ namespace SystemSCADA.Controlador
             }
         }
 
+        public static void GuardarVideo()
+        {
+            conexionBD = new claseMetodosBaseDeDatos(claseControlBaseDeDatos.SQlsistemaSCADA, claseControlBaseDeDatos.SQLNomDBsistemaSCADA, claseControlBaseDeDatos.SQLUsersistemaSCADA,
+                claseControlBaseDeDatos.SQLPasssistemaSCADA);
+            try
+            {
+                SqlParameter[] Parametros = new SqlParameter[2];
+
+                Parametros[0] = new SqlParameter();
+                Parametros[0].ParameterName = "@Id_AreaDeTrabajo";
+                Parametros[0].SqlDbType = SqlDbType.Int;
+                Parametros[0].Value = idAreadeTrabajo;
+
+                Parametros[1] = new SqlParameter();
+                Parametros[1].ParameterName = "@Video";
+                Parametros[1].SqlDbType = SqlDbType.VarChar;
+                Parametros[1].Size = 120;
+                Parametros[1].Value =@Environment.CurrentDirectory+@"\"+path;
+
+                conexionBD.EjecutarSP(ref Parametros, "dbo.usp_GuardarVideos", "Error guardanto los datos del Perfil");
+            }
+            catch (SqlException sqlex)
+            {
+                ClaseComunes.MsjShow(sqlex.Message, 1, 1);
+            }
+            catch (Exception ex)
+            {
+                ClaseComunes.MsjShow(ex.Message, 1, 1);
+            }
+        }
         public static string pathVideo()
         {
             string posibles = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";

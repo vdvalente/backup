@@ -29,27 +29,27 @@
         private void InitializeComponent()
         {
             this.pnlRegistroDeUsr = new System.Windows.Forms.Panel();
+            this.pnlCofiguracionPerfil = new System.Windows.Forms.Panel();
+            this.lblCofigurarPerfil = new System.Windows.Forms.Label();
+            this.txtNombrePerfil = new System.Windows.Forms.TextBox();
+            this.imgPerfil = new System.Windows.Forms.PictureBox();
+            this.btnGuardarPerfil = new System.Windows.Forms.Button();
+            this.lblNombrePerfil = new System.Windows.Forms.Label();
+            this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.pnlBotones = new System.Windows.Forms.Panel();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnMinimizar = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.dgrvUsuarios = new System.Windows.Forms.DataGridView();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.pnlCofiguracionPerfil = new System.Windows.Forms.Panel();
-            this.lblCofigurarPerfil = new System.Windows.Forms.Label();
-            this.txtNombrePerfil = new System.Windows.Forms.TextBox();
-            this.lblNombrePerfil = new System.Windows.Forms.Label();
-            this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.imgPerfil = new System.Windows.Forms.PictureBox();
-            this.btnGuardarPerfil = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnCerrar = new System.Windows.Forms.Button();
-            this.btnMinimizar = new System.Windows.Forms.Button();
             this.pnlRegistroDeUsr.SuspendLayout();
-            this.pnlBotones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgrvUsuarios)).BeginInit();
             this.pnlCofiguracionPerfil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgPerfil)).BeginInit();
+            this.pnlBotones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrvUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlRegistroDeUsr
@@ -66,57 +66,6 @@
             this.pnlRegistroDeUsr.Name = "pnlRegistroDeUsr";
             this.pnlRegistroDeUsr.Size = new System.Drawing.Size(1385, 787);
             this.pnlRegistroDeUsr.TabIndex = 0;
-            // 
-            // pnlBotones
-            // 
-            this.pnlBotones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.pnlBotones.Controls.Add(this.btnEliminar);
-            this.pnlBotones.Location = new System.Drawing.Point(3, 690);
-            this.pnlBotones.Name = "pnlBotones";
-            this.pnlBotones.Size = new System.Drawing.Size(1379, 80);
-            this.pnlBotones.TabIndex = 6;
-            // 
-            // lblTitulo
-            // 
-            this.lblTitulo.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(12, 9);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(1263, 30);
-            this.lblTitulo.TabIndex = 1;
-            this.lblTitulo.Text = "Registros Del sistema en las area de trabajo";
-            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // dgrvUsuarios
-            // 
-            this.dgrvUsuarios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.dgrvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrvUsuarios.GridColor = System.Drawing.Color.White;
-            this.dgrvUsuarios.Location = new System.Drawing.Point(3, 53);
-            this.dgrvUsuarios.Name = "dgrvUsuarios";
-            this.dgrvUsuarios.Size = new System.Drawing.Size(1371, 425);
-            this.dgrvUsuarios.TabIndex = 0;
-            // 
-            // shapeContainer1
-            // 
-            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer1.Name = "shapeContainer1";
-            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(1385, 787);
-            this.shapeContainer1.TabIndex = 2;
-            this.shapeContainer1.TabStop = false;
-            // 
-            // lineShape1
-            // 
-            this.lineShape1.BorderColor = System.Drawing.Color.Blue;
-            this.lineShape1.BorderWidth = 4;
-            this.lineShape1.Name = "lineShape1";
-            this.lineShape1.SelectionColor = System.Drawing.Color.Honeydew;
-            this.lineShape1.X1 = 0;
-            this.lineShape1.X2 = 1384;
-            this.lineShape1.Y1 = 44;
-            this.lineShape1.Y2 = 44;
             // 
             // pnlCofiguracionPerfil
             // 
@@ -154,6 +103,33 @@
             this.txtNombrePerfil.Size = new System.Drawing.Size(152, 22);
             this.txtNombrePerfil.TabIndex = 71;
             // 
+            // imgPerfil
+            // 
+            this.imgPerfil.Image = global::SystemSCADA.Properties.Resources.clipboard;
+            this.imgPerfil.Location = new System.Drawing.Point(7, 57);
+            this.imgPerfil.Name = "imgPerfil";
+            this.imgPerfil.Size = new System.Drawing.Size(36, 40);
+            this.imgPerfil.TabIndex = 74;
+            this.imgPerfil.TabStop = false;
+            // 
+            // btnGuardarPerfil
+            // 
+            this.btnGuardarPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnGuardarPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardarPerfil.FlatAppearance.BorderSize = 0;
+            this.btnGuardarPerfil.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(35)))), ((int)(((byte)(51)))));
+            this.btnGuardarPerfil.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(51)))), ((int)(((byte)(59)))));
+            this.btnGuardarPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarPerfil.ForeColor = System.Drawing.Color.White;
+            this.btnGuardarPerfil.Image = global::SystemSCADA.Properties.Resources.Buscar;
+            this.btnGuardarPerfil.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnGuardarPerfil.Location = new System.Drawing.Point(207, 36);
+            this.btnGuardarPerfil.Name = "btnGuardarPerfil";
+            this.btnGuardarPerfil.Size = new System.Drawing.Size(30, 22);
+            this.btnGuardarPerfil.TabIndex = 72;
+            this.btnGuardarPerfil.UseVisualStyleBackColor = false;
+            // 
             // lblNombrePerfil
             // 
             this.lblNombrePerfil.AutoSize = true;
@@ -187,32 +163,14 @@
             this.lineShape2.Y1 = 28;
             this.lineShape2.Y2 = 28;
             // 
-            // imgPerfil
+            // pnlBotones
             // 
-            this.imgPerfil.Image = global::SystemSCADA.Properties.Resources.clipboard;
-            this.imgPerfil.Location = new System.Drawing.Point(7, 57);
-            this.imgPerfil.Name = "imgPerfil";
-            this.imgPerfil.Size = new System.Drawing.Size(36, 40);
-            this.imgPerfil.TabIndex = 74;
-            this.imgPerfil.TabStop = false;
-            // 
-            // btnGuardarPerfil
-            // 
-            this.btnGuardarPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnGuardarPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardarPerfil.FlatAppearance.BorderSize = 0;
-            this.btnGuardarPerfil.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(35)))), ((int)(((byte)(51)))));
-            this.btnGuardarPerfil.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(51)))), ((int)(((byte)(59)))));
-            this.btnGuardarPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarPerfil.ForeColor = System.Drawing.Color.White;
-            this.btnGuardarPerfil.Image = global::SystemSCADA.Properties.Resources.Buscar;
-            this.btnGuardarPerfil.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnGuardarPerfil.Location = new System.Drawing.Point(207, 36);
-            this.btnGuardarPerfil.Name = "btnGuardarPerfil";
-            this.btnGuardarPerfil.Size = new System.Drawing.Size(30, 22);
-            this.btnGuardarPerfil.TabIndex = 72;
-            this.btnGuardarPerfil.UseVisualStyleBackColor = false;
+            this.pnlBotones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.pnlBotones.Controls.Add(this.btnEliminar);
+            this.pnlBotones.Location = new System.Drawing.Point(3, 690);
+            this.pnlBotones.Name = "pnlBotones";
+            this.pnlBotones.Size = new System.Drawing.Size(1379, 80);
+            this.pnlBotones.TabIndex = 6;
             // 
             // btnEliminar
             // 
@@ -253,6 +211,49 @@
             this.btnMinimizar.UseVisualStyleBackColor = true;
             this.btnMinimizar.Click += new System.EventHandler(this.BtnMinimizar_Click);
             // 
+            // lblTitulo
+            // 
+            this.lblTitulo.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(12, 9);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(1263, 30);
+            this.lblTitulo.TabIndex = 1;
+            this.lblTitulo.Text = "Registros Del sistema en las area de trabajo";
+            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // dgrvUsuarios
+            // 
+            this.dgrvUsuarios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.dgrvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrvUsuarios.GridColor = System.Drawing.Color.White;
+            this.dgrvUsuarios.Location = new System.Drawing.Point(3, 53);
+            this.dgrvUsuarios.Name = "dgrvUsuarios";
+            this.dgrvUsuarios.Size = new System.Drawing.Size(1371, 425);
+            this.dgrvUsuarios.TabIndex = 0;
+            this.dgrvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgrvUsuarios_CellContentClick);
+            // 
+            // shapeContainer1
+            // 
+            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer1.Name = "shapeContainer1";
+            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.lineShape1});
+            this.shapeContainer1.Size = new System.Drawing.Size(1385, 787);
+            this.shapeContainer1.TabIndex = 2;
+            this.shapeContainer1.TabStop = false;
+            // 
+            // lineShape1
+            // 
+            this.lineShape1.BorderColor = System.Drawing.Color.Blue;
+            this.lineShape1.BorderWidth = 4;
+            this.lineShape1.Name = "lineShape1";
+            this.lineShape1.SelectionColor = System.Drawing.Color.Honeydew;
+            this.lineShape1.X1 = 0;
+            this.lineShape1.X2 = 1384;
+            this.lineShape1.Y1 = 44;
+            this.lineShape1.Y2 = 44;
+            // 
             // FormRegistroDeVideo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -265,11 +266,11 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormRegistroDeUsr_Load);
             this.pnlRegistroDeUsr.ResumeLayout(false);
-            this.pnlBotones.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgrvUsuarios)).EndInit();
             this.pnlCofiguracionPerfil.ResumeLayout(false);
             this.pnlCofiguracionPerfil.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgPerfil)).EndInit();
+            this.pnlBotones.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgrvUsuarios)).EndInit();
             this.ResumeLayout(false);
 
         }

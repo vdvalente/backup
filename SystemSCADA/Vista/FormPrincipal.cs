@@ -31,6 +31,7 @@ namespace SystemSCADA.Vista
         VideoFileWriter writer = new VideoFileWriter();
         int Tiempo = 0;
         Bitmap pantalla = null;
+        string path = ClaseVideosDelSistema.pathVideo();
         public FormInterfaz()
         {
             InitializeComponent();
@@ -75,7 +76,11 @@ namespace SystemSCADA.Vista
  
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            SeleccionDeAreaDeTrabajo frm = new SeleccionDeAreaDeTrabajo();
+            frm.Show();
+            this.Hide();
+            Timer_Humo.Enabled = false;
+            Timer_Grabacion.Enabled = false;
         }
 
         private void BtnMinimizar_Click(object sender, EventArgs e)
@@ -112,10 +117,11 @@ namespace SystemSCADA.Vista
             //Timer_Temperatura.Enabled = true;
             btnIniciar.Enabled = false;
             Timer_Humo.Enabled = true;
-            string path = ClaseVideosDelSistema.pathVideo();
             path = path + ".avi";
             writer.Open(path, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, 6, VideoCodec.MPEG4);
             Tiempo = 0;
+            ClaseVideosDelSistema.path = path;
+            ClaseVideosDelSistema.idAreadeTrabajo = IdArea;
             Timer_Grabacion.Start();
 
 
@@ -168,6 +174,9 @@ namespace SystemSCADA.Vista
             btnIniciar.Enabled = true;
             NivelDeDeteccion = 0;
             Timer_Humo.Enabled = false;
+            ClaseVideosDelSistema.GuardarVideo();
+            writer.Close();
+            Timer_Grabacion.Stop();
             //ClaseVideosDelSistema.status = false;
             //video.iniciarVideo(false);
 
