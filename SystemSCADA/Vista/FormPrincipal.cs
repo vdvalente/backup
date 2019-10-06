@@ -28,9 +28,9 @@ namespace SystemSCADA.Vista
         Thread trd; 
         int IdArea;
         ClaseVideosDelSistema video = new ClaseVideosDelSistema();
-        //VideoFileWriter writer = new VideoFileWriter();
-        //int Tiempo = 0;
-        //Bitmap pantalla = null;
+        VideoFileWriter writer = new VideoFileWriter();
+        int Tiempo = 0;
+        Bitmap pantalla = null;
         public FormInterfaz()
         {
             InitializeComponent();
@@ -98,11 +98,7 @@ namespace SystemSCADA.Vista
             
             //iniciar recepcion de imagen 
             videoSourcePlayer1.Start();
-            //string path =ClaseVideosDelSistema.pathVideo();
-            //path = path + ".avi";
-            //writer.Open(path, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, 6, VideoCodec.MPEG4);
-            //Tiempo = 0;
-            //Timer_Grabacion.Start();
+            
         }
         private void BtnIniciar_Click(object sender, EventArgs e)
         {
@@ -116,7 +112,13 @@ namespace SystemSCADA.Vista
             //Timer_Temperatura.Enabled = true;
             btnIniciar.Enabled = false;
             Timer_Humo.Enabled = true;
-            
+            string path = ClaseVideosDelSistema.pathVideo();
+            path = path + ".avi";
+            writer.Open(path, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, 6, VideoCodec.MPEG4);
+            Tiempo = 0;
+            Timer_Grabacion.Start();
+
+
             ////video.iniciarVideo(true);
 
         }
@@ -185,16 +187,6 @@ namespace SystemSCADA.Vista
         private void Timer_Humo_Tick(object sender, EventArgs e)
         {
             Timer_Humo.Enabled = false;
-            if (NivelDeDeteccion > 0.0001)
-            {
-                picLuzApagada.Visible = !picLuzApagada.Visible;
-
-                //SaveRecord();
-            }
-            else
-            {
-                picLuzApagada.Visible = true;
-            }
             try
             {
                 string H;
@@ -255,24 +247,33 @@ namespace SystemSCADA.Vista
         }
         private void Timer_Grabacion_Tick(object sender, EventArgs e)
         {
-            //Timer_Grabacion.Stop();
-            ////crear variable Bitmap
+            Timer_Grabacion.Stop();
+            //crear variable Bitmap
+            if (NivelDeDeteccion > 0.0001)
+            {
+                picLuzApagada.Visible = !picLuzApagada.Visible;
 
-            //// write 1000 video frames
+                //SaveRecord();
+            }
+            else
+            {
+                picLuzApagada.Visible = true;
+            }
+            // write 1000 video frames
 
-            ////enviar la pulsación equivalente a May + ImprPant
-            //SendKeys.SendWait(Keys);
-            ////asignar al Bitmap el contenido del portapapeles
-            //pantalla = ((Bitmap)(Clipboard.GetDataObject().GetData("Bitmap")));
-            //writer.WriteVideoFrame(pantalla);
-            //Application.DoEvents();
-            //if (Tiempo == 1)
-            //{
-            //    writer.Close();
-            //    MessageBox.Show("Fuiste grabado");
-            //    return;
-            //}
-            //Timer_Grabacion.Start();
+            //enviar la pulsación equivalente a May + ImprPant
+            SendKeys.SendWait(Keys);
+            //asignar al Bitmap el contenido del portapapeles
+            pantalla = ((Bitmap)(Clipboard.GetDataObject().GetData("Bitmap")));
+            writer.WriteVideoFrame(pantalla);
+            Application.DoEvents();
+            if (Tiempo == 1)
+            {
+                writer.Close();
+                MessageBox.Show("Fuiste grabado");
+                return;
+            }
+            Timer_Grabacion.Start();
         }
 
         private void BtnMedirTemperatura_Click(object sender, EventArgs e)
