@@ -5,25 +5,165 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.ComponentModel;
 using System.Windows.Forms;
+using SystemSCADA.Vista;
 using SystemSCADA.Modelo;
+using AForge.Video.FFMPEG;
+
 
 namespace SystemSCADA.Controlador
 {
-    class ClaseVideosDelSistema
+    class ClaseVideosDelSistema : Form 
     {
         /*****************************************************************************************************************************************************
         Descripcion: Conexion a la base de datos
         *****************************************************************************************************************************************************/
         static claseMetodosBaseDeDatos conexionBD;
         public static string path { set; get; }
+        public static bool status { set; get; }
+        public delegate void Detector(float Movimiento);
+        public event Detector detectar;
+        public BackgroundWorker cnnBkgWkr { get; set; }
+        public BackgroundWorker accBkgWkr { get; set; }
+        private const string Keys = "+{PRTSC}";
+        int Tiempo = 0;
+        Bitmap pantalla = null;
+        string sConect;
+        private Thread trd;
+        
+        public ClaseVideosDelSistema()
+        {
+            
+        }
+
+
+        public void Detectar(float Deteccion)
+        {
+            if (Deteccion > 0.0001)
+            {
+                Invoke(detectar, true);
+            }
+        }
+        //public void iniciarVideo(bool Activar)
+        //{
+        //    if (Activar)
+        //    {
+        //        string path = pathVideo();
+        //        path = path + ".avi";
+        //        writer.Open(path, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, 6, VideoCodec.MPEG4);
+        //        cnnBkgWkr = new BackgroundWorker();
+        //        cnnBkgWkr.DoWork += _accBkgWrkr_DoWork;
+        //        cnnBkgWkr.RunWorkerCompleted += _accBkgWrkr_RunWorkerCompleted;
+        //        cnnBkgWkr.RunWorkerAsync(status);
+        //    }
+        //    else
+        //    {
+        //        cnnBkgWkr.RunWorkerAsync(status);
+        //    }
+        //}
+        //private void _accBkgWrkr_DoWork(object sender, DoWorkEventArgs e)
+        //{
+        //    bool sts = (bool)e.Argument;
+        //    try
+        //    { 
+        //        while (sts)
+        //        {
+        //            //enviar la pulsación equivalente a May + ImprPant
+        //            SendKeys.SendWait(Keys);
+        //            //asignar al Bitmap el contenido del portapapeles
+        //            pantalla = ((Bitmap)(Clipboard.GetDataObject().GetData("Bitmap")));
+        //            writer.WriteVideoFrame(pantalla);
+        //            Application.DoEvents();
+        //        }
+        //    }catch(Exception ex)
+        //    {
+        //        ClaseComunes.MsjShow(ex.Message, 1, 1);
+        //    }
+        //}
+        //private void _accBkgWrkr_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs connectEventArgs)
+        //{
+        //    writer.Close();
+        //}
+
+        //private void _cnnBkgWrkr_DoWork(object sender, DoWorkEventArgs workEventArgs)
+        //{
+        //    string sArgIn = (string)workEventArgs.Argument;
+        //    bool bCnn = (sArgIn == "1");
+        //    if (bCnn)
+        //    {
+        //        sConect = "1";
+        //        try
+        //        {
+        //            string path = pathVideo();
+        //            path = path + ".avi";
+        //            writer.Open(path, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, 6, VideoCodec.MPEG4);
+
+        //            workEventArgs.Result = "Conexión Exitosa";
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            workEventArgs.Result = ex.HResult;
+        //            ClaseComunes.MsjShow(ex.Message, 1, 1, FormAbrir: true);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        sConect = "0";
+        //        try
+        //        {
+        //            writer.Close();
+        //            Application.DoEvents();
+        //            workEventArgs.Result = "Desconexión Exitosa";
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            workEventArgs.Result = ex.HResult;
+        //            ClaseComunes.MsjShow(ex.Message, 1, 1, FormAbrir: true);
+        //        }
+        //    }
+        //}
+
+        //public void iniciarVideo(bool Activar)
+        //{
+        //    if (Activar)
+        //    {
+        //        string path = pathVideo();
+        //        path = path + ".avi";
+        //        writer.Open(path, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, 6, VideoCodec.MPEG4);
+        //        trd = new Thread(Grabar);
+        //        trd.IsBackground = true;
+        //    }
+        //    else
+        //    {
+        //        trd = new Thread(Grabar);
+        //    }
+        //}
+        //void Grabar()
+        //{
+        //    string path = pathVideo();
+        //    path = path + ".avi";
+        //    writer.Open(path, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, 6, VideoCodec.MPEG4);
+        //    while (status)
+        //    {
+        //        //enviar la pulsación equivalente a May + ImprPant
+        //        SendKeys.SendWait(Keys);
+        //        //asignar al Bitmap el contenido del portapapeles
+        //        pantalla = ((Bitmap)(Clipboard.GetDataObject().GetData("Bitmap")));
+        //        writer.WriteVideoFrame(pantalla);
+        //        Application.DoEvents();
+        //    }
+        //    writer.Close();
+        //}
         public static void setDgrw(ref DataGridView grv, string storeProcedure, string Busqueda = "")
         {
             conexionBD = new claseMetodosBaseDeDatos(claseControlBaseDeDatos.SQlsistemaSCADA, claseControlBaseDeDatos.SQLNomDBsistemaSCADA, claseControlBaseDeDatos.SQLUsersistemaSCADA,
                 claseControlBaseDeDatos.SQLPasssistemaSCADA);
             DataGridViewCheckBoxColumn sts = new DataGridViewCheckBoxColumn();
             DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+        
 
             try
             {

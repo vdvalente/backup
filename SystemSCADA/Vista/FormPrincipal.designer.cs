@@ -36,6 +36,7 @@
             System.Windows.Forms.AGaugeRange aGaugeRange3 = new System.Windows.Forms.AGaugeRange();
             System.Windows.Forms.AGaugeRange aGaugeRange4 = new System.Windows.Forms.AGaugeRange();
             this.pnl_InterfazScada = new System.Windows.Forms.Panel();
+            this.btnMedirTemperatura = new System.Windows.Forms.Button();
             this.picAlarmaApagada = new System.Windows.Forms.PictureBox();
             this.picAlarmaEncendiendo = new System.Windows.Forms.PictureBox();
             this.txtHumo = new System.Windows.Forms.TextBox();
@@ -60,7 +61,6 @@
             this.picLuzEncendida = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.Timer_Movimiento = new System.Windows.Forms.Timer(this.components);
-            this.Timer_Temperatura = new System.Windows.Forms.Timer(this.components);
             this.Timer_Humo = new System.Windows.Forms.Timer(this.components);
             this.Timer_Grabacion = new System.Windows.Forms.Timer(this.components);
             this.pnl_InterfazScada.SuspendLayout();
@@ -74,6 +74,7 @@
             // pnl_InterfazScada
             // 
             this.pnl_InterfazScada.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_InterfazScada.Controls.Add(this.btnMedirTemperatura);
             this.pnl_InterfazScada.Controls.Add(this.picAlarmaApagada);
             this.pnl_InterfazScada.Controls.Add(this.picAlarmaEncendiendo);
             this.pnl_InterfazScada.Controls.Add(this.txtHumo);
@@ -99,6 +100,17 @@
             this.pnl_InterfazScada.Name = "pnl_InterfazScada";
             this.pnl_InterfazScada.Size = new System.Drawing.Size(1385, 787);
             this.pnl_InterfazScada.TabIndex = 0;
+            // 
+            // btnMedirTemperatura
+            // 
+            this.btnMedirTemperatura.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMedirTemperatura.Location = new System.Drawing.Point(1164, 550);
+            this.btnMedirTemperatura.Name = "btnMedirTemperatura";
+            this.btnMedirTemperatura.Size = new System.Drawing.Size(169, 23);
+            this.btnMedirTemperatura.TabIndex = 40;
+            this.btnMedirTemperatura.Text = "Medir La Temperatura";
+            this.btnMedirTemperatura.UseVisualStyleBackColor = true;
+            this.btnMedirTemperatura.Click += new System.EventHandler(this.BtnMedirTemperatura_Click);
             // 
             // picAlarmaApagada
             // 
@@ -332,6 +344,7 @@
             // btnIniciar
             // 
             this.btnIniciar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnIniciar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciar.Location = new System.Drawing.Point(16, 56);
             this.btnIniciar.Name = "btnIniciar";
             this.btnIniciar.Size = new System.Drawing.Size(101, 23);
@@ -343,6 +356,7 @@
             // btnDetener
             // 
             this.btnDetener.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDetener.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDetener.Location = new System.Drawing.Point(16, 85);
             this.btnDetener.Name = "btnDetener";
             this.btnDetener.Size = new System.Drawing.Size(101, 23);
@@ -407,19 +421,12 @@
             // 
             // Timer_Movimiento
             // 
-            this.Timer_Movimiento.Enabled = true;
             this.Timer_Movimiento.Interval = 200;
             this.Timer_Movimiento.Tick += new System.EventHandler(this.Timer_Movimiento_Tick);
             // 
-            // Timer_Temperatura
-            // 
-            this.Timer_Temperatura.Enabled = true;
-            this.Timer_Temperatura.Interval = 1000;
-            this.Timer_Temperatura.Tick += new System.EventHandler(this.Timer_Temperatura_Tick);
-            // 
             // Timer_Humo
             // 
-            this.Timer_Humo.Interval = 2000;
+            this.Timer_Humo.Interval = 1000;
             this.Timer_Humo.Tick += new System.EventHandler(this.Timer_Humo_Tick);
             // 
             // Timer_Grabacion
@@ -474,12 +481,12 @@
         private System.Windows.Forms.Label label1;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer2;
         private System.Windows.Forms.Timer Timer_Movimiento;
-        private System.Windows.Forms.Timer Timer_Temperatura;
         private System.Windows.Forms.Timer Timer_Humo;
         private System.Windows.Forms.TextBox txtHumo;
         private System.Windows.Forms.PictureBox picAlarmaEncendiendo;
         private System.Windows.Forms.PictureBox picAlarmaApagada;
         private System.Windows.Forms.Timer Timer_Grabacion;
+        private System.Windows.Forms.Button btnMedirTemperatura;
     }
 }
 

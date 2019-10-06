@@ -15,6 +15,7 @@ using AForge.Video.FFMPEG;
 using SystemSCADA.Controlador;
 using System.IO.Ports;
 using System.Media;
+using System.Threading;
 
 namespace SystemSCADA.Vista
 {
@@ -24,10 +25,17 @@ namespace SystemSCADA.Vista
         SerialPort Puerto_Serial = new SerialPort("COM4", 9100, Parity.None, 8, StopBits.One);
         private const string Keys = "+{PRTSC}";
         SoundPlayer Sonido;
+        Thread trd; 
         int IdArea;
-        VideoFileWriter writer = new VideoFileWriter();
-        int Tiempo = 0;
-        Bitmap pantalla = null;
+        ClaseVideosDelSistema video = new ClaseVideosDelSistema();
+        //VideoFileWriter writer = new VideoFileWriter();
+        //int Tiempo = 0;
+        //Bitmap pantalla = null;
+        public FormInterfaz()
+        {
+            InitializeComponent();
+        }
+
         public FormInterfaz(int IdAreaDeTrabajo)
         {
             IdArea = IdAreaDeTrabajo;
@@ -76,6 +84,7 @@ namespace SystemSCADA.Vista
         }
         private void FormInterfaz_Load(object sender, EventArgs e)
         {
+            
             //Inicializar variable detector 
             detector = new MotionDetector(new TwoFramesDifferenceDetector(), new MotionBorderHighlighting());
             NivelDeDeteccion = 0;
@@ -89,11 +98,11 @@ namespace SystemSCADA.Vista
             
             //iniciar recepcion de imagen 
             videoSourcePlayer1.Start();
-            string path =ClaseVideosDelSistema.pathVideo();
-            path = path + ".avi";
-            writer.Open(path, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, 6, VideoCodec.MPEG4);
-            Tiempo = 0;
-            Timer_Grabacion.Start();
+            //string path =ClaseVideosDelSistema.pathVideo();
+            //path = path + ".avi";
+            //writer.Open(path, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, 6, VideoCodec.MPEG4);
+            //Tiempo = 0;
+            //Timer_Grabacion.Start();
         }
         private void BtnIniciar_Click(object sender, EventArgs e)
         {
@@ -103,10 +112,13 @@ namespace SystemSCADA.Vista
             videoSourcePlayer1.VideoSource = FuenteDeVideo;
             //iniciar recepcion de imagen 
             videoSourcePlayer1.Start();
-            Timer_Humo.Enabled = true;
-            Timer_Temperatura.Enabled = true;
+            //Timer_Humo.Enabled = true;
+            //Timer_Temperatura.Enabled = true;
             btnIniciar.Enabled = false;
-           
+            Timer_Humo.Enabled = true;
+            
+            ////video.iniciarVideo(true);
+
         }
 
         public void ComunicacionPuertoSerie()
@@ -124,6 +136,14 @@ namespace SystemSCADA.Vista
                 int i = c.IndexOf('\r');
                 c = c.Substring(0, c.IndexOf("\r"));
                 string a = c.Replace(".", ",");
+                if (Convert.ToDecimal(a) > 45)
+                {
+                    Sonido = new SoundPlayer(@"C:\Users\victo\Documents\Victor Daniel\TesisScada\Smoke Alarm.wav");
+                    Sonido.Play();
+                    txtHumo.Visible = true;
+                    txtHumo.Text = "Peligro Incendio";
+                    txtHumo.BackColor = Color.Red;
+                }
                 aGauge1.Value = Convert.ToSingle(a);
                 Puerto.Close();
             }
@@ -146,6 +166,9 @@ namespace SystemSCADA.Vista
             btnIniciar.Enabled = true;
             NivelDeDeteccion = 0;
             Timer_Humo.Enabled = false;
+            //ClaseVideosDelSistema.status = false;
+            //video.iniciarVideo(false);
+
             //Timer_Temperatura.Enabled = false;
         }
 
@@ -153,44 +176,25 @@ namespace SystemSCADA.Vista
         {
             NivelDeDeteccion = detector.ProcessFrame(image);
         }
-       
+
         private void Timer_Movimiento_Tick(object sender, EventArgs e)
         {
-            if(NivelDeDeteccion > 0.0001)
+          
+        }
+
+        private void Timer_Humo_Tick(object sender, EventArgs e)
+        {
+            Timer_Humo.Enabled = false;
+            if (NivelDeDeteccion > 0.0001)
             {
                 picLuzApagada.Visible = !picLuzApagada.Visible;
-                
+
                 //SaveRecord();
             }
             else
             {
                 picLuzApagada.Visible = true;
             }
-        }
-
-
-        //private void SaveRecord()
-        //{
-        //    int width = 320;
-        //    int height = 240;
-
-        //    // create instance of video writer
-        //    VideoFileWriter writer = new VideoFileWriter();
-        //    // create new video file
-        //    writer.Open("test.avi", width, height, 25, VideoCodec.MPEG4);
-        //    // create a bitmap to save into the video file
-        //    Bitmap image = new Bitmap(width, height, PixelFormat.Format24bppRgb);
-        //    // write 1000 video frames
-        //    for (int i = 0; i < 1000; i++)
-        //    {
-        //        image.SetPixel(i % width, i % height, Color.Red);
-        //        writer.WriteVideoFrame(image);
-        //    }
-        //    writer.Close();
-        //}
-        private void Timer_Humo_Tick(object sender, EventArgs e)
-        {
-            Timer_Humo.Enabled = false;
             try
             {
                 string H;
@@ -201,32 +205,7 @@ namespace SystemSCADA.Vista
                 H = H.Replace("\r", "");
                 if (H == "1")
                 {
-                    Sonido = new SoundPlayer(@"C:\Users\victo\Documents\Victor Daniel\TesisScada\Smoke Alarm.wav");
-                    Sonido.Play();
-                    txtHumo.Visible = true;
-                    txtHumo.Text = "Peligro Incendio";
-                    txtHumo.BackColor = Color.Red;
-                    switch (a)
-                    {
-                        case 0:
-                            picAlarmaApagada.Visible = true;
-                            picAlarmaEncendiendo.Visible = false;
-                            picAlarmaEncendida.Visible = false;
-                            a = 1;
-                            break;
-                        case 1:
-                            picAlarmaApagada.Visible = false;
-                            picAlarmaEncendiendo.Visible = true;
-                            picAlarmaEncendida.Visible = false;
-                            a = 2;
-                            break;
-                        case 2:
-                            picAlarmaEncendida.Visible = true;
-                            picAlarmaEncendiendo.Visible = false;
-                            picLuzApagada.Visible = false;
-                            a = 0;
-                            break;
-                    }    
+                    DetectorHumo();
                 }
                 else
                 {
@@ -245,33 +224,60 @@ namespace SystemSCADA.Vista
             }
         }
 
-        private void Timer_Temperatura_Tick(object sender, EventArgs e)
+        private void  DetectorHumo()
         {
-            Timer_Temperatura.Enabled = false;
-            ComunicacionPuertoSerie();
-            Timer_Temperatura.Enabled = true;
+            Sonido = new SoundPlayer(@"C:\Users\victo\Documents\Victor Daniel\TesisScada\Smoke Alarm.wav");
+            Sonido.Play();
+            txtHumo.Visible = true;
+            txtHumo.Text = "Peligro Incendio";
+            txtHumo.BackColor = Color.Red;
+            switch (a)
+            {
+                case 0:
+                    picAlarmaApagada.Visible = true;
+                    picAlarmaEncendiendo.Visible = false;
+                    picAlarmaEncendida.Visible = false;
+                    a = 1;
+                    break;
+                case 1:
+                    picAlarmaApagada.Visible = false;
+                    picAlarmaEncendiendo.Visible = true;
+                    picAlarmaEncendida.Visible = false;
+                    a = 2;
+                    break;
+                case 2:
+                    picAlarmaEncendida.Visible = true;
+                    picAlarmaEncendiendo.Visible = false;
+                    picLuzApagada.Visible = false;
+                    a = 0;
+                    break;
+            }
         }
-
         private void Timer_Grabacion_Tick(object sender, EventArgs e)
         {
-            Timer_Grabacion.Stop();
-            //crear variable Bitmap
+            //Timer_Grabacion.Stop();
+            ////crear variable Bitmap
 
-            // write 1000 video frames
+            //// write 1000 video frames
 
-            //enviar la pulsación equivalente a May + ImprPant
-            SendKeys.SendWait(Keys);
-            //asignar al Bitmap el contenido del portapapeles
-            pantalla = ((Bitmap)(Clipboard.GetDataObject().GetData("Bitmap")));
-            writer.WriteVideoFrame(pantalla);
-            Application.DoEvents();
-            if (Tiempo == 1)
-            {
-                writer.Close();
-                MessageBox.Show("Fuiste grabado");
-                return;
-            }
-            Timer_Grabacion.Start();
+            ////enviar la pulsación equivalente a May + ImprPant
+            //SendKeys.SendWait(Keys);
+            ////asignar al Bitmap el contenido del portapapeles
+            //pantalla = ((Bitmap)(Clipboard.GetDataObject().GetData("Bitmap")));
+            //writer.WriteVideoFrame(pantalla);
+            //Application.DoEvents();
+            //if (Tiempo == 1)
+            //{
+            //    writer.Close();
+            //    MessageBox.Show("Fuiste grabado");
+            //    return;
+            //}
+            //Timer_Grabacion.Start();
+        }
+
+        private void BtnMedirTemperatura_Click(object sender, EventArgs e)
+        {
+            ComunicacionPuertoSerie();
         }
     }
 
