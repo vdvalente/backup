@@ -62,7 +62,6 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.Timer_Movimiento = new System.Windows.Forms.Timer(this.components);
             this.Timer_Humo = new System.Windows.Forms.Timer(this.components);
-            this.Timer_Grabacion = new System.Windows.Forms.Timer(this.components);
             this.pnl_InterfazScada.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAlarmaApagada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAlarmaEncendiendo)).BeginInit();
@@ -429,10 +428,6 @@
             this.Timer_Humo.Interval = 1000;
             this.Timer_Humo.Tick += new System.EventHandler(this.Timer_Humo_Tick);
             // 
-            // Timer_Grabacion
-            // 
-            this.Timer_Grabacion.Tick += new System.EventHandler(this.Timer_Grabacion_Tick);
-            // 
             // FormInterfaz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -485,7 +480,6 @@
         private System.Windows.Forms.TextBox txtHumo;
         private System.Windows.Forms.PictureBox picAlarmaEncendiendo;
         private System.Windows.Forms.PictureBox picAlarmaApagada;
-        private System.Windows.Forms.Timer Timer_Grabacion;
         private System.Windows.Forms.Button btnMedirTemperatura;
     }
 }

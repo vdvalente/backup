@@ -152,7 +152,7 @@
             this.panel1.Controls.Add(this.btnRegistrarUsr);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1289, 40);
+            this.panel1.Size = new System.Drawing.Size(1282, 40);
             this.panel1.TabIndex = 13;
             // 
             // button1
@@ -361,7 +361,7 @@
             this.btnMinimizar.FlatAppearance.BorderSize = 0;
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.Image = global::SystemSCADA.Properties.Resources.Minimizar;
-            this.btnMinimizar.Location = new System.Drawing.Point(1288, 3);
+            this.btnMinimizar.Location = new System.Drawing.Point(1286, 3);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(37, 37);
             this.btnMinimizar.TabIndex = 5;

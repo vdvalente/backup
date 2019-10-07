@@ -80,7 +80,6 @@ namespace SystemSCADA.Vista
             frm.Show();
             this.Hide();
             Timer_Humo.Enabled = false;
-            Timer_Grabacion.Enabled = false;
         }
 
         private void BtnMinimizar_Click(object sender, EventArgs e)
@@ -117,16 +116,29 @@ namespace SystemSCADA.Vista
             //Timer_Temperatura.Enabled = true;
             btnIniciar.Enabled = false;
             Timer_Humo.Enabled = true;
-            path = path + ".avi";
-            writer.Open(path, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, 6, VideoCodec.MPEG4);
             Tiempo = 0;
             ClaseVideosDelSistema.path = path;
             ClaseVideosDelSistema.idAreadeTrabajo = IdArea;
-            Timer_Grabacion.Start();
+            video.VictorMRK = new ClaseVideosDelSistema.DetectarMovi(VictorMuyMarico);
+            video.InicialLectura(1);
 
 
             ////video.iniciarVideo(true);
 
+        }
+
+        private void VictorMuyMarico()
+        {
+            if (NivelDeDeteccion > 0.0001)
+            {
+                picLuzApagada.Visible = !picLuzApagada.Visible;
+
+                //SaveRecord();
+            }
+            else
+            {
+                picLuzApagada.Visible = true;
+            }
         }
 
         public void ComunicacionPuertoSerie()
@@ -175,8 +187,7 @@ namespace SystemSCADA.Vista
             NivelDeDeteccion = 0;
             Timer_Humo.Enabled = false;
             ClaseVideosDelSistema.GuardarVideo();
-            writer.Close();
-            Timer_Grabacion.Stop();
+            video.InicialLectura(0);
             //ClaseVideosDelSistema.status = false;
             //video.iniciarVideo(false);
 
@@ -254,36 +265,7 @@ namespace SystemSCADA.Vista
                     break;
             }
         }
-        private void Timer_Grabacion_Tick(object sender, EventArgs e)
-        {
-            Timer_Grabacion.Stop();
-            //crear variable Bitmap
-            if (NivelDeDeteccion > 0.0001)
-            {
-                picLuzApagada.Visible = !picLuzApagada.Visible;
-
-                //SaveRecord();
-            }
-            else
-            {
-                picLuzApagada.Visible = true;
-            }
-            // write 1000 video frames
-
-            //enviar la pulsación equivalente a May + ImprPant
-            SendKeys.SendWait(Keys);
-            //asignar al Bitmap el contenido del portapapeles
-            pantalla = ((Bitmap)(Clipboard.GetDataObject().GetData("Bitmap")));
-            writer.WriteVideoFrame(pantalla);
-            Application.DoEvents();
-            if (Tiempo == 1)
-            {
-                writer.Close();
-                MessageBox.Show("Fuiste grabado");
-                return;
-            }
-            Timer_Grabacion.Start();
-        }
+        
 
         private void BtnMedirTemperatura_Click(object sender, EventArgs e)
         {

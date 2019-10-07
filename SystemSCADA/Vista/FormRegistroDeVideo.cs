@@ -32,16 +32,12 @@ namespace SystemSCADA.Vista
         }
 
      
-
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
             SeleccionDeAreaDeTrabajo frm = new SeleccionDeAreaDeTrabajo();
             frm.Show();
             this.Hide();
         }
-
-      
-
         private void FormRegistroDeUsr_Load(object sender, EventArgs e)
         {
             ClaseVideosDelSistema.setDgrw(ref dgrvUsuarios, "usp_ConsultaGrabaciones");

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Windows.Forms;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.ComponentModel;
-using System.Windows.Forms;
 using SystemSCADA.Vista;
 using SystemSCADA.Modelo;
 using AForge.Video.FFMPEG;
@@ -25,18 +25,53 @@ namespace SystemSCADA.Controlador
         public static string path { set; get; }
         public static bool status { set; get; }
         public static int idAreadeTrabajo { set; get; }
+
+        public BackgroundWorker cnnBkgWkr { get; set; }
+        public int Tiempo { get; set; }
+
         private const string Keys = "+{PRTSC}";
-        int Tiempo = 0;
-        Bitmap pantalla = null;
-        string sConect;
-        private Thread trd;
         
+        Bitmap pantalla = null;
+        
+        VideoFileWriter writer = new VideoFileWriter();
+
+        private System.Windows.Forms.Timer Timer_Grabacion;
+
+        string sArgIn;
+
+        public delegate void DetectarMovi();
+        public DetectarMovi VictorMRK = null;
+
         public ClaseVideosDelSistema()
         {
-            
+            Timer_Grabacion = new System.Windows.Forms.Timer
+            {
+                Interval = 100
+            };
+            Timer_Grabacion.Tick += new EventHandler(this.Timer_Grabacion_Tick);
+
+            cnnBkgWkr = new BackgroundWorker
+            {
+                WorkerReportsProgress = true,
+                WorkerSupportsCancellation = true
+            };
         }
 
 
+        public void InicialLectura(int Aux)
+        {
+            this.Show();
+            this.Hide();
+            path = path + ".avi";
+            writer.Open(path, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, 6, VideoCodec.MPEG4);
+            cnnBkgWkr.DoWork += _cnnBkgWrkr_DoWork;
+            cnnBkgWkr.RunWorkerCompleted += _cnnBkgWrkr_RunWorkerCompleted;
+            if(Aux == 1)
+                cnnBkgWkr.RunWorkerAsync("1");
+            else
+                cnnBkgWkr.RunWorkerAsync("0");
+
+        }
 
         public static void setDgrw(ref DataGridView grv, string storeProcedure, string Busqueda = "")
         {
@@ -146,5 +181,50 @@ namespace SystemSCADA.Controlador
             return path;
         }
 
+
+        private void Timer_Grabacion_Tick(object sender, EventArgs e)
+        {
+            Timer_Grabacion.Stop();
+            this.Invoke(VictorMRK);
+            //crear variable Bitmap
+            
+            // write 1000 video frames
+
+            //enviar la pulsación equivalente a May + ImprPant
+            SendKeys.SendWait(Keys);
+            //asignar al Bitmap el contenido del portapapeles
+            pantalla = ((Bitmap)(Clipboard.GetDataObject().GetData("Bitmap")));
+            writer.WriteVideoFrame(pantalla);
+            //Application.DoEvents();
+            if (Tiempo == 1)
+            {
+                writer.Close();
+                MessageBox.Show("Fuiste grabado");
+                return;
+            }
+            Timer_Grabacion.Start();
+        }
+
+        private void _cnnBkgWrkr_DoWork(object sender, DoWorkEventArgs workEventArgs)
+        {
+            sArgIn = (string)workEventArgs.Argument;
+            //bool bCnn = (sArgIn == "1");
+            //if (bCnn)
+            //{
+            //}
+            //else
+            //{
+            //}
+        }
+        
+        private void _cnnBkgWrkr_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs connectEventArgs)
+        {
+            if (sArgIn == "1")
+                Timer_Grabacion.Start();
+            else
+            {
+                Tiempo = 1;
+            }
+        }
     }
 }
