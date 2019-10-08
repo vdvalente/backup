@@ -184,6 +184,7 @@
             this.btnEliminar.TabIndex = 7;
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             this.btnEliminar.MouseLeave += new System.EventHandler(this.BtnEliminar_MouseLeave);
             this.btnEliminar.MouseHover += new System.EventHandler(this.BtnEliminar_MouseHover);
             // 
@@ -223,6 +224,12 @@
             // 
             // dgrvUsuarios
             // 
+            this.dgrvUsuarios.AllowUserToAddRows = false;
+            this.dgrvUsuarios.AllowUserToDeleteRows = false;
+            this.dgrvUsuarios.AllowUserToResizeColumns = false;
+            this.dgrvUsuarios.AllowUserToResizeRows = false;
+            this.dgrvUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgrvUsuarios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.dgrvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrvUsuarios.GridColor = System.Drawing.Color.White;

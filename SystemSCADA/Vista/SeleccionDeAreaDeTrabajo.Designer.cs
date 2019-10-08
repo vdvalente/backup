@@ -366,6 +366,7 @@
             this.btnMinimizar.Size = new System.Drawing.Size(37, 37);
             this.btnMinimizar.TabIndex = 5;
             this.btnMinimizar.UseVisualStyleBackColor = true;
+            this.btnMinimizar.Click += new System.EventHandler(this.BtnMinimizar_Click);
             // 
             // SeleccionDeAreaDeTrabajo
             // 

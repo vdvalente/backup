@@ -73,6 +73,16 @@ namespace SystemSCADA.Controlador
 
         }
 
+        public static void EliminarVideo()
+        {
+            try
+            {
+                conexionBD.EjecutarText("DELETE FROM [dbo].[Grabaciones] WHERE Video = '" + path + "'", "Error obteniendo los datos");
+            }catch(Exception ex)
+            {
+                ClaseComunes.MsjShow(ex.Message, 1, 1);
+            }
+        }
         public static void setDgrw(ref DataGridView grv, string storeProcedure, string Busqueda = "")
         {
             conexionBD = new claseMetodosBaseDeDatos(claseControlBaseDeDatos.SQlsistemaSCADA, claseControlBaseDeDatos.SQLNomDBsistemaSCADA, claseControlBaseDeDatos.SQLUsersistemaSCADA,

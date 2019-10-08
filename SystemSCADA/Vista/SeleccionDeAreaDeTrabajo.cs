@@ -213,5 +213,10 @@ namespace SystemSCADA.Vista
                 Hide();
             }
         }
+
+        private void BtnMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
     }
 }

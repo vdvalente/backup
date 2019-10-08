@@ -61,5 +61,28 @@ namespace SystemSCADA.Vista
                 ClaseComunes.MsjShow(ex.Message, 1, 1);
             }
         }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            if (ClaseComunes.chkPermiso(true, 3, claseControlUsuario.UserName, 30))
+            {
+                if (dgrvUsuarios.CurrentRow != null)
+                {
+                    string message = " ¿Desea eliminar el video?";
+                    bool result;
+
+                    // Displays the MessageBox.
+
+                    result = ClaseComunes.MsjShow(message, 3, 2);
+
+                    if (result)
+                    {
+                        ClaseVideosDelSistema.path = dgrvUsuarios.CurrentRow.Cells["Video"].Value.ToString();
+                        ClaseVideosDelSistema.EliminarVideo();
+                        ClaseVideosDelSistema.setDgrw(ref dgrvUsuarios, "usp_ConsultaGrabaciones");
+                    }
+                }
+            }
+        }
     }
 }

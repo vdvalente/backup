@@ -116,10 +116,11 @@ namespace SystemSCADA.Vista
             //Timer_Temperatura.Enabled = true;
             btnIniciar.Enabled = false;
             Timer_Humo.Enabled = true;
+            timer_Temperatura.Enabled = true;
             Tiempo = 0;
             ClaseVideosDelSistema.path = path;
             ClaseVideosDelSistema.idAreadeTrabajo = IdArea;
-            video.VictorMRK = new ClaseVideosDelSistema.DetectarMovi(VictorMuyMarico);
+            video.VictorMRK = new ClaseVideosDelSistema.DetectarMovi(Deteccion);
             video.InicialLectura(1);
 
 
@@ -127,7 +128,7 @@ namespace SystemSCADA.Vista
 
         }
 
-        private void VictorMuyMarico()
+        private void Deteccion()
         {
             if (NivelDeDeteccion > 0.0001)
             {
@@ -156,7 +157,7 @@ namespace SystemSCADA.Vista
                 int i = c.IndexOf('\r');
                 c = c.Substring(0, c.IndexOf("\r"));
                 string a = c.Replace(".", ",");
-                if (Convert.ToDecimal(a) > 45)
+                if (Convert.ToDecimal(a) > 55)
                 {
                     Sonido = new SoundPlayer(@"C:\Users\victo\Documents\Victor Daniel\TesisScada\Smoke Alarm.wav");
                     Sonido.Play();
@@ -199,10 +200,6 @@ namespace SystemSCADA.Vista
             NivelDeDeteccion = detector.ProcessFrame(image);
         }
 
-        private void Timer_Movimiento_Tick(object sender, EventArgs e)
-        {
-          
-        }
 
         private void Timer_Humo_Tick(object sender, EventArgs e)
         {
@@ -270,6 +267,40 @@ namespace SystemSCADA.Vista
         private void BtnMedirTemperatura_Click(object sender, EventArgs e)
         {
             ComunicacionPuertoSerie();
+        }
+
+        private void Timer_Temperatura_Tick(object sender, EventArgs e)
+        {
+
+            // Controlamos que el puerto indicado esté operativo
+            try
+            {
+                // Abrimos el puerto serie
+                string c;
+                Puerto.Open();
+                Puerto.ReadTimeout = 3000;
+                textBox1.Text = Puerto.ReadLine()/*+"°C"*/;
+                c = textBox1.Text;
+                int i = c.IndexOf('\r');
+                c = c.Substring(0, c.IndexOf("\r"));
+                string a = c.Replace(".", ",");
+                if (Convert.ToDecimal(a) > 45)
+                {
+                    Sonido = new SoundPlayer(@"C:\Users\victo\Documents\Victor Daniel\TesisScada\Smoke Alarm.wav");
+                    Sonido.Play();
+                    txtHumo.Visible = true;
+                    txtHumo.Text = "Peligro Incendio";
+                    txtHumo.BackColor = Color.Red;
+                }
+                aGauge1.Value = Convert.ToSingle(a);
+                Puerto.Close();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+                //timer_Temperatura.Enabled = true;
+                Puerto.Close();
+            }
         }
     }
 
