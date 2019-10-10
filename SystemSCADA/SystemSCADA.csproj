@@ -140,9 +140,15 @@
     <Compile Include="Controlador\claseControlBaseDeDatos.cs" />
     <Compile Include="Controlador\claseControlPerfil.cs" />
     <Compile Include="Controlador\claseControlUsuario.cs" />
+    <Compile Include="Controlador\ClaseTemperatura.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Controlador\claseUsuarioAct.cs" />
     <Compile Include="Controlador\claseValidacionDeDatos.cs" />
     <Compile Include="Controlador\ClaseVideosDelSistema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controlador\SensorDeHumo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modelo\claseMetodosBaseDeDatos.cs" />

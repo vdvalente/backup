@@ -40,7 +40,7 @@ namespace SystemSCADA.Controlador
         string sArgIn;
 
         public delegate void DetectarMovi();
-        public DetectarMovi VictorMRK = null;
+        public DetectarMovi Movimiento = null;
 
         public ClaseVideosDelSistema()
         {
@@ -195,7 +195,7 @@ namespace SystemSCADA.Controlador
         private void Timer_Grabacion_Tick(object sender, EventArgs e)
         {
             Timer_Grabacion.Stop();
-            this.Invoke(VictorMRK);
+            this.Invoke(Movimiento);
             //crear variable Bitmap
             
             // write 1000 video frames
@@ -230,7 +230,10 @@ namespace SystemSCADA.Controlador
         private void _cnnBkgWrkr_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs connectEventArgs)
         {
             if (sArgIn == "1")
+            {
+                Tiempo = 0;
                 Timer_Grabacion.Start();
+            }
             else
             {
                 Tiempo = 1;

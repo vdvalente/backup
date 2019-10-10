@@ -61,7 +61,7 @@
             this.picLuzEncendida = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.Timer_Humo = new System.Windows.Forms.Timer(this.components);
-            this.timer_Temperatura = new System.Windows.Forms.Timer(this.components);
+            this.Timer_Temperatur = new System.Windows.Forms.Timer(this.components);
             this.pnl_InterfazScada.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAlarmaApagada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAlarmaEncendiendo)).BeginInit();
@@ -418,15 +418,10 @@
             this.picLuzEncendida.TabIndex = 6;
             this.picLuzEncendida.TabStop = false;
             // 
-            // Timer_Humo
+            // Timer_Temperatur
             // 
-            this.Timer_Humo.Interval = 1000;
-            this.Timer_Humo.Tick += new System.EventHandler(this.Timer_Humo_Tick);
-            // 
-            // timer_Temperatura
-            // 
-            this.timer_Temperatura.Interval = 2000;
-            this.timer_Temperatura.Tick += new System.EventHandler(this.Timer_Temperatura_Tick);
+            this.Timer_Temperatur.Interval = 1000;
+            this.Timer_Temperatur.Tick += new System.EventHandler(this.Timer_Temperatur_Tick);
             // 
             // FormInterfaz
             // 
@@ -480,7 +475,7 @@
         private System.Windows.Forms.PictureBox picAlarmaEncendiendo;
         private System.Windows.Forms.PictureBox picAlarmaApagada;
         private System.Windows.Forms.Button btnMedirTemperatura;
-        private System.Windows.Forms.Timer timer_Temperatura;
+        private System.Windows.Forms.Timer Timer_Temperatur;
     }
 }
 
