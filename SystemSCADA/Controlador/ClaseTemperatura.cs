@@ -68,8 +68,6 @@ namespace SystemSCADA.Controlador
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
-                    //timer_Temperatura.Enabled = true;
                     Puerto.Close();
                 }
                 Timer_SensorTemperatura.Enabled = true;

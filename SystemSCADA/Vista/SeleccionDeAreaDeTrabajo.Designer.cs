@@ -48,6 +48,7 @@
             this.btnRegistrarUsr = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnLuncheria = new System.Windows.Forms.Button();
             this.btnBancoBNC = new System.Windows.Forms.Button();
             this.btnSalonClases4424 = new System.Windows.Forms.Button();
             this.btnSalon = new System.Windows.Forms.Button();
@@ -55,7 +56,15 @@
             this.btnLabComputacion = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pnlAyuda = new System.Windows.Forms.Panel();
+            this.lineShape4 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtAyuda = new System.Windows.Forms.TextBox();
+            this.btnAceptar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.pnlAyuda.SuspendLayout();
             this.SuspendLayout();
             // 
             // lineShape1
@@ -170,6 +179,7 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "Ayuda";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // btnCrearPerfil
             // 
@@ -276,6 +286,18 @@
             this.label3.Text = "Banco BNC";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnLuncheria
+            // 
+            this.btnLuncheria.FlatAppearance.BorderSize = 0;
+            this.btnLuncheria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLuncheria.Image = global::SystemSCADA.Properties.Resources.IMG_20191009_17484;
+            this.btnLuncheria.Location = new System.Drawing.Point(937, 420);
+            this.btnLuncheria.Name = "btnLuncheria";
+            this.btnLuncheria.Size = new System.Drawing.Size(288, 170);
+            this.btnLuncheria.TabIndex = 18;
+            this.btnLuncheria.UseVisualStyleBackColor = true;
+            this.btnLuncheria.Click += new System.EventHandler(this.BtnLuncheria_Click);
+            // 
             // btnBancoBNC
             // 
             this.btnBancoBNC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -368,12 +390,94 @@
             this.btnMinimizar.UseVisualStyleBackColor = true;
             this.btnMinimizar.Click += new System.EventHandler(this.BtnMinimizar_Click);
             // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(963, 601);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(247, 23);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Cafeteria";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pnlAyuda
+            // 
+            this.pnlAyuda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlAyuda.Controls.Add(this.btnAceptar);
+            this.pnlAyuda.Controls.Add(this.txtAyuda);
+            this.pnlAyuda.Controls.Add(this.label5);
+            this.pnlAyuda.Controls.Add(this.shapeContainer2);
+            this.pnlAyuda.Location = new System.Drawing.Point(396, 100);
+            this.pnlAyuda.Name = "pnlAyuda";
+            this.pnlAyuda.Size = new System.Drawing.Size(517, 352);
+            this.pnlAyuda.TabIndex = 20;
+            this.pnlAyuda.Visible = false;
+            // 
+            // lineShape4
+            // 
+            this.lineShape4.BorderColor = System.Drawing.Color.Blue;
+            this.lineShape4.BorderWidth = 4;
+            this.lineShape4.Name = "lineShape4";
+            this.lineShape4.SelectionColor = System.Drawing.Color.Honeydew;
+            this.lineShape4.X1 = 0;
+            this.lineShape4.X2 = 516;
+            this.lineShape4.Y1 = 45;
+            this.lineShape4.Y2 = 45;
+            // 
+            // shapeContainer2
+            // 
+            this.shapeContainer2.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer2.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer2.Name = "shapeContainer2";
+            this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.lineShape4});
+            this.shapeContainer2.Size = new System.Drawing.Size(515, 350);
+            this.shapeContainer2.TabIndex = 0;
+            this.shapeContainer2.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(130, 14);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(262, 23);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Ayuda";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // txtAyuda
+            // 
+            this.txtAyuda.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAyuda.Location = new System.Drawing.Point(20, 65);
+            this.txtAyuda.Multiline = true;
+            this.txtAyuda.Name = "txtAyuda";
+            this.txtAyuda.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtAyuda.Size = new System.Drawing.Size(477, 210);
+            this.txtAyuda.TabIndex = 14;
+            // 
+            // btnAceptar
+            // 
+            this.btnAceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.btnAceptar.FlatAppearance.BorderSize = 0;
+            this.btnAceptar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAceptar.Location = new System.Drawing.Point(210, 296);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.TabIndex = 15;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = false;
+            this.btnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
+            // 
             // SeleccionDeAreaDeTrabajo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.Controls.Add(this.pnlAyuda);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.btnLuncheria);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnBancoBNC);
             this.Controls.Add(this.btnSalonClases4424);
@@ -395,6 +499,8 @@
             this.Text = "SeleccionDeAreaDeTrabajo";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
+            this.pnlAyuda.ResumeLayout(false);
+            this.pnlAyuda.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -426,5 +532,13 @@
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape3;
         private System.Windows.Forms.Button btnBancoBNC;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnLuncheria;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel pnlAyuda;
+        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.TextBox txtAyuda;
+        private System.Windows.Forms.Label label5;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer2;
+        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape4;
     }
 }

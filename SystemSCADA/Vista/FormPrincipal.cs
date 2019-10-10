@@ -120,6 +120,7 @@ namespace SystemSCADA.Vista
             //Timer_Humo.Enabled = true;
             //Timer_Temperatur.Enabled = true;
             btnIniciar.Enabled = false;
+            btnDetener.Enabled = true;
             //Timer_Humo.Enabled = true;
             Tiempo = 0;
             ClaseVideosDelSistema.path = path;
@@ -199,7 +200,6 @@ namespace SystemSCADA.Vista
             btnDetener.Enabled = false;
             btnIniciar.Enabled = true;
             NivelDeDeteccion = 0;
-            Timer_Humo.Enabled = false;
             ClaseVideosDelSistema.GuardarVideo();
             video.InicialLectura(0);
             sensorH.InicialLectura(0);
@@ -207,7 +207,7 @@ namespace SystemSCADA.Vista
             //ClaseVideosDelSistema.status = false;
             //video.iniciarVideo(false);
 
-            Timer_Temperatur.Enabled = false;
+            
         }
 
         private void VideoSourcePlayer1_NewFrame(object sender, ref Bitmap image)
@@ -276,17 +276,6 @@ namespace SystemSCADA.Vista
                     a = 0;
                     break;
             }
-        }
-        private void BtnMedirTemperatura_Click(object sender, EventArgs e)
-        {
-            //ComunicacionPuertoSerie();
-        }
-
-        private void Timer_Temperatur_Tick(object sender, EventArgs e)
-        {
-            //Timer_Temperatur.Enabled = false;
-            //ComunicacionPuertoSerie();
-            //Timer_Temperatur.Enabled = true;
         }
     }
 

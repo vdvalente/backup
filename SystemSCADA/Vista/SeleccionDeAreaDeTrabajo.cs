@@ -218,5 +218,42 @@ namespace SystemSCADA.Vista
         {
             WindowState = FormWindowState.Minimized;
         }
+
+        private void BtnLuncheria_Click(object sender, EventArgs e)
+        {
+            Form g_ExisteFormulario = Application.OpenForms.OfType<SeleccionDeAreaDeTrabajo>().Where(pre => pre.Text == "Principal").SingleOrDefault<Form>();
+            if (g_ExisteFormulario != null)
+            {
+                if (g_ExisteFormulario.WindowState == FormWindowState.Minimized)
+                {
+                    g_ExisteFormulario.WindowState = FormWindowState.Normal;
+                }
+                g_ExisteFormulario.BringToFront();
+            }
+            else
+            {
+                FormInterfaz frm = new FormInterfaz(6);
+                frm.Show();
+            }
+            Hide();
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            pnlAyuda.Visible = true;
+            string usuario, perfil, video, basededatos, trabajo;
+            usuario = "registrar usuario: en esta opción agrega los datos personales del usuario y se le asigna un perfil según las actividades que maneje en el sistema";
+            perfil = "Crear Perfil: Registre los perfiles del sistema asignando los permisos que crea que es conveniente, o tambien puede mofificar un perfil ya creado o sus permisos.";
+            video = "Registro de video: En esta area puede ver y eliminar los videos que el sistema lleva registrado";
+            basededatos = "Configuracion Base de datos: Configure las credenciales de la Base de datos del sistema";
+            trabajo = "Seleccione un area de trabajo haciendo click en la imagen para que lo lleve al area del sistema scada y pueda monitorear el espacio seleccionado.";
+            txtAyuda.Text = usuario + Environment.NewLine + perfil + Environment.NewLine + video + Environment.NewLine + basededatos + Environment.NewLine + trabajo;
+            txtAyuda.ReadOnly = true;
+        }
+
+        private void BtnAceptar_Click(object sender, EventArgs e)
+        {
+            pnlAyuda.Visible = false;
+        }
     }
 }
