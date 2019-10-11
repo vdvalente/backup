@@ -15,6 +15,7 @@ namespace SystemSCADA.Vista
     public partial class SeleccionDeAreaDeTrabajo : Form
     {
         bool respuesta;
+        int i = 0;
         public SeleccionDeAreaDeTrabajo()
         {
             InitializeComponent();

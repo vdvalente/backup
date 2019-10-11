@@ -81,7 +81,11 @@ namespace SystemSCADA.Vista
             SeleccionDeAreaDeTrabajo frm = new SeleccionDeAreaDeTrabajo();
             frm.Show();
             this.Hide();
-            ClaseVideosDelSistema.GuardarVideo();
+            if (videoSourcePlayer1.IsRunning)
+            {
+                videoSourcePlayer1.Stop();
+                ClaseVideosDelSistema.GuardarVideo();
+            } 
             video.InicialLectura(0);
             sensorH.InicialLectura(0);
             temp.InicialLectura(0);
@@ -117,11 +121,8 @@ namespace SystemSCADA.Vista
             videoSourcePlayer1.VideoSource = FuenteDeVideo;
             //iniciar recepcion de imagen 
             videoSourcePlayer1.Start();
-            //Timer_Humo.Enabled = true;
-            //Timer_Temperatur.Enabled = true;
             btnIniciar.Enabled = false;
             btnDetener.Enabled = true;
-            //Timer_Humo.Enabled = true;
             Tiempo = 0;
             ClaseVideosDelSistema.path = path;
             ClaseVideosDelSistema.idAreadeTrabajo = IdArea;
@@ -277,6 +278,8 @@ namespace SystemSCADA.Vista
                     break;
             }
         }
+
+       
     }
 
 }

@@ -58,11 +58,11 @@
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.pnlAyuda = new System.Windows.Forms.Panel();
-            this.lineShape4 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtAyuda = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.txtAyuda = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.lineShape4 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.panel1.SuspendLayout();
             this.pnlAyuda.SuspendLayout();
             this.SuspendLayout();
@@ -413,48 +413,6 @@
             this.pnlAyuda.TabIndex = 20;
             this.pnlAyuda.Visible = false;
             // 
-            // lineShape4
-            // 
-            this.lineShape4.BorderColor = System.Drawing.Color.Blue;
-            this.lineShape4.BorderWidth = 4;
-            this.lineShape4.Name = "lineShape4";
-            this.lineShape4.SelectionColor = System.Drawing.Color.Honeydew;
-            this.lineShape4.X1 = 0;
-            this.lineShape4.X2 = 516;
-            this.lineShape4.Y1 = 45;
-            this.lineShape4.Y2 = 45;
-            // 
-            // shapeContainer2
-            // 
-            this.shapeContainer2.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer2.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer2.Name = "shapeContainer2";
-            this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShape4});
-            this.shapeContainer2.Size = new System.Drawing.Size(515, 350);
-            this.shapeContainer2.TabIndex = 0;
-            this.shapeContainer2.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(130, 14);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(262, 23);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Ayuda";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // txtAyuda
-            // 
-            this.txtAyuda.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAyuda.Location = new System.Drawing.Point(20, 65);
-            this.txtAyuda.Multiline = true;
-            this.txtAyuda.Name = "txtAyuda";
-            this.txtAyuda.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtAyuda.Size = new System.Drawing.Size(477, 210);
-            this.txtAyuda.TabIndex = 14;
-            // 
             // btnAceptar
             // 
             this.btnAceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
@@ -468,6 +426,48 @@
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
+            // 
+            // txtAyuda
+            // 
+            this.txtAyuda.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAyuda.Location = new System.Drawing.Point(20, 65);
+            this.txtAyuda.Multiline = true;
+            this.txtAyuda.Name = "txtAyuda";
+            this.txtAyuda.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtAyuda.Size = new System.Drawing.Size(477, 210);
+            this.txtAyuda.TabIndex = 14;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(130, 14);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(262, 23);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Ayuda";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // shapeContainer2
+            // 
+            this.shapeContainer2.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer2.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer2.Name = "shapeContainer2";
+            this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.lineShape4});
+            this.shapeContainer2.Size = new System.Drawing.Size(515, 350);
+            this.shapeContainer2.TabIndex = 0;
+            this.shapeContainer2.TabStop = false;
+            // 
+            // lineShape4
+            // 
+            this.lineShape4.BorderColor = System.Drawing.Color.Blue;
+            this.lineShape4.BorderWidth = 4;
+            this.lineShape4.Name = "lineShape4";
+            this.lineShape4.SelectionColor = System.Drawing.Color.Honeydew;
+            this.lineShape4.X1 = 0;
+            this.lineShape4.X2 = 516;
+            this.lineShape4.Y1 = 45;
+            this.lineShape4.Y2 = 45;
             // 
             // SeleccionDeAreaDeTrabajo
             // 

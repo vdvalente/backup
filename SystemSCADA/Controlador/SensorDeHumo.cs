@@ -14,7 +14,7 @@ namespace SystemSCADA.Controlador
         public BackgroundWorker cnnBkgWkr { get; set; }
         public int Tiempo { get; set; }
         private System.Windows.Forms.Timer Timer_SensorHumo;
-        SerialPort Puerto_Serial = new SerialPort("COM4", 9100, Parity.None, 8, StopBits.One);
+        SerialPort Puerto_Serial = new SerialPort("COM5", 9600, Parity.None, 8, StopBits.One);
         string sArgIn;
         string Humo;
         public delegate void DetectarHumo();
@@ -55,21 +55,24 @@ namespace SystemSCADA.Controlador
             
             try
             {
-                string H;
-                Puerto_Serial.Open();
-                Puerto_Serial.ReadTimeout = 1500;
-                Humo = Puerto_Serial.ReadLine();
-                H = Humo;
-                H = H.Replace("\r", "");
-                if (H == "1")
+                if (Tiempo != 1)
                 {
-                    this.Invoke(SensorHumo);
+                    string H;
+                    Puerto_Serial.Open();
+                    Puerto_Serial.ReadTimeout = 3000;
+                    Humo = Puerto_Serial.ReadLine();
+                    H = Humo;
+                    H = H.Replace("\r", "");
+                    if (H == "1")
+                    {
+                        this.Invoke(SensorHumo);
+                    }
+                    else
+                    {
+                    }
+                    Puerto_Serial.Close();
                 }
                 else
-                {
-                }
-                Puerto_Serial.Close();
-                if (Tiempo == 1)
                 {
                     Puerto_Serial.Close();
                     return;

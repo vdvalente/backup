@@ -201,7 +201,7 @@ namespace SystemSCADA.Controlador
             // write 1000 video frames
 
             //enviar la pulsación equivalente a May + ImprPant
-            SendKeys.SendWait(Keys);
+            SendKeys.Send(Keys);
             //asignar al Bitmap el contenido del portapapeles
             pantalla = ((Bitmap)(Clipboard.GetDataObject().GetData("Bitmap")));
             writer.WriteVideoFrame(pantalla);
