@@ -94,7 +94,6 @@ namespace SystemSCADA.Vista
             dgvPerfil.Columns["Nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
-
         private void BtnNuevoPerfil_Click(object sender, EventArgs e)
         {
             btnRefrescarPerfil.Enabled = false;
@@ -124,16 +123,44 @@ namespace SystemSCADA.Vista
 
         private void BtnModificarPerfil_Click(object sender, EventArgs e)
         {
-            txtNombrePerfil.Focus();
-            dgvPerfil.Enabled = false;
-            btnRefrescarPerfil.Enabled = false;
-            btnNuevoPerfil.Enabled = false;
-            btnBorrarPerfil.Enabled = false;
-            dgvModulo.ReadOnly = false;
-            txtNombrePerfil.Text = dgvPerfil.CurrentRow.Cells["Nombre"].Value.ToString(); ;
-            pnlCofiguracionPerfil.Visible = true;
-            G_NuevoModificar = true;
-            dgvModulo.Enabled = true;
+            if (dgvPerfil.SelectedRows.Count == 1)
+            {
+                txtNombrePerfil.Focus();
+                dgvPerfil.Enabled = false;
+                btnRefrescarPerfil.Enabled = false;
+                btnNuevoPerfil.Enabled = false;
+                btnBorrarPerfil.Enabled = false;
+                dgvModulo.ReadOnly = false;
+                txtNombrePerfil.Text = dgvPerfil.CurrentRow.Cells["Nombre"].Value.ToString();
+                pnlCofiguracionPerfil.Visible = true;
+                G_NuevoModificar = true;
+                dgvModulo.Enabled = true;
+            }
+        }
+
+        private void BtnBorrarPerfil_Click(object sender, EventArgs e)
+        {
+            if ((dgvPerfil.RowCount <= 0) || (dgvPerfil.CurrentRow == null))
+            {
+                ClaseComunes.MsjShow("Se debe seleccionar el Registro a eliminar", 1, 4);
+                dgvPerfil.Focus();
+                return;
+            }
+            bool respuesta;
+            Application.DoEvents();
+            respuesta = ClaseComunes.MsjShow("Realmente desea Eliminar el Perfil de Usuario seleccionado?", 3, 2);
+            if (respuesta)
+            {
+                claseControlPerfil.IdPerfil = Convert.ToInt32(dgvPerfil.CurrentRow.Cells["Codigo"].Value.ToString());
+                claseControlPerfil.EliminarPerfil();
+                if (Convert.ToBoolean(claseControlPerfil.Eliminar))
+                {
+                    ClaseComunes.MsjShow("Hay Usuarios con este perfil asignado", 1, 4);
+                }
+                claseControlPerfil.setDgrw(ref dgvPerfil, "usp_ConsultaPerfil", "ListaPerfil", 0);
+                claseControlPerfil.setDgrw(ref dgvModulo, "usp_ConsultaPermisos", "ListaModulo", Convert.ToInt32(dgvPerfil.CurrentRow.Cells["Codigo"].Value.ToString()));
+                dgvModulo.Enabled = false;
+            }
         }
     }
 }

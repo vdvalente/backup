@@ -146,7 +146,7 @@
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(418, 23);
             this.lblTitulo.TabIndex = 13;
-            this.lblTitulo.Text = "Universidad Jose Antoni Paez";
+            this.lblTitulo.Text = "Universidad José Antonio Páez";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnLimpiarConfiEmpresa

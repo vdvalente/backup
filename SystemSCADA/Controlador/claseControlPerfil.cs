@@ -180,7 +180,7 @@ namespace SystemSCADA.Controlador
                 {
                    
                     L_ConsultaPerfil = Convert.ToInt32(conexionBD.ScalarText("Select Max([Perfil_Id]) from " +
-                            "[dbo].[Acces_Perfil]", "Error obteniendo datos del Perfil"));
+                            "[dbo].[Perfil]", "Error obteniendo datos del Perfil"));
                    
                 }
 

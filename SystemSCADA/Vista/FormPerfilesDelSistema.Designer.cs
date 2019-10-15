@@ -77,6 +77,10 @@
             // 
             // dgvPerfil
             // 
+            this.dgvPerfil.AllowUserToAddRows = false;
+            this.dgvPerfil.AllowUserToDeleteRows = false;
+            this.dgvPerfil.AllowUserToResizeColumns = false;
+            this.dgvPerfil.AllowUserToResizeRows = false;
             this.dgvPerfil.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             this.dgvPerfil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPerfil.Location = new System.Drawing.Point(31, 96);
@@ -148,6 +152,7 @@
             this.btnBorrarPerfil.TabIndex = 7;
             this.btnBorrarPerfil.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBorrarPerfil.UseVisualStyleBackColor = false;
+            this.btnBorrarPerfil.Click += new System.EventHandler(this.BtnBorrarPerfil_Click);
             // 
             // btnNuevoPerfil
             // 
@@ -288,6 +293,10 @@
             // 
             // dgvModulo
             // 
+            this.dgvModulo.AllowUserToAddRows = false;
+            this.dgvModulo.AllowUserToDeleteRows = false;
+            this.dgvModulo.AllowUserToResizeColumns = false;
+            this.dgvModulo.AllowUserToResizeRows = false;
             this.dgvModulo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             this.dgvModulo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvModulo.Location = new System.Drawing.Point(191, 96);

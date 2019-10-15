@@ -536,9 +536,9 @@
             this.btnCerrar.FlatAppearance.BorderSize = 0;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.Image = global::SystemSCADA.Properties.Resources.Cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(1330, 4);
+            this.btnCerrar.Location = new System.Drawing.Point(1341, 4);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(40, 35);
+            this.btnCerrar.Size = new System.Drawing.Size(31, 35);
             this.btnCerrar.TabIndex = 4;
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
@@ -548,9 +548,9 @@
             this.btnMinimizar.FlatAppearance.BorderSize = 0;
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.Image = global::SystemSCADA.Properties.Resources.Minimizar;
-            this.btnMinimizar.Location = new System.Drawing.Point(1293, 3);
+            this.btnMinimizar.Location = new System.Drawing.Point(1298, 3);
             this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(44, 38);
+            this.btnMinimizar.Size = new System.Drawing.Size(41, 38);
             this.btnMinimizar.TabIndex = 3;
             this.btnMinimizar.UseVisualStyleBackColor = true;
             this.btnMinimizar.Click += new System.EventHandler(this.BtnMinimizar_Click);
@@ -567,6 +567,10 @@
             // 
             // dgrvUsuarios
             // 
+            this.dgrvUsuarios.AllowUserToAddRows = false;
+            this.dgrvUsuarios.AllowUserToDeleteRows = false;
+            this.dgrvUsuarios.AllowUserToResizeColumns = false;
+            this.dgrvUsuarios.AllowUserToResizeRows = false;
             this.dgrvUsuarios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.dgrvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrvUsuarios.GridColor = System.Drawing.Color.White;

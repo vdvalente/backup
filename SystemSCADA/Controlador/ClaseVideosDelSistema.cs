@@ -197,15 +197,21 @@ namespace SystemSCADA.Controlador
             Timer_Grabacion.Stop();
             this.Invoke(Movimiento);
             //crear variable Bitmap
-            
-            // write 1000 video frames
 
-            //enviar la pulsación equivalente a May + ImprPant
-            SendKeys.Send(Keys);
-            //asignar al Bitmap el contenido del portapapeles
-            pantalla = ((Bitmap)(Clipboard.GetDataObject().GetData("Bitmap")));
-            writer.WriteVideoFrame(pantalla);
-            //Application.DoEvents();
+            // write 1000 video frames
+            try
+            {
+                //enviar la pulsación equivalente a May + ImprPant
+                SendKeys.Send(Keys);
+                //asignar al Bitmap el contenido del portapapeles
+                pantalla = ((Bitmap)(Clipboard.GetDataObject().GetData("Bitmap")));
+                writer.WriteVideoFrame(pantalla);
+                //Application.DoEvents();
+            }
+            catch (Exception ex)
+            {
+
+            }
             if (Tiempo == 1)
             {
                 writer.Close();

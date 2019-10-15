@@ -11,7 +11,7 @@ namespace SystemSCADA.Controlador
 {
     class ClaseTemperatura : Form
     {
-        SerialPort Puerto = new SerialPort("COM2", 9100, Parity.None, 8, StopBits.One);
+        SerialPort Puerto = new SerialPort("COM2", 9600, Parity.None, 8, StopBits.One);
         public BackgroundWorker cnnBkgWkr { get; set; }
         public int Tiempo { get; set; }
         private System.Windows.Forms.Timer Timer_SensorTemperatura;

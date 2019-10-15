@@ -22,21 +22,24 @@ namespace SystemSCADA.Vista
         }
         private void BtnLabComputacion_Click(object sender, EventArgs e)
         {
-            Form g_ExisteFormulario = Application.OpenForms.OfType<SeleccionDeAreaDeTrabajo>().Where(pre => pre.Text == "Principal").SingleOrDefault<Form>();
-            if (g_ExisteFormulario != null)
+            if (ClaseComunes.chkPermiso(true, 1, claseControlUsuario.UserName, 40))
             {
-                if (g_ExisteFormulario.WindowState == FormWindowState.Minimized)
+                Form g_ExisteFormulario = Application.OpenForms.OfType<SeleccionDeAreaDeTrabajo>().Where(pre => pre.Text == "Principal").SingleOrDefault<Form>();
+                if (g_ExisteFormulario != null)
                 {
-                    g_ExisteFormulario.WindowState = FormWindowState.Normal;
+                    if (g_ExisteFormulario.WindowState == FormWindowState.Minimized)
+                    {
+                        g_ExisteFormulario.WindowState = FormWindowState.Normal;
+                    }
+                    g_ExisteFormulario.BringToFront();
                 }
-                g_ExisteFormulario.BringToFront();
+                else
+                {
+                    FormInterfaz frm = new FormInterfaz(1);
+                    frm.Show();
+                }
+                Hide();
             }
-            else
-            {
-                FormInterfaz frm = new FormInterfaz(1);
-                frm.Show();
-            } 
-            Hide();
         }
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
@@ -49,40 +52,46 @@ namespace SystemSCADA.Vista
         }
         private void BtnLabElectronica_Click(object sender, EventArgs e)
         {
-            Form g_ExisteFormulario = Application.OpenForms.OfType<SeleccionDeAreaDeTrabajo>().Where(pre => pre.Text == "Principal").SingleOrDefault<Form>();
-            if (g_ExisteFormulario != null)
+            if (ClaseComunes.chkPermiso(true, 1, claseControlUsuario.UserName, 40))
             {
-                if (g_ExisteFormulario.WindowState == FormWindowState.Minimized)
+                Form g_ExisteFormulario = Application.OpenForms.OfType<SeleccionDeAreaDeTrabajo>().Where(pre => pre.Text == "Principal").SingleOrDefault<Form>();
+                if (g_ExisteFormulario != null)
                 {
-                    g_ExisteFormulario.WindowState = FormWindowState.Normal;
+                    if (g_ExisteFormulario.WindowState == FormWindowState.Minimized)
+                    {
+                        g_ExisteFormulario.WindowState = FormWindowState.Normal;
+                    }
+                    g_ExisteFormulario.BringToFront();
                 }
-                g_ExisteFormulario.BringToFront();
+                else
+                {
+                    FormInterfaz frm = new FormInterfaz(2);
+                    frm.Show();
+                }
+                Hide();
             }
-            else
-            {
-                FormInterfaz frm = new FormInterfaz(2);
-                frm.Show();
-            }
-            Hide();
         }
 
         private void BtnSalon_Click(object sender, EventArgs e)
         {
-            Form g_ExisteFormulario = Application.OpenForms.OfType<SeleccionDeAreaDeTrabajo>().Where(pre => pre.Text == "Principal").SingleOrDefault<Form>();
-            if (g_ExisteFormulario != null)
+            if (ClaseComunes.chkPermiso(true, 1, claseControlUsuario.UserName, 40))
             {
-                if (g_ExisteFormulario.WindowState == FormWindowState.Minimized)
+                Form g_ExisteFormulario = Application.OpenForms.OfType<SeleccionDeAreaDeTrabajo>().Where(pre => pre.Text == "Principal").SingleOrDefault<Form>();
+                if (g_ExisteFormulario != null)
                 {
-                    g_ExisteFormulario.WindowState = FormWindowState.Normal;
+                    if (g_ExisteFormulario.WindowState == FormWindowState.Minimized)
+                    {
+                        g_ExisteFormulario.WindowState = FormWindowState.Normal;
+                    }
+                    g_ExisteFormulario.BringToFront();
                 }
-                g_ExisteFormulario.BringToFront();
+                else
+                {
+                    FormInterfaz frm = new FormInterfaz(3);
+                    frm.Show();
+                }
+                Hide();
             }
-            else
-            {
-                FormInterfaz frm = new FormInterfaz(3);
-                frm.Show();
-            }
-            Hide();
         }
 
         private void BtnRegistrarUsr_Click(object sender, EventArgs e)
@@ -109,38 +118,44 @@ namespace SystemSCADA.Vista
 
         private void BtnCrearPerfil_Click(object sender, EventArgs e)
         {
-            Form g_ExisteFormulario = Application.OpenForms.OfType<SeleccionDeAreaDeTrabajo>().Where(pre => pre.Text == "PerfilesDelSistema").SingleOrDefault<Form>();
-            if (g_ExisteFormulario != null)
+            if (ClaseComunes.chkPermiso(true, 2, claseControlUsuario.UserName, 40))
             {
-                if (g_ExisteFormulario.WindowState == FormWindowState.Minimized)
+                Form g_ExisteFormulario = Application.OpenForms.OfType<SeleccionDeAreaDeTrabajo>().Where(pre => pre.Text == "PerfilesDelSistema").SingleOrDefault<Form>();
+                if (g_ExisteFormulario != null)
                 {
-                    g_ExisteFormulario.WindowState = FormWindowState.Normal;
+                    if (g_ExisteFormulario.WindowState == FormWindowState.Minimized)
+                    {
+                        g_ExisteFormulario.WindowState = FormWindowState.Normal;
+                    }
+                    g_ExisteFormulario.BringToFront();
                 }
-                g_ExisteFormulario.BringToFront();
+                else
+                {
+                    FormPerfilesDelSistema frm = new FormPerfilesDelSistema();
+                    frm.Show();
+                }
+                Hide();
             }
-            else
-            {
-                FormPerfilesDelSistema frm = new FormPerfilesDelSistema();
-                frm.Show();
-            }
-            Hide();
         }
 
         private void BtnConfBD_Click(object sender, EventArgs e)
         {
-            Form g_ExisteFormulario = Application.OpenForms.OfType<SeleccionDeAreaDeTrabajo>().Where(pre => pre.Text == "Configurar Conexion con el Servidor de Base de Datos").SingleOrDefault<Form>();
-            if (g_ExisteFormulario != null)
+            if (ClaseComunes.chkPermiso(true, 4, claseControlUsuario.UserName, 40))
             {
-                if (g_ExisteFormulario.WindowState == FormWindowState.Minimized)
+                Form g_ExisteFormulario = Application.OpenForms.OfType<SeleccionDeAreaDeTrabajo>().Where(pre => pre.Text == "Configurar Conexion con el Servidor de Base de Datos").SingleOrDefault<Form>();
+                if (g_ExisteFormulario != null)
                 {
-                    g_ExisteFormulario.WindowState = FormWindowState.Normal;
+                    if (g_ExisteFormulario.WindowState == FormWindowState.Minimized)
+                    {
+                        g_ExisteFormulario.WindowState = FormWindowState.Normal;
+                    }
+                    g_ExisteFormulario.BringToFront();
                 }
-                g_ExisteFormulario.BringToFront();
-            }
-            else
-            {
-                formConexionBD frm = new formConexionBD();
-                frm.Show();
+                else
+                {
+                    formConexionBD frm = new formConexionBD();
+                    frm.Show();
+                }
             }
         }
 
@@ -157,21 +172,24 @@ namespace SystemSCADA.Vista
 
         private void BtnSalonClases4424_Click(object sender, EventArgs e)
         {
-            Form g_ExisteFormulario = Application.OpenForms.OfType<SeleccionDeAreaDeTrabajo>().Where(pre => pre.Text == "Principal").SingleOrDefault<Form>();
-            if (g_ExisteFormulario != null)
+            if (ClaseComunes.chkPermiso(true, 1, claseControlUsuario.UserName, 40))
             {
-                if (g_ExisteFormulario.WindowState == FormWindowState.Minimized)
+                Form g_ExisteFormulario = Application.OpenForms.OfType<SeleccionDeAreaDeTrabajo>().Where(pre => pre.Text == "Principal").SingleOrDefault<Form>();
+                if (g_ExisteFormulario != null)
                 {
-                    g_ExisteFormulario.WindowState = FormWindowState.Normal;
+                    if (g_ExisteFormulario.WindowState == FormWindowState.Minimized)
+                    {
+                        g_ExisteFormulario.WindowState = FormWindowState.Normal;
+                    }
+                    g_ExisteFormulario.BringToFront();
                 }
-                g_ExisteFormulario.BringToFront();
+                else
+                {
+                    FormInterfaz frm = new FormInterfaz(6);
+                    frm.Show();
+                }
+                Hide();
             }
-            else
-            {
-                FormInterfaz frm = new FormInterfaz(4);
-                frm.Show();
-            }
-            Hide();
         }
 
         private void BtnBancoBNC_Click(object sender, EventArgs e)
@@ -187,7 +205,7 @@ namespace SystemSCADA.Vista
             }
             else
             {
-                FormInterfaz frm = new FormInterfaz(5);
+                FormInterfaz frm = new FormInterfaz(7);
                 frm.Show();
             }
             Hide();
@@ -233,7 +251,7 @@ namespace SystemSCADA.Vista
             }
             else
             {
-                FormInterfaz frm = new FormInterfaz(6);
+                FormInterfaz frm = new FormInterfaz(8);
                 frm.Show();
             }
             Hide();

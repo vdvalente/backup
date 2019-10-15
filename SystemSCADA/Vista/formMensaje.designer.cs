@@ -115,8 +115,7 @@
             this.btnBoton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnBoton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBoton1.FlatAppearance.BorderSize = 0;
-            this.btnBoton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(35)))), ((int)(((byte)(51)))));
-            this.btnBoton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.btnBoton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnBoton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBoton1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBoton1.ForeColor = System.Drawing.Color.White;
