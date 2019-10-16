@@ -13,6 +13,7 @@ using AForge.Video.DirectShow;
 using AForge.Vision.Motion;
 using AForge.Video.FFMPEG;
 using SystemSCADA.Controlador;
+using SystemSCADA.Modelo;
 using System.IO.Ports;
 using System.Media;
 using System.Threading;
@@ -33,6 +34,7 @@ namespace SystemSCADA.Vista
         VideoFileWriter writer = new VideoFileWriter();
         int Tiempo = 0;
         Bitmap pantalla = null;
+        bool mensajeEnviado = true;
         string path = ClaseVideosDelSistema.pathVideo();
         public FormInterfaz()
         {
@@ -158,6 +160,39 @@ namespace SystemSCADA.Vista
                 txtHumo.Visible = true;
                 txtHumo.Text = "Peligro Incendio";
                 txtHumo.BackColor = Color.Red;
+
+                if (mensajeEnviado)
+                {
+                    claseMetodosBaseDeDatos conexionDB = new claseMetodosBaseDeDatos(claseControlBaseDeDatos.SQlsistemaSCADA, claseControlBaseDeDatos.SQLNomDBsistemaSCADA, claseControlBaseDeDatos.SQLUsersistemaSCADA,
+                    claseControlBaseDeDatos.SQLPasssistemaSCADA);
+                    string correo = conexionDB.ScalarText("Select email from dbo.Usuario where Perfil_Id = 1", "Error recuperando el dato").Trim().ToString();
+                    string area = conexionDB.ScalarText("Select Nombre from dbo.AreaDeTrabajo where Id_AreaDeTrabajo = " + IdArea, "Error buscando el area de trabajo");
+                    System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
+                    msg.To.Add(correo);
+                    msg.Subject = "SISTEMA SCADA";
+                    msg.SubjectEncoding = System.Text.Encoding.UTF8;
+                    msg.Body = "Se detecto humo por el puerto COM2 en el area de trabajo " + area + " por favor acudir de inmediato";
+                    msg.BodyEncoding = System.Text.Encoding.UTF8;
+                    msg.IsBodyHtml = true;
+                    msg.From = new System.Net.Mail.MailAddress("victordanielvalente92@gmail.com");
+
+                    System.Net.Mail.SmtpClient cliente = new System.Net.Mail.SmtpClient();
+                    cliente.Credentials = new System.Net.NetworkCredential("victordanielvalente92@gmail.com", "vic92tor");
+
+                    cliente.Port = 587;
+                    cliente.EnableSsl = true;
+                    cliente.Host = "smtp.gmail.com"; //mail.dominio.com
+                    try
+                    {
+                        cliente.Send(msg);
+                        mensajeEnviado = false;
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show("Error al enviar" + ex.Message);
+                    }
+                }
             }
             // Controlamos que el puerto indicado esté operativo
             //try
@@ -276,6 +311,39 @@ namespace SystemSCADA.Vista
                     picLuzApagada.Visible = false;
                     a = 0;
                     break;
+            }
+            if (mensajeEnviado)
+            {
+                claseMetodosBaseDeDatos conexionDB = new claseMetodosBaseDeDatos(claseControlBaseDeDatos.SQlsistemaSCADA, claseControlBaseDeDatos.SQLNomDBsistemaSCADA, claseControlBaseDeDatos.SQLUsersistemaSCADA,
+                claseControlBaseDeDatos.SQLPasssistemaSCADA);
+                string correo = conexionDB.ScalarText("Select email from dbo.Usuario where Perfil_Id = 1", "Error recuperando el dato").Trim().ToString();
+                string area = conexionDB.ScalarText("Select Nombre from dbo.AreaDeTrabajo where Id_AreaDeTrabajo = " + IdArea, "Error buscando el area de trabajo");
+                System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
+                msg.To.Add(correo);
+                msg.Subject = "SISTEMA SCADA";
+                msg.SubjectEncoding = System.Text.Encoding.UTF8;
+                msg.Body = "Se detecto humo por el puerto COM2 en el area de trabajo "+area +" por favor acudir de inmediato";
+                msg.BodyEncoding = System.Text.Encoding.UTF8;
+                msg.IsBodyHtml = true;
+                msg.From = new System.Net.Mail.MailAddress("victordanielvalente92@gmail.com");
+
+                System.Net.Mail.SmtpClient cliente = new System.Net.Mail.SmtpClient();
+                cliente.Credentials = new System.Net.NetworkCredential("victordanielvalente92@gmail.com", "vic92tor");
+
+                cliente.Port = 587;
+                cliente.EnableSsl = true;
+                cliente.Host = "smtp.gmail.com"; //mail.dominio.com
+                try
+                {
+                    cliente.Send(msg);
+                    mensajeEnviado = false;
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Error al enviar" + ex.Message);
+                }
+                
             }
         }
 

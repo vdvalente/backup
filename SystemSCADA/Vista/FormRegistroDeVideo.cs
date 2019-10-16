@@ -30,7 +30,6 @@ namespace SystemSCADA.Vista
         {
             btnEliminar.BackColor = Color.FromArgb(150, 150, 150);
         }
-
      
         private void BtnCerrar_Click(object sender, EventArgs e)
         {

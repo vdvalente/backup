@@ -70,7 +70,6 @@ namespace SystemSCADA.Vista
             btnNuevoPerfil.Enabled = true;
             btnBorrarPerfil.Enabled = true;
         }
-
         private void BtnCancelarPerfil_Click(object sender, EventArgs e)
         {
             dgvPerfil.Enabled = true;
@@ -85,7 +84,6 @@ namespace SystemSCADA.Vista
             dgvPerfil.Focus();
             UseWaitCursor = false; Application.DoEvents();
         }
-
         private void FormPerfilesDelSistema_Load(object sender, EventArgs e)
         {
             claseControlPerfil.setDgrw(ref dgvPerfil, "usp_ConsultaPerfil", "ListaPerfil", 0);
@@ -93,7 +91,6 @@ namespace SystemSCADA.Vista
             dgvPerfil.Columns["Codigo"].Visible = false;
             dgvPerfil.Columns["Nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
-
         private void BtnNuevoPerfil_Click(object sender, EventArgs e)
         {
             btnRefrescarPerfil.Enabled = false;
@@ -108,7 +105,6 @@ namespace SystemSCADA.Vista
             G_NuevoModificar = false;
             txtNombrePerfil.Text = "";
         }
-
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
             SeleccionDeAreaDeTrabajo frm = new SeleccionDeAreaDeTrabajo();
@@ -120,7 +116,6 @@ namespace SystemSCADA.Vista
             claseControlPerfil.setDgrw(ref dgvModulo, "usp_ConsultaPermisos", "ListaModulo", Convert.ToInt32(dgvPerfil.CurrentRow.Cells["Codigo"].Value.ToString()));
             dgvModulo.Enabled = false;
         }
-
         private void BtnModificarPerfil_Click(object sender, EventArgs e)
         {
             if (dgvPerfil.SelectedRows.Count == 1)

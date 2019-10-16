@@ -288,6 +288,7 @@
             // 
             // btnLuncheria
             // 
+            this.btnLuncheria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLuncheria.FlatAppearance.BorderSize = 0;
             this.btnLuncheria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLuncheria.Image = global::SystemSCADA.Properties.Resources.IMG_20191009_17484;

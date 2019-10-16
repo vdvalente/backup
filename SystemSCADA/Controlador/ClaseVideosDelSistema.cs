@@ -63,7 +63,7 @@ namespace SystemSCADA.Controlador
             this.Show();
             this.Hide();
             path = path + ".avi";
-            writer.Open(path, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, 6, VideoCodec.MPEG4);
+            writer.Open(path, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, 4, VideoCodec.MPEG4);
             cnnBkgWkr.DoWork += _cnnBkgWrkr_DoWork;
             cnnBkgWkr.RunWorkerCompleted += _cnnBkgWrkr_RunWorkerCompleted;
             if(Aux == 1)
@@ -190,8 +190,6 @@ namespace SystemSCADA.Controlador
             }
             return path;
         }
-
-
         private void Timer_Grabacion_Tick(object sender, EventArgs e)
         {
             Timer_Grabacion.Stop();

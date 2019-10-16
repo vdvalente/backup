@@ -213,7 +213,7 @@ namespace SystemSCADA.Vista
 
         private void BtnRegistroVideo_Click(object sender, EventArgs e)
         {
-            if (ClaseComunes.chkPermiso(true, 3, claseControlUsuario.UserName))
+            if (ClaseComunes.chkPermiso(true, 5, claseControlUsuario.UserName))
             {
                 Form g_ExisteFormulario = Application.OpenForms.OfType<SeleccionDeAreaDeTrabajo>().Where(pre => pre.Text == "FormRegistroDeUsr").SingleOrDefault<Form>();
                 if (g_ExisteFormulario != null)

@@ -204,7 +204,6 @@
             this.lblDatosServidorSystemSCADA.TabIndex = 0;
             this.lblDatosServidorSystemSCADA.Text = "Datos del Servidor de SystemSCADA";
             this.lblDatosServidorSystemSCADA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            
             // 
             // pbImagenConfiBD
             // 
@@ -242,7 +241,7 @@
             this.btnGuardarConfiBD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnGuardarConfiBD.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGuardarConfiBD.FlatAppearance.BorderSize = 0;
-            this.btnGuardarConfiBD.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(35)))), ((int)(((byte)(51)))));
+            this.btnGuardarConfiBD.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnGuardarConfiBD.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.btnGuardarConfiBD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarConfiBD.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

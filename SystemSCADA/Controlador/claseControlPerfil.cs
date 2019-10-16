@@ -358,9 +358,6 @@ namespace SystemSCADA.Controlador
             {
                 return true;
             }
-
-
         }
-
     }
 }

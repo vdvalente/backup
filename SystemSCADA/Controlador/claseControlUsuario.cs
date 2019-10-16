@@ -450,12 +450,12 @@ namespace SystemSCADA.Controlador
                 ClaseComunes.MsjShow("Se debe aregar el Apellido", 1, 1, "SystemaSCADA");
                 return false;
             }
-            if (Contraseña == "")
+            if (Contraseña == "" && PassNew =="")
             {
                 ClaseComunes.MsjShow("Se debe aregar la contraseña", 1, 1, "SystemaSCADA");
                 return false;
             }
-            if (UserName == "")
+            if (UserName == ""&& UserNew =="")
             {
                 ClaseComunes.MsjShow("Se debe aregar el usuario", 1, 1, "SystemaSCADA");
                 return false;
